@@ -2838,5 +2838,61 @@
   "planGospelsDescription": "A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.",
   "@planGospelsDescription": {
     "description": "Description of the Gospels reading plan"
+  },
+  "strugglingButton": "I'm struggling",
+  "@strugglingButton": {
+    "description": "Button that opens help when tempted to break a quit streak"
+  },
+  "strugglingTitle": "Hold on. You're not alone.",
+  "@strugglingTitle": {
+    "description": "Heading of the help sheet for a moment of temptation"
+  },
+  "strugglingBody": "This feeling will pass. God is faithful, and He will make a way through it.",
+  "@strugglingBody": {
+    "description": "Reassurance at the top of the help sheet, echoing 1 Corinthians 10:13"
+  },
+  "strugglingAnotherVerse": "Another verse",
+  "@strugglingAnotherVerse": {
+    "description": "Button that shows a different verse on the help sheet"
+  },
+  "strugglingPrayTitle": "Pray",
+  "@strugglingPrayTitle": {
+    "description": "Heading above the short prayer on the help sheet"
+  },
+  "strugglingPrayer": "Holy Spirit, I'm struggling right now. Please give me strength to say no and show me the way out. Fill me with Your peace. In Jesus' name, amen.",
+  "@strugglingPrayer": {
+    "description": "A short prayer the user can pray when tempted"
+  },
+  "strugglingStepsTitle": "For the next ten minutes",
+  "@strugglingStepsTitle": {
+    "description": "Heading above practical steps on the help sheet"
+  },
+  "strugglingStepBreathe": "Breathe slowly and step away from the situation.",
+  "@strugglingStepBreathe": {
+    "description": "Practical step when tempted"
+  },
+  "strugglingStepMove": "Go for a walk, drink some water or keep your hands busy.",
+  "@strugglingStepMove": {
+    "description": "Practical step when tempted"
+  },
+  "strugglingStepWait": "Wait it out. Urges rise and fall like a wave.",
+  "@strugglingStepWait": {
+    "description": "Practical step when tempted"
+  },
+  "strugglingReachOut": "Reach out to someone",
+  "@strugglingReachOut": {
+    "description": "Button that shares a message asking a friend for prayer"
+  },
+  "strugglingShareMessage": "I'm struggling right now. Could you pray for me or give me a call?",
+  "@strugglingShareMessage": {
+    "description": "Message shared with a trusted friend from the help sheet"
+  },
+  "strugglingMadeIt": "I made it through",
+  "@strugglingMadeIt": {
+    "description": "Button that closes the help sheet after the urge has passed"
+  },
+  "strugglingMadeItMessage": "Well done. God is faithful, and you stood firm. Thank Him for this win.",
+  "@strugglingMadeItMessage": {
+    "description": "Encouragement after getting through a moment of temptation"
   }
 }

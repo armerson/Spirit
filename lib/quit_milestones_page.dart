@@ -10,6 +10,7 @@ import 'package:quitter/quit_milestone.dart';
 import 'package:quitter/settings_provider.dart';
 import 'package:quitter/timeline_tile.dart';
 import 'package:quitter/utils.dart';
+import 'package:quitter/struggling_sheet.dart';
 import 'package:quitter/verses.dart';
 import 'package:share_plus/share_plus.dart';
 
@@ -417,6 +418,15 @@ class _QuitMilestonesPageState extends State<QuitMilestonesPage> {
                       style: Theme.of(context).textTheme.titleMedium,
                       textAlign: TextAlign.center,
                     ),
+                    if (started) ...[
+                      const SizedBox(height: 12),
+                      FilledButton.tonalIcon(
+                        key: const Key('strugglingButton'),
+                        onPressed: () => showStrugglingSheet(context),
+                        icon: const Icon(Icons.volunteer_activism),
+                        label: Text(l10n.strugglingButton),
+                      ),
+                    ],
                     const SizedBox(height: 16),
                     TextFormField(
                       readOnly: true,
