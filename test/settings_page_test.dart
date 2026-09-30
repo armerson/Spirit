@@ -8,6 +8,7 @@ import 'package:quitter/settings_page.dart';
 import 'package:quitter/app_theme_mode.dart';
 import 'package:quitter/settings_provider.dart';
 import 'package:quitter/addiction_provider.dart';
+import 'package:quitter/habit_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 void main() {
@@ -44,6 +45,7 @@ void main() {
         ChangeNotifierProvider<AddictionProvider>.value(
           value: addictionProvider,
         ),
+        ChangeNotifierProvider<HabitProvider>(create: (_) => HabitProvider()),
       ],
       child: Consumer<SettingsProvider>(
         builder: (context, settings, child) => MaterialApp(

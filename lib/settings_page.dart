@@ -15,6 +15,7 @@ import 'package:quitter/app_scheme.dart';
 import 'package:quitter/color_scheme_type.dart';
 import 'package:quitter/enjoying_page.dart';
 import 'package:quitter/empty_state.dart';
+import 'package:quitter/habit_provider.dart';
 import 'package:quitter/settings_provider.dart';
 import 'dart:io';
 import 'package:file_picker/file_picker.dart';
@@ -200,6 +201,7 @@ class _SettingsPageState extends State<SettingsPage> {
       await Future.wait([
         addictions.loadAddictions(),
         settings.loadPreferences(),
+        context.read<HabitProvider>().loadHabits(),
       ]);
       if (!context.mounted || defaultTargetPlatform == TargetPlatform.linux)
         return;
@@ -746,6 +748,7 @@ class _SettingsPageState extends State<SettingsPage> {
                 await Future.wait([
                   context.read<AddictionProvider>().loadAddictions(),
                   context.read<SettingsProvider>().loadPreferences(),
+                  context.read<HabitProvider>().loadHabits(),
                 ]);
               },
               child: Text(l10n.deleteEverythingConfirm),
