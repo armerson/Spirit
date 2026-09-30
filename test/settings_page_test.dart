@@ -92,125 +92,24 @@ void main() {
       expect(find.text('Color scheme'), findsOneWidget);
     });
 
-    testWidgets(
-      'language picker lists every supported locale and applies now',
-      (WidgetTester tester) async {
-        await tester.pumpWidget(createTestWidget());
-
-        expect(find.text('Language'), findsOneWidget);
-        expect(find.text('System default'), findsOneWidget);
-
-        await tester.tap(find.text('Language'));
-        await tester.pumpAndSettle();
-
-        final dialog = find.byType(AlertDialog);
-        expect(
-          find.descendant(of: dialog, matching: find.text('System default')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('English')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('Arabic')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('German')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('Spanish')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('French')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('Japanese')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('Thai')),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(
-            of: dialog,
-            matching: find.text('Simplified Chinese'),
-          ),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(
-            of: dialog,
-            matching: find.text('Traditional Chinese'),
-          ),
-          findsOneWidget,
-        );
-        expect(
-          find.descendant(of: dialog, matching: find.text('Russian')),
-          findsOneWidget,
-        );
-        expect(AppLocalizations.supportedLocales.map(localePreferenceValue), [
-          'ar',
-          'de',
-          'en',
-          'es',
-          'fr',
-          'id',
-          'ja',
-          'pl',
-          'ru',
-          'th',
-          'zh',
-          'zh-Hant',
-        ]);
-
-        await tester.tap(find.text('Arabic'));
-        await tester.pumpAndSettle();
-
-        expect(settingsProvider.locale, 'ar');
-        expect(find.text('لغة'), findsOneWidget);
-        expect(find.text('العربية'), findsOneWidget);
-      },
-    );
-
-    testWidgets('language picker can restore and persist system default', (
+    testWidgets('has no language option because Spirit is English only', (
       WidgetTester tester,
     ) async {
-      await settingsProvider.setLocale('ja');
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
-      await tester.tap(find.text('言語'));
-      await tester.pumpAndSettle();
-      await tester.tap(find.text('システムのデフォルト'));
-      await tester.pumpAndSettle();
-
-      expect(settingsProvider.locale, 'system');
-      expect(find.text('Language'), findsOneWidget);
-
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getString('locale'), 'system');
-
-      final reloaded = SettingsProvider();
-      await reloaded.loadPreferences();
-      expect(reloaded.locale, 'system');
+      expect(find.text('Language'), findsNothing);
+      expect(AppLocalizations.supportedLocales.map(localePreferenceValue), [
+        'en',
+      ]);
     });
 
-    test('persists the language override across provider reloads', () async {
-      await settingsProvider.setLocale('zh');
-
-      final prefs = await SharedPreferences.getInstance();
-      expect(prefs.getString('locale'), 'zh');
-
+    test('a saved language from Quitter falls back to system', () async {
+      SharedPreferences.setMockInitialValues({'locale': 'de'});
       final reloaded = SettingsProvider();
       await reloaded.loadPreferences();
 
-      expect(reloaded.locale, 'zh');
+      expect(reloaded.locale, 'system');
     });
 
     testWidgets('displays reset buttons toggle', (WidgetTester tester) async {
