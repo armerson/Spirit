@@ -78,6 +78,14 @@ class HabitProvider extends ChangeNotifier {
     await _save();
   }
 
+  /// Marks the habit done on [day], leaving it done if it already was.
+  Future<void> markDone(String id, DateTime day) async {
+    final habit = byId(id);
+    if (habit == null || habit.isDoneOn(day)) return;
+    habit.toggle(day);
+    await _save();
+  }
+
   Future<void> _save() async {
     await _pref?.setString(
       _prefKey,

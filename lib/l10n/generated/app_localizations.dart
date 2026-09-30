@@ -6387,6 +6387,144 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'That\'s okay. His mercies are new every morning, so start again today.'**
   String get encourageMissedBody;
+
+  /// Switch on a faith habit that links it to the reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Open today\'s reading'**
+  String get habitOpensReading;
+
+  /// Explains the open today's reading switch
+  ///
+  /// In en, this message translates to:
+  /// **'Read the day\'s passage from your plan, then this habit is ticked off for you.'**
+  String get habitOpensReadingHint;
+
+  /// Title of the devotional reading page and tooltip of the button that opens it
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s reading'**
+  String get readingTitle;
+
+  /// Heading above the list of reading plans
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a reading plan'**
+  String get readingChoosePlan;
+
+  /// Explains that reading plans are self-paced
+  ///
+  /// In en, this message translates to:
+  /// **'Go at your own pace. If you miss a day, your next reading simply waits for you.'**
+  String get readingChoosePlanHint;
+
+  /// How many days a reading plan takes
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days'**
+  String readingPlanDays(int count);
+
+  /// Button that starts a reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Start'**
+  String get readingStart;
+
+  /// Progress through the reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Day {day} of {total}'**
+  String readingDayOf(int day, int total);
+
+  /// Short prompt to pray before reading
+  ///
+  /// In en, this message translates to:
+  /// **'Before you read, ask the Holy Spirit to guide you into the truth (John 16:13).'**
+  String get readingPrayerPrompt;
+
+  /// Shown when today's reading was already finished
+  ///
+  /// In en, this message translates to:
+  /// **'Today\'s reading is done. Read ahead if you like.'**
+  String get readingDoneToday;
+
+  /// Label of the optional prayer note field
+  ///
+  /// In en, this message translates to:
+  /// **'A prayer or thought (optional)'**
+  String get readingNoteLabel;
+
+  /// Helper text under the prayer note field
+  ///
+  /// In en, this message translates to:
+  /// **'Saved to your journal'**
+  String get readingNoteHint;
+
+  /// Button that marks the day's reading finished
+  ///
+  /// In en, this message translates to:
+  /// **'Finish reading'**
+  String get readingFinish;
+
+  /// Encouragement after finishing a day's reading, from Colossians 3:16
+  ///
+  /// In en, this message translates to:
+  /// **'Well done. Let the word of Christ dwell in you richly.'**
+  String get readingFinishedMessage;
+
+  /// Heading shown when a reading plan is complete
+  ///
+  /// In en, this message translates to:
+  /// **'You finished {plan}!'**
+  String readingPlanComplete(String plan);
+
+  /// Body shown when a reading plan is complete
+  ///
+  /// In en, this message translates to:
+  /// **'What a faithful journey. Choose another plan when you\'re ready.'**
+  String get readingPlanCompleteBody;
+
+  /// Button to pick a new plan after finishing one
+  ///
+  /// In en, this message translates to:
+  /// **'Choose another plan'**
+  String get readingChoosePlanAgain;
+
+  /// Menu item to switch reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Change plan'**
+  String get readingChangePlan;
+
+  /// Menu item to restart the reading plan from day one
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get readingStartOver;
+
+  /// Title of the Psalms and Proverbs reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Psalms & Proverbs in 30 days'**
+  String get planPsalmsProverbsTitle;
+
+  /// Description of the Psalms and Proverbs reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'Five Psalms and a chapter of Proverbs each day, for prayer and wisdom.'**
+  String get planPsalmsProverbsDescription;
+
+  /// Title of the Gospels reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'The four Gospels'**
+  String get planGospelsTitle;
+
+  /// Description of the Gospels reading plan
+  ///
+  /// In en, this message translates to:
+  /// **'A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.'**
+  String get planGospelsDescription;
 }
 
 class _AppLocalizationsDelegate

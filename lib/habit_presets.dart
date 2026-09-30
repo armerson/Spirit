@@ -9,6 +9,7 @@ class HabitPreset {
   final int targetPerWeek;
   final IconData icon;
   final Color color;
+  final bool opensReading;
 
   const HabitPreset({
     required this.title,
@@ -16,6 +17,7 @@ class HabitPreset {
     required this.targetPerWeek,
     required this.icon,
     required this.color,
+    this.opensReading = false,
   });
 }
 
@@ -27,6 +29,7 @@ final List<HabitPreset> habitPresets = [
     targetPerWeek: 7,
     icon: Icons.menu_book,
     color: Colors.indigo,
+    opensReading: true,
   ),
   HabitPreset(
     title: (l10n) => l10n.presetPray,

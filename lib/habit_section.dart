@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:quitter/devotional_page.dart';
 import 'package:quitter/edit_habit_page.dart';
 import 'package:quitter/encouragement.dart';
 import 'package:quitter/habit.dart';
@@ -157,15 +158,31 @@ class HabitTile extends StatelessWidget {
         ),
         title: Text(habit.title),
         subtitle: Text(_progress(l10n, now)),
-        trailing: IconButton(
-          key: Key('habitCheck-${habit.id}'),
-          iconSize: 32,
-          color: doneToday ? habit.color : null,
-          tooltip: doneToday ? l10n.habitUndoToday : l10n.habitDoneToday,
-          icon: Icon(
-            doneToday ? Icons.check_circle : Icons.radio_button_unchecked,
-          ),
-          onPressed: () => _toggleToday(context, now),
+        trailing: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (habit.opensReading)
+              IconButton(
+                key: Key('habitReading-${habit.id}'),
+                tooltip: l10n.readingTitle,
+                icon: const Icon(Icons.menu_book),
+                onPressed: () => Navigator.of(context).push(
+                  MaterialPageRoute(
+                    builder: (context) => const DevotionalPage(),
+                  ),
+                ),
+              ),
+            IconButton(
+              key: Key('habitCheck-${habit.id}'),
+              iconSize: 32,
+              color: doneToday ? habit.color : null,
+              tooltip: doneToday ? l10n.habitUndoToday : l10n.habitDoneToday,
+              icon: Icon(
+                doneToday ? Icons.check_circle : Icons.radio_button_unchecked,
+              ),
+              onPressed: () => _toggleToday(context, now),
+            ),
+          ],
         ),
       ),
     );

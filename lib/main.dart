@@ -7,6 +7,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/habit_provider.dart';
+import 'package:quitter/reading_provider.dart';
 import 'package:quitter/app_scheme.dart';
 import 'package:quitter/app_theme_mode.dart';
 import 'package:quitter/crash_logger.dart';
@@ -74,6 +75,8 @@ Future<void> main() async {
       await addiction.loadAddictions();
       final habits = HabitProvider();
       await habits.loadHabits();
+      final reading = ReadingProvider();
+      await reading.load();
 
       talker.info('Application state loaded');
 
@@ -85,6 +88,7 @@ Future<void> main() async {
             ChangeNotifierProvider(create: (context) => settings),
             ChangeNotifierProvider(create: (context) => addiction),
             ChangeNotifierProvider(create: (context) => habits),
+            ChangeNotifierProvider(create: (context) => reading),
           ],
           child: const QuitterApp(),
         ),

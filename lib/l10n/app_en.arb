@@ -2728,5 +2728,115 @@
   "encourageMissedBody": "That's okay. His mercies are new every morning, so start again today.",
   "@encourageMissedBody": {
     "description": "Body of the gentle card shown after a daily habit was missed"
+  },
+  "habitOpensReading": "Open today's reading",
+  "@habitOpensReading": {
+    "description": "Switch on a faith habit that links it to the reading plan"
+  },
+  "habitOpensReadingHint": "Read the day's passage from your plan, then this habit is ticked off for you.",
+  "@habitOpensReadingHint": {
+    "description": "Explains the open today's reading switch"
+  },
+  "readingTitle": "Today's reading",
+  "@readingTitle": {
+    "description": "Title of the devotional reading page and tooltip of the button that opens it"
+  },
+  "readingChoosePlan": "Choose a reading plan",
+  "@readingChoosePlan": {
+    "description": "Heading above the list of reading plans"
+  },
+  "readingChoosePlanHint": "Go at your own pace. If you miss a day, your next reading simply waits for you.",
+  "@readingChoosePlanHint": {
+    "description": "Explains that reading plans are self-paced"
+  },
+  "readingPlanDays": "{count} days",
+  "@readingPlanDays": {
+    "description": "How many days a reading plan takes",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "readingStart": "Start",
+  "@readingStart": {
+    "description": "Button that starts a reading plan"
+  },
+  "readingDayOf": "Day {day} of {total}",
+  "@readingDayOf": {
+    "description": "Progress through the reading plan",
+    "placeholders": {
+      "day": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "readingPrayerPrompt": "Before you read, ask the Holy Spirit to guide you into the truth (John 16:13).",
+  "@readingPrayerPrompt": {
+    "description": "Short prompt to pray before reading"
+  },
+  "readingDoneToday": "Today's reading is done. Read ahead if you like.",
+  "@readingDoneToday": {
+    "description": "Shown when today's reading was already finished"
+  },
+  "readingNoteLabel": "A prayer or thought (optional)",
+  "@readingNoteLabel": {
+    "description": "Label of the optional prayer note field"
+  },
+  "readingNoteHint": "Saved to your journal",
+  "@readingNoteHint": {
+    "description": "Helper text under the prayer note field"
+  },
+  "readingFinish": "Finish reading",
+  "@readingFinish": {
+    "description": "Button that marks the day's reading finished"
+  },
+  "readingFinishedMessage": "Well done. Let the word of Christ dwell in you richly.",
+  "@readingFinishedMessage": {
+    "description": "Encouragement after finishing a day's reading, from Colossians 3:16"
+  },
+  "readingPlanComplete": "You finished {plan}!",
+  "@readingPlanComplete": {
+    "description": "Heading shown when a reading plan is complete",
+    "placeholders": {
+      "plan": {
+        "type": "String"
+      }
+    }
+  },
+  "readingPlanCompleteBody": "What a faithful journey. Choose another plan when you're ready.",
+  "@readingPlanCompleteBody": {
+    "description": "Body shown when a reading plan is complete"
+  },
+  "readingChoosePlanAgain": "Choose another plan",
+  "@readingChoosePlanAgain": {
+    "description": "Button to pick a new plan after finishing one"
+  },
+  "readingChangePlan": "Change plan",
+  "@readingChangePlan": {
+    "description": "Menu item to switch reading plan"
+  },
+  "readingStartOver": "Start over",
+  "@readingStartOver": {
+    "description": "Menu item to restart the reading plan from day one"
+  },
+  "planPsalmsProverbsTitle": "Psalms & Proverbs in 30 days",
+  "@planPsalmsProverbsTitle": {
+    "description": "Title of the Psalms and Proverbs reading plan"
+  },
+  "planPsalmsProverbsDescription": "Five Psalms and a chapter of Proverbs each day, for prayer and wisdom.",
+  "@planPsalmsProverbsDescription": {
+    "description": "Description of the Psalms and Proverbs reading plan"
+  },
+  "planGospelsTitle": "The four Gospels",
+  "@planGospelsTitle": {
+    "description": "Title of the Gospels reading plan"
+  },
+  "planGospelsDescription": "A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.",
+  "@planGospelsDescription": {
+    "description": "Description of the Gospels reading plan"
   }
 }

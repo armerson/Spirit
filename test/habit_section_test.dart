@@ -7,6 +7,7 @@ import 'package:quitter/habit_provider.dart';
 import 'package:quitter/habit_section.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/main.dart' show rootScaffoldMessenger;
+import 'package:quitter/reading_provider.dart';
 import 'package:quitter/settings_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -258,5 +259,44 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.byType(MissedDayCard), findsNothing);
+  });
+
+  testWidgets('habits linked to the reading open the devotional page', (
+    tester,
+  ) async {
+    final reading = ReadingProvider();
+    await reading.load();
+    await habits.addHabit(habit()..opensReading = true);
+    await habits.addHabit(habit(id: 'walk', title: 'Walk'));
+    await tester.pumpWidget(
+      ChangeNotifierProvider<ReadingProvider>.value(
+        value: reading,
+        child: createTestWidget(),
+      ),
+    );
+
+    expect(find.byKey(const Key('habitReading-devotional')), findsOneWidget);
+    expect(find.byKey(const Key('habitReading-walk')), findsNothing);
+
+    await tester.tap(find.byKey(const Key('habitReading-devotional')));
+    await tester.pumpAndSettle();
+    expect(find.text('Choose a reading plan'), findsOneWidget);
+  });
+
+  testWidgets('the devotional suggestion links the habit to the reading', (
+    tester,
+  ) async {
+    await tester.pumpWidget(createTestWidget());
+    await tester.tap(find.byTooltip('Add a good habit'));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Daily devotional'));
+    await tester.pumpAndSettle();
+    final toggle = find.byKey(const Key('habitOpensReading'));
+    expect(tester.widget<SwitchListTile>(toggle).value, isTrue);
+
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+    expect(habits.habits.single.opensReading, isTrue);
   });
 }

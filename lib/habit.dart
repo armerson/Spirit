@@ -22,6 +22,10 @@ class Habit {
   /// Minutes after midnight for a daily reminder, or null for none.
   int? reminderMinutes;
 
+  /// Whether this habit is done by reading the day's Bible passage, so its
+  /// tile offers the devotional page and finishing a reading ticks it off.
+  bool opensReading;
+
   final Set<DateTime> _checkIns;
 
   Habit({
@@ -33,6 +37,7 @@ class Habit {
     int targetPerWeek = 7,
     this.icon,
     this.reminderMinutes,
+    this.opensReading = false,
     Iterable<DateTime> checkIns = const [],
   }) : targetPerWeek = targetPerWeek.clamp(1, 7),
        _checkIns = checkIns.map(dateOnly).toSet();
@@ -140,6 +145,7 @@ class Habit {
     'icon': icon != null ? iconNames[icon] : null,
     'createdAt': createdAt.toIso8601String(),
     'reminderMinutes': reminderMinutes,
+    'opensReading': opensReading,
     'checkIns': (_checkIns.toList()..sort()).map(_formatDate).toList(),
   };
 
@@ -155,6 +161,7 @@ class Habit {
     icon: json['icon'] != null ? allIcons[json['icon'] as String] : null,
     createdAt: DateTime.parse(json['createdAt'] as String),
     reminderMinutes: json['reminderMinutes'] as int?,
+    opensReading: json['opensReading'] as bool? ?? false,
     checkIns: (json['checkIns'] as List<dynamic>? ?? const [])
         .whereType<String>()
         .map(DateTime.tryParse)

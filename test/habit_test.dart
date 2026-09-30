@@ -146,10 +146,13 @@ void main() {
 
   group('json', () {
     test('round-trips all fields', () {
-      final habit = _habit(
-        targetPerWeek: 5,
-        checkIns: [DateTime(2026, 9, 29), DateTime(2026, 9, 30)],
-      )..reminderMinutes = 7 * 60;
+      final habit =
+          _habit(
+              targetPerWeek: 5,
+              checkIns: [DateTime(2026, 9, 29), DateTime(2026, 9, 30)],
+            )
+            ..reminderMinutes = 7 * 60
+            ..opensReading = true;
       final copy = Habit.fromJson(habit.toJson());
       expect(copy.id, habit.id);
       expect(copy.title, habit.title);
@@ -158,6 +161,7 @@ void main() {
       expect(copy.color.toARGB32(), habit.color.toARGB32());
       expect(copy.createdAt, habit.createdAt);
       expect(copy.reminderMinutes, 420);
+      expect(copy.opensReading, isTrue);
       expect(copy.checkIns, habit.checkIns);
     });
 
@@ -172,6 +176,7 @@ void main() {
       });
       expect(habit.category, HabitCategory.other);
       expect(habit.targetPerWeek, 7);
+      expect(habit.opensReading, isFalse);
       expect(habit.checkIns, {DateTime(2026, 9, 30)});
     });
   });
