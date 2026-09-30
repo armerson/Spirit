@@ -4,7 +4,6 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
-import 'package:quitter/locale_utils.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart'
@@ -428,12 +427,6 @@ class _SettingsPageState extends State<SettingsPage> {
         },
       ),
       _ColorSchemePicker(settings: settings),
-      ListTile(
-        leading: const Icon(Icons.language),
-        title: Text(l10n.settingsLocale),
-        subtitle: Text(_localeDisplayName(l10n, settings.locale)),
-        onTap: () => _showLocaleDialog(context, settings),
-      ),
       SwitchListTile(
         secondary: const Icon(Icons.restart_alt),
         title: Text(l10n.settingsResetButtons),
@@ -892,83 +885,6 @@ class _SettingsPageState extends State<SettingsPage> {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       child: Text(title, style: Theme.of(context).textTheme.headlineSmall),
-    );
-  }
-
-  String _localeDisplayName(AppLocalizations l10n, String locale) {
-    return switch (locale) {
-      'system' => l10n.settingsLocaleSystem,
-      'en' => l10n.settingsLocaleEnglish,
-      'ar' => l10n.settingsLocaleArabic,
-      'de' => l10n.settingsLocaleGerman,
-      'ja' => l10n.settingsLocaleJapanese,
-      'fr' => l10n.settingsLocaleFrench,
-      'ru' => l10n.settingsLocaleRussian,
-      'es' => l10n.settingsLocaleSpanish,
-      'zh' => l10n.settingsLocaleSimplifiedChinese,
-      'zh-Hant' => l10n.settingsLocaleTraditionalChinese,
-      'id' => l10n.settingsLocaleIndonesian,
-      'pl' => l10n.settingsLocalePolish,
-      'th' => l10n.settingsLocaleThai,
-      _ => l10n.settingsLocaleUnsupported,
-    };
-  }
-
-  void _showLocaleDialog(BuildContext context, SettingsProvider settings) {
-    final l10n = AppLocalizations.of(context)!;
-    _showSelectionDialog<String>(
-      context: context,
-      title: l10n.settingsLocale,
-      currentValue: settings.locale,
-      options: [
-        'system',
-        for (final locale in AppLocalizations.supportedLocales)
-          localePreferenceValue(locale),
-      ],
-      getDisplayName: (value) => _localeDisplayName(l10n, value),
-      onChanged: settings.setLocale,
-    );
-  }
-
-  void _showSelectionDialog<T>({
-    required BuildContext context,
-    required String title,
-    required T currentValue,
-    required List<T> options,
-    required String Function(T) getDisplayName,
-    required Future<void> Function(T) onChanged,
-  }) {
-    final l10n = AppLocalizations.of(context)!;
-    showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text(title),
-        content: SingleChildScrollView(
-          child: RadioGroup<T>(
-            groupValue: currentValue,
-            onChanged: (value) async {
-              if (value == null) return;
-              await onChanged(value);
-              if (context.mounted) Navigator.pop(context);
-            },
-            child: Column(
-              children: options.map((option) {
-                return RadioListTile<T>(
-                  title: Text(getDisplayName(option)),
-                  value: option,
-                  selected: currentValue == option,
-                );
-              }).toList(),
-            ),
-          ),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(context),
-            child: Text(l10n.cancel),
-          ),
-        ],
-      ),
     );
   }
 

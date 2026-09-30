@@ -1216,39 +1216,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get addictionMarijuana => 'Marijuana';
 
   @override
-  String get settingsLocaleUnsupported => 'Unsupported';
-
-  @override
-  String get settingsLocaleJapanese => 'Japanese';
-
-  @override
-  String get settingsLocaleEnglish => 'English';
-
-  @override
-  String get settingsLocaleGerman => 'German';
-
-  @override
-  String get settingsLocaleSimplifiedChinese => 'Simplified Chinese';
-
-  @override
-  String get settingsLocaleTraditionalChinese => 'Traditional Chinese';
-
-  @override
-  String get settingsLocaleRussian => 'Russian';
-
-  @override
-  String get settingsLocaleSpanish => 'Spanish';
-
-  @override
-  String get settingsLocaleFrench => 'French';
-
-  @override
-  String get settingsLocaleSystem => 'System default';
-
-  @override
-  String get settingsLocale => 'Language';
-
-  @override
   String get addictionNicotinePouches => 'Nicotine pouches';
 
   @override
@@ -3630,16 +3597,4 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tcaReferenceDay365 =>
       'One Year After TCAs: Recovery Achieved\n\nOne Year: Complete Multi-System Recovery\nThis review of antidepressant discontinuation syndromes — covering TCAs, MAOIs, SSRIs, and others — found that withdrawal symptoms typically begin within days of stopping and, left untreated, resolve on their own within days to a couple of weeks. There\'s no study that specifically re-measures TCA-affected systems a year out, but a year after completing a taper is many months beyond even the longest reported discontinuation symptoms, so all affected brain chemical systems — serotonin, noradrenaline, acetylcholine, and histamine — can be expected to have had a complete cycle to normalise.\n\nThe Significance of TCA Recovery\nTCAs impose a broader drug-driven burden than newer antidepressants, affecting more receptor systems simultaneously. Successful discontinuation represents the recovery of multiple systems:\n• Complete reversal of the memory and thinking impairment caused by TCAs\' acetylcholine blocking\n• Full heart recovery\n• Natural brain chemical regulation restored across all affected pathways\n\nOne year of successful self-regulation after TCA discontinuation represents a genuine achievement — both in the management of the discontinuation process and in the maintenance of wellbeing without drug-driven support.';
-
-  @override
-  String get settingsLocaleArabic => 'Arabic';
-
-  @override
-  String get settingsLocaleIndonesian => 'Indonesian';
-
-  @override
-  String get settingsLocalePolish => 'Polish';
-
-  @override
-  String get settingsLocaleThai => 'Thai';
 }
