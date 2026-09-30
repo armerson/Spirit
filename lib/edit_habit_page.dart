@@ -43,6 +43,7 @@ class _EditHabitPageState extends State<EditHabitPage> {
   late int _targetPerWeek;
   late Color _color;
   late IconData _icon;
+  late bool _opensReading;
 
   @override
   void initState() {
@@ -54,6 +55,7 @@ class _EditHabitPageState extends State<EditHabitPage> {
     final (defaultIcon, defaultColor) = habitCategoryDefaults[_category]!;
     _color = habit?.color ?? defaultColor;
     _icon = habit?.icon ?? defaultIcon;
+    _opensReading = habit?.opensReading ?? false;
   }
 
   @override
@@ -79,6 +81,7 @@ class _EditHabitPageState extends State<EditHabitPage> {
       _targetPerWeek = preset.targetPerWeek;
       _icon = preset.icon;
       _color = preset.color;
+      _opensReading = preset.opensReading;
     });
   }
 
@@ -87,6 +90,7 @@ class _EditHabitPageState extends State<EditHabitPage> {
     final habits = context.read<HabitProvider>();
     final title = _titleController.text.trim();
     final existing = widget.habit;
+    final opensReading = _category == HabitCategory.faith && _opensReading;
     if (existing == null) {
       await habits.addHabit(
         Habit(
@@ -96,6 +100,7 @@ class _EditHabitPageState extends State<EditHabitPage> {
           targetPerWeek: _targetPerWeek,
           color: _color,
           icon: _icon,
+          opensReading: opensReading,
           createdAt: DateTime.now(),
         ),
       );
@@ -105,7 +110,8 @@ class _EditHabitPageState extends State<EditHabitPage> {
         ..category = _category
         ..targetPerWeek = _targetPerWeek
         ..color = _color
-        ..icon = _icon;
+        ..icon = _icon
+        ..opensReading = opensReading;
       await habits.updateHabit(existing);
     }
     if (!mounted) return;
@@ -238,6 +244,17 @@ class _EditHabitPageState extends State<EditHabitPage> {
                   if (days != null) setState(() => _targetPerWeek = days);
                 },
               ),
+              if (_category == HabitCategory.faith) ...[
+                const SizedBox(height: 8),
+                SwitchListTile(
+                  key: const Key('habitOpensReading'),
+                  contentPadding: EdgeInsets.zero,
+                  title: Text(l10n.habitOpensReading),
+                  subtitle: Text(l10n.habitOpensReadingHint),
+                  value: _opensReading,
+                  onChanged: (value) => setState(() => _opensReading = value),
+                ),
+              ],
               const SizedBox(height: 20),
               InputDecorator(
                 decoration: InputDecoration(

@@ -7,6 +7,36 @@ import 'package:quitter/settings_provider.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+/// Adds [text] to the end of the journal entry for [day], creating the
+/// entry if there is none, so notes written elsewhere show up in the journal.
+Future<void> addToJournal(DateTime day, String text) async {
+  final prefs = await SharedPreferences.getInstance();
+  final dateKey = DateFormat('yyyy-MM-dd').format(day);
+  final existing = prefs.getString('journal_$dateKey') ?? '';
+  await prefs.setString(
+    'journal_$dateKey',
+    existing.trim().isEmpty ? text : '$existing\n\n$text',
+  );
+  final dates = prefs.getStringList('journal_dates');
+  final alreadyListed =
+      dates
+          ?.map(DateTime.tryParse)
+          .any(
+            (date) =>
+                date != null &&
+                date.year == day.year &&
+                date.month == day.month &&
+                date.day == day.day,
+          ) ??
+      true;
+  if (!alreadyListed) {
+    await prefs.setStringList('journal_dates', [
+      ...dates!,
+      DateTime(day.year, day.month, day.day).toIso8601String(),
+    ]);
+  }
+}
+
 class JournalPage extends StatefulWidget {
   const JournalPage({super.key});
 

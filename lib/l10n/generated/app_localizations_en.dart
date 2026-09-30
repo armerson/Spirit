@@ -3785,4 +3785,87 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get encourageMissedBody =>
       'That\'s okay. His mercies are new every morning, so start again today.';
+
+  @override
+  String get habitOpensReading => 'Open today\'s reading';
+
+  @override
+  String get habitOpensReadingHint =>
+      'Read the day\'s passage from your plan, then this habit is ticked off for you.';
+
+  @override
+  String get readingTitle => 'Today\'s reading';
+
+  @override
+  String get readingChoosePlan => 'Choose a reading plan';
+
+  @override
+  String get readingChoosePlanHint =>
+      'Go at your own pace. If you miss a day, your next reading simply waits for you.';
+
+  @override
+  String readingPlanDays(int count) {
+    return '$count days';
+  }
+
+  @override
+  String get readingStart => 'Start';
+
+  @override
+  String readingDayOf(int day, int total) {
+    return 'Day $day of $total';
+  }
+
+  @override
+  String get readingPrayerPrompt =>
+      'Before you read, ask the Holy Spirit to guide you into the truth (John 16:13).';
+
+  @override
+  String get readingDoneToday =>
+      'Today\'s reading is done. Read ahead if you like.';
+
+  @override
+  String get readingNoteLabel => 'A prayer or thought (optional)';
+
+  @override
+  String get readingNoteHint => 'Saved to your journal';
+
+  @override
+  String get readingFinish => 'Finish reading';
+
+  @override
+  String get readingFinishedMessage =>
+      'Well done. Let the word of Christ dwell in you richly.';
+
+  @override
+  String readingPlanComplete(String plan) {
+    return 'You finished $plan!';
+  }
+
+  @override
+  String get readingPlanCompleteBody =>
+      'What a faithful journey. Choose another plan when you\'re ready.';
+
+  @override
+  String get readingChoosePlanAgain => 'Choose another plan';
+
+  @override
+  String get readingChangePlan => 'Change plan';
+
+  @override
+  String get readingStartOver => 'Start over';
+
+  @override
+  String get planPsalmsProverbsTitle => 'Psalms & Proverbs in 30 days';
+
+  @override
+  String get planPsalmsProverbsDescription =>
+      'Five Psalms and a chapter of Proverbs each day, for prayer and wisdom.';
+
+  @override
+  String get planGospelsTitle => 'The four Gospels';
+
+  @override
+  String get planGospelsDescription =>
+      'A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.';
 }
