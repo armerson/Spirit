@@ -6303,6 +6303,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Ask about their day'**
   String get presetAskAboutDay;
+
+  /// Heading of the daily Bible verse card on the home screen
+  ///
+  /// In en, this message translates to:
+  /// **'Verse of the day'**
+  String get verseOfTheDay;
+
+  /// Tooltip on the button that shares the verse of the day
+  ///
+  /// In en, this message translates to:
+  /// **'Share verse'**
+  String get verseShare;
+
+  /// Bible reference under the verse of the day; WEB is the World English Bible
+  ///
+  /// In en, this message translates to:
+  /// **'{reference} (WEB)'**
+  String verseReference(String reference);
+
+  /// Text shared from the verse of the day
+  ///
+  /// In en, this message translates to:
+  /// **'“{text}” {reference} (WEB)'**
+  String verseShareMessage(String text, String reference);
 }
 
 class _AppLocalizationsDelegate

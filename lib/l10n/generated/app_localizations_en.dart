@@ -3731,4 +3731,20 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get presetAskAboutDay => 'Ask about their day';
+
+  @override
+  String get verseOfTheDay => 'Verse of the day';
+
+  @override
+  String get verseShare => 'Share verse';
+
+  @override
+  String verseReference(String reference) {
+    return '$reference (WEB)';
+  }
+
+  @override
+  String verseShareMessage(String text, String reference) {
+    return '“$text” $reference (WEB)';
+  }
 }
