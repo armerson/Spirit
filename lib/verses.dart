@@ -34,6 +34,12 @@ Future<List<Verse>> loadVerses([AssetBundle? bundle]) async {
       .toList();
 }
 
+List<Verse>? _bundledVerses;
+
+/// The bundled verses, loaded once and shared by every caller.
+Future<List<Verse>> bundledVerses() async =>
+    _bundledVerses ??= await loadVerses();
+
 /// The verse shown on [day]: the same all day, and a different one each
 /// day, cycling through every verse before any repeats.
 Verse verseForDay(List<Verse> verses, DateTime day) {

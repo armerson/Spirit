@@ -6327,6 +6327,66 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'“{text}” {reference} (WEB)'**
   String verseShareMessage(String text, String reference);
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'Well done. Small, faithful steps add up.'**
+  String get encourageCheckIn1;
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'You showed up today. Keep in step with the Spirit.'**
+  String get encourageCheckIn2;
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'Done. Grace for today, strength for tomorrow.'**
+  String get encourageCheckIn3;
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'Another seed sown. Growth takes time.'**
+  String get encourageCheckIn4;
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'Good work. You\'re becoming who you were made to be.'**
+  String get encourageCheckIn5;
+
+  /// Encouragement shown after marking a good habit done
+  ///
+  /// In en, this message translates to:
+  /// **'One more step toward being more like Jesus.'**
+  String get encourageCheckIn6;
+
+  /// Encouragement shown when a good habit streak reaches a milestone
+  ///
+  /// In en, this message translates to:
+  /// **'{count} days in a row! Keep walking in step with the Spirit.'**
+  String encourageMilestoneDays(int count);
+
+  /// Encouragement shown when a good habit streak reaches a milestone
+  ///
+  /// In en, this message translates to:
+  /// **'{count} weeks in a row! Faithful in the small things.'**
+  String encourageMilestoneWeeks(int count);
+
+  /// Heading of the gentle card shown after a daily habit was missed
+  ///
+  /// In en, this message translates to:
+  /// **'Missed yesterday?'**
+  String get encourageMissedTitle;
+
+  /// Body of the gentle card shown after a daily habit was missed
+  ///
+  /// In en, this message translates to:
+  /// **'That\'s okay. His mercies are new every morning, so start again today.'**
+  String get encourageMissedBody;
 }
 
 class _AppLocalizationsDelegate

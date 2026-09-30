@@ -2678,5 +2678,55 @@
         "type": "String"
       }
     }
+  },
+  "encourageCheckIn1": "Well done. Small, faithful steps add up.",
+  "@encourageCheckIn1": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageCheckIn2": "You showed up today. Keep in step with the Spirit.",
+  "@encourageCheckIn2": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageCheckIn3": "Done. Grace for today, strength for tomorrow.",
+  "@encourageCheckIn3": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageCheckIn4": "Another seed sown. Growth takes time.",
+  "@encourageCheckIn4": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageCheckIn5": "Good work. You're becoming who you were made to be.",
+  "@encourageCheckIn5": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageCheckIn6": "One more step toward being more like Jesus.",
+  "@encourageCheckIn6": {
+    "description": "Encouragement shown after marking a good habit done"
+  },
+  "encourageMilestoneDays": "{count} days in a row! Keep walking in step with the Spirit.",
+  "@encourageMilestoneDays": {
+    "description": "Encouragement shown when a good habit streak reaches a milestone",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "encourageMilestoneWeeks": "{count} weeks in a row! Faithful in the small things.",
+  "@encourageMilestoneWeeks": {
+    "description": "Encouragement shown when a good habit streak reaches a milestone",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "encourageMissedTitle": "Missed yesterday?",
+  "@encourageMissedTitle": {
+    "description": "Heading of the gentle card shown after a daily habit was missed"
+  },
+  "encourageMissedBody": "That's okay. His mercies are new every morning, so start again today.",
+  "@encourageMissedBody": {
+    "description": "Body of the gentle card shown after a daily habit was missed"
   }
 }

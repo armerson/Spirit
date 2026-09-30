@@ -6,6 +6,7 @@ import 'package:quitter/habit.dart';
 import 'package:quitter/habit_provider.dart';
 import 'package:quitter/habit_section.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
+import 'package:quitter/main.dart' show rootScaffoldMessenger;
 import 'package:quitter/settings_provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -35,6 +36,7 @@ void main() {
           GlobalCupertinoLocalizations.delegate,
         ],
         supportedLocales: AppLocalizations.supportedLocales,
+        scaffoldMessengerKey: rootScaffoldMessenger,
         home: Scaffold(
           body: SingleChildScrollView(
             child: HabitSection(searchQuery: searchQuery),
@@ -91,6 +93,7 @@ void main() {
     expect(habits.byId('devotional')!.isDoneOn(DateTime.now()), isTrue);
     expect(find.text('2-day streak'), findsOneWidget);
     expect(find.byTooltip('Undo today'), findsOneWidget);
+    expect(find.byType(SnackBar), findsOneWidget);
 
     await tester.tap(find.byKey(const Key('habitCheck-devotional')));
     await tester.pumpAndSettle();
@@ -224,5 +227,36 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Ideas to start with'), findsNothing);
+  });
+
+  testWidgets('reaching a milestone celebrates the streak', (tester) async {
+    final now = DateTime.now();
+    await habits.addHabit(
+      habit(checkIns: [addDays(now, -2), addDays(now, -1)]),
+    );
+    await tester.pumpWidget(createTestWidget());
+
+    await tester.tap(find.byKey(const Key('habitCheck-devotional')));
+    await tester.pumpAndSettle();
+
+    expect(
+      find.textContaining('3 days in a row! Keep walking in step'),
+      findsOneWidget,
+    );
+  });
+
+  testWidgets('a missed day gets a word of grace until today is done', (
+    tester,
+  ) async {
+    await habits.addHabit(habit(checkIns: [addDays(DateTime.now(), -2)]));
+    await tester.pumpWidget(createTestWidget());
+
+    expect(find.byType(MissedDayCard), findsOneWidget);
+    expect(find.textContaining('His mercies are new'), findsOneWidget);
+
+    await tester.tap(find.byKey(const Key('habitCheck-devotional')));
+    await tester.pumpAndSettle();
+
+    expect(find.byType(MissedDayCard), findsNothing);
   });
 }

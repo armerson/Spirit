@@ -15,13 +15,12 @@ class VerseOfTheDayCard extends StatefulWidget {
 }
 
 class _VerseOfTheDayCardState extends State<VerseOfTheDayCard> {
-  static Future<List<Verse>>? _bundledVerses;
   late final Future<List<Verse>> _verses;
 
   @override
   void initState() {
     super.initState();
-    _verses = widget.verses ?? (_bundledVerses ??= loadVerses());
+    _verses = widget.verses ?? bundledVerses();
   }
 
   @override

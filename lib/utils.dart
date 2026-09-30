@@ -41,7 +41,11 @@ int daysCeil(String dateStr) {
   return currentDate.difference(quitDate).inDays + 1;
 }
 
-void toast(String message, {SnackBarAction? action}) {
+void toast(
+  String message, {
+  SnackBarAction? action,
+  Duration duration = const Duration(seconds: 4),
+}) {
   final messenger = rootScaffoldMessenger.currentState;
   if (messenger == null) return;
   final def = SnackBarAction(
@@ -55,7 +59,7 @@ void toast(String message, {SnackBarAction? action}) {
       behavior: SnackBarBehavior.floating,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(24)),
       action: action ?? def,
-      duration: const Duration(seconds: 4),
+      duration: duration,
       persist: false,
     ),
   );
