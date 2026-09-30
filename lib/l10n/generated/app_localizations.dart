@@ -6093,6 +6093,126 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'One Year After TCAs: Recovery Achieved\n\nOne Year: Complete Multi-System Recovery\nThis review of antidepressant discontinuation syndromes — covering TCAs, MAOIs, SSRIs, and others — found that withdrawal symptoms typically begin within days of stopping and, left untreated, resolve on their own within days to a couple of weeks. There\'s no study that specifically re-measures TCA-affected systems a year out, but a year after completing a taper is many months beyond even the longest reported discontinuation symptoms, so all affected brain chemical systems — serotonin, noradrenaline, acetylcholine, and histamine — can be expected to have had a complete cycle to normalise.\n\nThe Significance of TCA Recovery\nTCAs impose a broader drug-driven burden than newer antidepressants, affecting more receptor systems simultaneously. Successful discontinuation represents the recovery of multiple systems:\n• Complete reversal of the memory and thinking impairment caused by TCAs\' acetylcholine blocking\n• Full heart recovery\n• Natural brain chemical regulation restored across all affected pathways\n\nOne year of successful self-regulation after TCA discontinuation represents a genuine achievement — both in the management of the discontinuation process and in the maintenance of wellbeing without drug-driven support.'**
   String get tcaReferenceDay365;
+
+  /// Home screen heading above good habits being built
+  ///
+  /// In en, this message translates to:
+  /// **'Building'**
+  String get homeSectionBuilding;
+
+  /// Home screen heading above habits being quit
+  ///
+  /// In en, this message translates to:
+  /// **'Quitting'**
+  String get homeSectionQuitting;
+
+  /// Button that opens the new good habit screen
+  ///
+  /// In en, this message translates to:
+  /// **'Add a good habit'**
+  String get habitAddButton;
+
+  /// Shown on the home screen before any good habit is added
+  ///
+  /// In en, this message translates to:
+  /// **'Start a good habit, like a daily devotional, a walk, or time with your partner.'**
+  String get habitEmptyHint;
+
+  /// Tooltip on the check button of a good habit not yet done today
+  ///
+  /// In en, this message translates to:
+  /// **'Mark done today'**
+  String get habitDoneToday;
+
+  /// Tooltip on the check button of a good habit already done today
+  ///
+  /// In en, this message translates to:
+  /// **'Undo today'**
+  String get habitUndoToday;
+
+  /// Current streak of a daily good habit
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No streak yet} =1{1-day streak} other{{count}-day streak}}'**
+  String habitStreakDays(int count);
+
+  /// Current streak of a weekly good habit, in weeks that met the target
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =0{No streak yet} =1{1-week streak} other{{count}-week streak}}'**
+  String habitStreakWeeks(int count);
+
+  /// How many days a weekly good habit was done this week
+  ///
+  /// In en, this message translates to:
+  /// **'{done} of {target} this week'**
+  String habitWeekProgress(int done, int target);
+
+  /// Title of the screen that creates a good habit
+  ///
+  /// In en, this message translates to:
+  /// **'New habit'**
+  String get editHabitAddTitle;
+
+  /// Title of the screen that edits a good habit
+  ///
+  /// In en, this message translates to:
+  /// **'Edit habit'**
+  String get editHabitTitle;
+
+  /// Tooltip on the delete button when editing a good habit
+  ///
+  /// In en, this message translates to:
+  /// **'Delete habit'**
+  String get habitDelete;
+
+  /// Label above the category choices of a good habit
+  ///
+  /// In en, this message translates to:
+  /// **'Area'**
+  String get habitCategoryLabel;
+
+  /// Good habit category for devotionals, prayer and church
+  ///
+  /// In en, this message translates to:
+  /// **'Faith'**
+  String get habitCategoryFaith;
+
+  /// Good habit category for exercise
+  ///
+  /// In en, this message translates to:
+  /// **'Fitness'**
+  String get habitCategoryFitness;
+
+  /// Good habit category for time with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship'**
+  String get habitCategoryRelationship;
+
+  /// Good habit category for anything else
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get habitCategoryOther;
+
+  /// Label of the weekly target picker of a good habit
+  ///
+  /// In en, this message translates to:
+  /// **'Days per week'**
+  String get habitTargetLabel;
+
+  /// Weekly target option for a daily good habit
+  ///
+  /// In en, this message translates to:
+  /// **'Every day'**
+  String get habitTargetDaily;
+
+  /// Weekly target option for a good habit done on some days
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{1 day a week} other{{count} days a week}}'**
+  String habitTargetWeekly(int count);
 }
 
 class _AppLocalizationsDelegate

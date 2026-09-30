@@ -31,6 +31,18 @@ void main() {
       expect(weekStart(DateTime(2026, 9, 28)), DateTime(2026, 9, 28));
     });
 
+    test('weekStart can start weeks on Sunday', () {
+      expect(weekStart(wednesday, startsMonday: false), DateTime(2026, 9, 27));
+      expect(
+        weekStart(DateTime(2026, 9, 27), startsMonday: false),
+        DateTime(2026, 9, 27),
+      );
+      expect(
+        weekStart(DateTime(2026, 10, 3), startsMonday: false),
+        DateTime(2026, 9, 27),
+      );
+    });
+
     test('addDays stays at midnight across daylight saving changes', () {
       final result = addDays(DateTime(2026, 3, 28), 2);
       expect(result, DateTime(2026, 3, 30));
@@ -58,6 +70,7 @@ void main() {
         ],
       );
       expect(habit.doneInWeekOf(wednesday), 3);
+      expect(habit.doneInWeekOf(wednesday, weekStartsMonday: false), 3);
     });
 
     test('target per week is kept between 1 and 7', () {
@@ -82,12 +95,12 @@ void main() {
         checkIns: [..._days(DateTime(2026, 9, 20), 5), DateTime(2026, 9, 30)],
       );
       expect(habit.currentStreak(wednesday), 1);
-      expect(habit.bestStreak, 5);
+      expect(habit.bestStreak(), 5);
     });
 
     test('is zero with no check-ins', () {
       expect(_habit().currentStreak(wednesday), 0);
-      expect(_habit().bestStreak, 0);
+      expect(_habit().bestStreak(), 0);
     });
   });
 
@@ -102,7 +115,7 @@ void main() {
         ],
       );
       expect(habit.currentStreak(wednesday), 3);
-      expect(habit.bestStreak, 3);
+      expect(habit.bestStreak(), 3);
     });
 
     test('is kept while this week can still meet the target', () {
@@ -127,7 +140,7 @@ void main() {
         ],
       );
       expect(habit.currentStreak(wednesday), 1);
-      expect(habit.bestStreak, 1);
+      expect(habit.bestStreak(), 1);
     });
   });
 

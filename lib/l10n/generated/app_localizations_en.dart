@@ -3597,4 +3597,93 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get tcaReferenceDay365 =>
       'One Year After TCAs: Recovery Achieved\n\nOne Year: Complete Multi-System Recovery\nThis review of antidepressant discontinuation syndromes — covering TCAs, MAOIs, SSRIs, and others — found that withdrawal symptoms typically begin within days of stopping and, left untreated, resolve on their own within days to a couple of weeks. There\'s no study that specifically re-measures TCA-affected systems a year out, but a year after completing a taper is many months beyond even the longest reported discontinuation symptoms, so all affected brain chemical systems — serotonin, noradrenaline, acetylcholine, and histamine — can be expected to have had a complete cycle to normalise.\n\nThe Significance of TCA Recovery\nTCAs impose a broader drug-driven burden than newer antidepressants, affecting more receptor systems simultaneously. Successful discontinuation represents the recovery of multiple systems:\n• Complete reversal of the memory and thinking impairment caused by TCAs\' acetylcholine blocking\n• Full heart recovery\n• Natural brain chemical regulation restored across all affected pathways\n\nOne year of successful self-regulation after TCA discontinuation represents a genuine achievement — both in the management of the discontinuation process and in the maintenance of wellbeing without drug-driven support.';
+
+  @override
+  String get homeSectionBuilding => 'Building';
+
+  @override
+  String get homeSectionQuitting => 'Quitting';
+
+  @override
+  String get habitAddButton => 'Add a good habit';
+
+  @override
+  String get habitEmptyHint =>
+      'Start a good habit, like a daily devotional, a walk, or time with your partner.';
+
+  @override
+  String get habitDoneToday => 'Mark done today';
+
+  @override
+  String get habitUndoToday => 'Undo today';
+
+  @override
+  String habitStreakDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-day streak',
+      one: '1-day streak',
+      zero: 'No streak yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String habitStreakWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count-week streak',
+      one: '1-week streak',
+      zero: 'No streak yet',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String habitWeekProgress(int done, int target) {
+    return '$done of $target this week';
+  }
+
+  @override
+  String get editHabitAddTitle => 'New habit';
+
+  @override
+  String get editHabitTitle => 'Edit habit';
+
+  @override
+  String get habitDelete => 'Delete habit';
+
+  @override
+  String get habitCategoryLabel => 'Area';
+
+  @override
+  String get habitCategoryFaith => 'Faith';
+
+  @override
+  String get habitCategoryFitness => 'Fitness';
+
+  @override
+  String get habitCategoryRelationship => 'Relationship';
+
+  @override
+  String get habitCategoryOther => 'Other';
+
+  @override
+  String get habitTargetLabel => 'Days per week';
+
+  @override
+  String get habitTargetDaily => 'Every day';
+
+  @override
+  String habitTargetWeekly(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: '$count days a week',
+      one: '1 day a week',
+    );
+    return '$_temp0';
+  }
 }
