@@ -177,4 +177,52 @@ void main() {
     expect(habits.habits, isEmpty);
     expect(find.text('Daily devotional'), findsNothing);
   });
+
+  testWidgets('a suggestion fills in the habit and saves it', (tester) async {
+    await tester.pumpWidget(createTestWidget());
+
+    await tester.tap(find.byTooltip('Add a good habit'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ideas to start with'), findsOneWidget);
+    expect(find.text('Daily devotional'), findsOneWidget);
+    expect(find.text('Date night'), findsNothing);
+
+    await tester.tap(find.text('Relationship'));
+    await tester.pumpAndSettle();
+    expect(find.text('Daily devotional'), findsNothing);
+
+    await tester.tap(find.text('Date night'));
+    await tester.pumpAndSettle();
+    expect(find.text('1 day a week'), findsOneWidget);
+
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    final saved = habits.habits.single;
+    expect(saved.title, 'Date night');
+    expect(saved.category, HabitCategory.relationship);
+    expect(saved.targetPerWeek, 1);
+    expect(saved.icon, Icons.restaurant);
+  });
+
+  testWidgets('suggestions are hidden when editing a habit', (tester) async {
+    await habits.addHabit(habit());
+    await tester.pumpWidget(createTestWidget());
+
+    await tester.tap(find.text('Daily devotional'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Ideas to start with'), findsNothing);
+  });
+
+  testWidgets('Other has no suggestions', (tester) async {
+    await tester.pumpWidget(createTestWidget());
+
+    await tester.tap(find.byTooltip('Add a good habit'));
+    await tester.pumpAndSettle();
+    await tester.tap(find.text('Other'));
+    await tester.pumpAndSettle();
+
+    expect(find.text('Ideas to start with'), findsNothing);
+  });
 }

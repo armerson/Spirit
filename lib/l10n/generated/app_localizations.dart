@@ -6213,6 +6213,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'{count, plural, =1{1 day a week} other{{count} days a week}}'**
   String habitTargetWeekly(int count);
+
+  /// Heading above suggested good habits when adding one
+  ///
+  /// In en, this message translates to:
+  /// **'Ideas to start with'**
+  String get habitSuggestionsLabel;
+
+  /// Suggested faith habit
+  ///
+  /// In en, this message translates to:
+  /// **'Daily devotional'**
+  String get presetDevotional;
+
+  /// Suggested faith habit
+  ///
+  /// In en, this message translates to:
+  /// **'Pray'**
+  String get presetPray;
+
+  /// Suggested faith habit
+  ///
+  /// In en, this message translates to:
+  /// **'Read a Psalm'**
+  String get presetPsalm;
+
+  /// Suggested weekly faith habit
+  ///
+  /// In en, this message translates to:
+  /// **'Go to church'**
+  String get presetChurch;
+
+  /// Suggested fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'Walk 30 minutes'**
+  String get presetWalk;
+
+  /// Suggested fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'Work out'**
+  String get presetWorkout;
+
+  /// Suggested fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'Stretch'**
+  String get presetStretch;
+
+  /// Suggested fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'Drink enough water'**
+  String get presetWater;
+
+  /// Suggested fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'Go to bed on time'**
+  String get presetBedtime;
+
+  /// Suggested habit with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Pray together'**
+  String get presetPrayTogether;
+
+  /// Suggested weekly habit with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Date night'**
+  String get presetDateNight;
+
+  /// Suggested habit with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Encourage my partner'**
+  String get presetEncourage;
+
+  /// Suggested habit with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Phones away at dinner'**
+  String get presetPhonesAway;
+
+  /// Suggested habit with a partner
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about their day'**
+  String get presetAskAboutDay;
 }
 
 class _AppLocalizationsDelegate

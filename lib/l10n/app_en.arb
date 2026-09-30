@@ -2589,5 +2589,65 @@
         "type": "int"
       }
     }
+  },
+  "habitSuggestionsLabel": "Ideas to start with",
+  "@habitSuggestionsLabel": {
+    "description": "Heading above suggested good habits when adding one"
+  },
+  "presetDevotional": "Daily devotional",
+  "@presetDevotional": {
+    "description": "Suggested faith habit"
+  },
+  "presetPray": "Pray",
+  "@presetPray": {
+    "description": "Suggested faith habit"
+  },
+  "presetPsalm": "Read a Psalm",
+  "@presetPsalm": {
+    "description": "Suggested faith habit"
+  },
+  "presetChurch": "Go to church",
+  "@presetChurch": {
+    "description": "Suggested weekly faith habit"
+  },
+  "presetWalk": "Walk 30 minutes",
+  "@presetWalk": {
+    "description": "Suggested fitness habit"
+  },
+  "presetWorkout": "Work out",
+  "@presetWorkout": {
+    "description": "Suggested fitness habit"
+  },
+  "presetStretch": "Stretch",
+  "@presetStretch": {
+    "description": "Suggested fitness habit"
+  },
+  "presetWater": "Drink enough water",
+  "@presetWater": {
+    "description": "Suggested fitness habit"
+  },
+  "presetBedtime": "Go to bed on time",
+  "@presetBedtime": {
+    "description": "Suggested fitness habit"
+  },
+  "presetPrayTogether": "Pray together",
+  "@presetPrayTogether": {
+    "description": "Suggested habit with a partner"
+  },
+  "presetDateNight": "Date night",
+  "@presetDateNight": {
+    "description": "Suggested weekly habit with a partner"
+  },
+  "presetEncourage": "Encourage my partner",
+  "@presetEncourage": {
+    "description": "Suggested habit with a partner"
+  },
+  "presetPhonesAway": "Phones away at dinner",
+  "@presetPhonesAway": {
+    "description": "Suggested habit with a partner"
+  },
+  "presetAskAboutDay": "Ask about their day",
+  "@presetAskAboutDay": {
+    "description": "Suggested habit with a partner"
   }
 }

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/color_picker.dart';
 import 'package:quitter/habit.dart';
+import 'package:quitter/habit_presets.dart';
 import 'package:quitter/habit_provider.dart';
 import 'package:quitter/icon_picker.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
@@ -71,6 +72,16 @@ class _EditHabitPageState extends State<EditHabitPage> {
     });
   }
 
+  void _applyPreset(HabitPreset preset, AppLocalizations l10n) {
+    setState(() {
+      _titleController.text = preset.title(l10n);
+      _category = preset.category;
+      _targetPerWeek = preset.targetPerWeek;
+      _icon = preset.icon;
+      _color = preset.color;
+    });
+  }
+
   Future<void> _save() async {
     if (!_formKey.currentState!.validate()) return;
     final habits = context.read<HabitProvider>();
@@ -131,6 +142,9 @@ class _EditHabitPageState extends State<EditHabitPage> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
+    final suggestions = widget.habit == null
+        ? habitPresets.where((preset) => preset.category == _category).toList()
+        : const <HabitPreset>[];
     return Scaffold(
       appBar: AppBar(
         title: Text(
@@ -151,19 +165,6 @@ class _EditHabitPageState extends State<EditHabitPage> {
           child: ListView(
             padding: const EdgeInsets.fromLTRB(16, 8, 16, 96),
             children: [
-              TextFormField(
-                key: const Key('habitTitleField'),
-                controller: _titleController,
-                textCapitalization: TextCapitalization.sentences,
-                decoration: InputDecoration(
-                  labelText: l10n.editEntryTitle,
-                  border: const OutlineInputBorder(),
-                ),
-                validator: (value) => value == null || value.trim().isEmpty
-                    ? l10n.editEntryTitleError
-                    : null,
-              ),
-              const SizedBox(height: 20),
               Text(
                 l10n.habitCategoryLabel,
                 style: Theme.of(context).textTheme.labelLarge,
@@ -181,8 +182,42 @@ class _EditHabitPageState extends State<EditHabitPage> {
                     ),
                 ],
               ),
+              if (suggestions.isNotEmpty) ...[
+                const SizedBox(height: 20),
+                Text(
+                  l10n.habitSuggestionsLabel,
+                  style: Theme.of(context).textTheme.labelLarge,
+                ),
+                const SizedBox(height: 8),
+                Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    for (final preset in suggestions)
+                      ActionChip(
+                        avatar: Icon(preset.icon, color: preset.color),
+                        label: Text(preset.title(l10n)),
+                        onPressed: () => _applyPreset(preset, l10n),
+                      ),
+                  ],
+                ),
+              ],
+              const SizedBox(height: 20),
+              TextFormField(
+                key: const Key('habitTitleField'),
+                controller: _titleController,
+                textCapitalization: TextCapitalization.sentences,
+                decoration: InputDecoration(
+                  labelText: l10n.editEntryTitle,
+                  border: const OutlineInputBorder(),
+                ),
+                validator: (value) => value == null || value.trim().isEmpty
+                    ? l10n.editEntryTitleError
+                    : null,
+              ),
               const SizedBox(height: 20),
               DropdownButtonFormField<int>(
+                key: ValueKey(_targetPerWeek),
                 initialValue: _targetPerWeek,
                 decoration: InputDecoration(
                   labelText: l10n.habitTargetLabel,
