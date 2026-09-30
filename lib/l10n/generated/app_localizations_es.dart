@@ -594,7 +594,7 @@ class AppLocalizationsEs extends AppLocalizations {
       'Dos años sin esteroides. Tus hormonas reflejan ahora los niveles naturales de tu cuerpo; los síntomas persistentes de testosterona baja deben ser evaluados por un especialista.';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Comenzar';

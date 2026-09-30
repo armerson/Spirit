@@ -610,7 +610,7 @@ class AppLocalizationsFr extends AppLocalizations {
       'Deux ans sans stéroïdes. Vos taux hormonaux reflètent désormais les niveaux naturels de votre corps ; des symptômes persistants de faible testostérone doivent être évalués par un spécialiste.';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Commencer';

@@ -594,7 +594,7 @@ class AppLocalizationsTh extends AppLocalizations {
       'สองปีจากสเตียรอยด์ตอนนี้ฮอร์โมนของคุณสะท้อนถึงระดับตามธรรมชาติของร่างกายแล้วอาการฮอร์โมนเทสโทสเทอโรนต่ำอย่างต่อเนื่องควรได้รับการตรวจสอบโดยผู้เชี่ยวชาญ';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'เริ่ม';

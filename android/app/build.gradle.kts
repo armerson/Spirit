@@ -17,7 +17,7 @@ android {
     }
     
     defaultConfig {
-        applicationId = "com.quitter.app"
+        applicationId = "com.armerson.spirit"
         minSdk = Math.max(flutter.minSdkVersion.toInt(), 23) // WorkManager requires API level 23 or higher
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

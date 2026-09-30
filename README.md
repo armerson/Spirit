@@ -1,29 +1,18 @@
 <div align="center">
 
-<img src="assets/icon.png" width="112" alt="Quitter app icon">
+<img src="assets/icon.png" width="112" alt="Spirit app icon">
 
-# Quitter
+# Spirit
 
-**Track your quitting journey without turning it into someone else's data.**
+**Quit what holds you back. Build what brings you life.**
 
-A free and open-source quit tracker built around local data, useful milestones, and a calm interface.
+A private, faith-based habit app: track the habits you're quitting and the ones you're building (daily devotional, exercise, time with your partner), with encouragement rooted in Scripture.
 
-<p>
-  <a href="https://github.com/brandonp2412/Quitter/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/brandonp2412/quitter?style=flat-square"></a>
-  <a href="https://github.com/brandonp2412/Quitter/releases"><img alt="Release downloads" src="https://img.shields.io/github/downloads/brandonp2412/Quitter/total.svg?style=flat-square"></a>
-  <a href="LICENSE.md"><img alt="MIT license" src="https://img.shields.io/badge/license-MIT-8b75b3?style=flat-square"></a>
-</p>
-
-<p>
-  <a href="https://f-droid.org/en/packages/com.quitter.app/"><img alt="Get it on F-Droid" height="56" src="./docs/get-it-on-fdroid.png"></a>
-  <a href="https://play.google.com/store/apps/details?id=com.quitter.app"><img alt="Get it on Google Play" height="56" src="./docs/get-it-on-google-play.png"></a>
-  <a href="https://apps.microsoft.com/detail/9PKVZWDG3FGC?referrer=appbadge&mode=direct"><img alt="Download from the Microsoft Store" height="56" src="./docs/download-msstore.png"></a>
-  <a href="https://brandonp2412.github.io/Quitter/"><img alt="Open Quitter on the web" height="56" src="./docs/get-it-on-web.png"></a>
-</p>
-
-<sub>No tracking · Local data · Multiple journeys · Fully customisable</sub>
+<sub>Android first · Local data · No tracking</sub>
 
 </div>
+
+> Spirit is built on [Quitter](https://github.com/brandonp2412/Quitter) by Brandon Dick (MIT). See [docs/BUILD_PLAN.md](docs/BUILD_PLAN.md) for what we're adding.
 
 ## See your progress, not a dashboard full of noise
 
@@ -50,27 +39,27 @@ A free and open-source quit tracker built around local data, useful milestones, 
 
 ## Built for the journey
 
-**Private by design.** Quitter doesn't track you. Your progress is stored locally instead of being sent to an account or analytics service.
+**Private by design.** Spirit doesn't track you. Your progress is stored locally instead of being sent to an account or analytics service.
 
 **More than one goal.** Track multiple habits at once, follow milestones, journal how things are going, and get progress notifications when you want them.
 
 **Make it yours.** Choose colours and themes, create custom entries, and turn features on or off so the app stays focused on what matters to you.
 
-## Help translate Quitter
+## Help translate Spirit
 
 Translations are maintained directly in `lib/l10n/`. Contributions for any supported language are welcome through normal pull requests.
 
 ## Development
 
 <details>
-<summary>Run Quitter locally</summary>
+<summary>Run Spirit locally</summary>
 <br>
 
-Quitter is built with Flutter.
+Spirit is built with Flutter.
 
 ```bash
-git clone --recursive https://github.com/brandonp2412/Quitter.git quitter
-cd quitter
+git clone --recursive https://github.com/armerson/Spirit.git spirit
+cd spirit
 flutter pub get
 flutter run
 ```
@@ -79,4 +68,4 @@ flutter run
 
 ## License
 
-Quitter is available under the [MIT License](LICENSE.md).
+Spirit is available under the [MIT License](LICENSE.md), and keeps the original Quitter copyright notice.

@@ -576,7 +576,7 @@ class AppLocalizationsZh extends AppLocalizations {
       '停用类固醇两年。现在的激素水平反映的是身体本身的自然水平；如果低睾酮症状仍在持续，应请专科医生评估。';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => '开始';
@@ -4082,7 +4082,7 @@ class AppLocalizationsZhHant extends AppLocalizationsZh {
       '停用類固醇兩年。現在的激素水平反映的是身體本身的自然水平；如果低睪酮症狀仍在持續，應請專科醫生評估。';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => '開始';

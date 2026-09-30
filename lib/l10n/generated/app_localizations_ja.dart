@@ -577,7 +577,7 @@ class AppLocalizationsJa extends AppLocalizations {
       'ステロイドなしで2年。現在のホルモン値は体本来の自然な水準を反映しています。低テストステロンの症状が続く場合は、専門医に確認してもらいましょう。';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => '始める';

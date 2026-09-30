@@ -600,7 +600,7 @@ class AppLocalizationsDe extends AppLocalizations {
       'Zwei Jahre weg von Steroiden. Ihre Hormone spiegeln jetzt die natürlichen Niveaus Ihres Körpers wider; laufende Low-Testosteron-Symptome sollten von einem Spezialisten überprüft werden.';
 
   @override
-  String get appTitle => 'Quittung';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Beginn';

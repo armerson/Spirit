@@ -601,7 +601,7 @@ class AppLocalizationsId extends AppLocalizations {
       'Dua tahun berhenti menggunakan steroid. Hormon Anda sekarang mencerminkan tingkat alami tubuh Anda; gejala testosteron rendah yang sedang berlangsung harus diperiksa oleh spesialis.';
 
   @override
-  String get appTitle => 'Berhenti';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Awal';
