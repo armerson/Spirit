@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/edit_habit_page.dart';
+import 'package:quitter/encouragement.dart';
 import 'package:quitter/habit.dart';
 import 'package:quitter/habit_provider.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/settings_provider.dart';
+import 'package:quitter/utils.dart';
+import 'package:quitter/verses.dart';
 
 /// The "Building" part of the home screen: the good habits being built,
 /// each with a one-tap check-in for today and its current streak.
@@ -57,6 +60,9 @@ class HabitSection extends StatelessWidget {
           ],
         ),
         const SizedBox(height: 8),
+        if (searchQuery.isEmpty &&
+            habits.any((habit) => missedYesterday(habit, DateTime.now())))
+          const MissedDayCard(),
         if (visible.isEmpty)
           Card(
             child: Padding(
@@ -112,6 +118,28 @@ class HabitTile extends StatelessWidget {
         '${l10n.habitWeekProgress(done, habit.targetPerWeek)}';
   }
 
+  Future<void> _toggleToday(BuildContext context, DateTime now) async {
+    HapticFeedback.lightImpact();
+    final l10n = AppLocalizations.of(context)!;
+    await context.read<HabitProvider>().toggleCheckIn(habit.id, now);
+    if (!habit.isDoneOn(now)) return;
+
+    final streak = habit.currentStreak(now, weekStartsMonday: weekStartsMonday);
+    final milestone = isStreakMilestone(habit, streak);
+    if (milestone) HapticFeedback.heavyImpact();
+    final message = checkInMessage(l10n, habit, streak);
+    final verse = verseFor(
+      milestone
+          ? EncouragementMoment.streakMilestone
+          : EncouragementMoment.checkIn,
+      await bundledVerses(),
+    );
+    toast(
+      withVerse(l10n, message, verse),
+      duration: encouragementToastDuration,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
@@ -137,10 +165,37 @@ class HabitTile extends StatelessWidget {
           icon: Icon(
             doneToday ? Icons.check_circle : Icons.radio_button_unchecked,
           ),
-          onPressed: () {
-            HapticFeedback.lightImpact();
-            context.read<HabitProvider>().toggleCheckIn(habit.id, now);
-          },
+          onPressed: () => _toggleToday(context, now),
+        ),
+      ),
+    );
+  }
+}
+
+/// A gentle word after a daily habit was missed yesterday, pointing to
+/// God's mercies being new every morning (Lamentations 3:22-23) rather
+/// than to the broken streak.
+class MissedDayCard extends StatelessWidget {
+  const MissedDayCard({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final theme = Theme.of(context);
+    return Card(
+      color: theme.colorScheme.tertiaryContainer,
+      child: ListTile(
+        leading: Icon(
+          Icons.wb_sunny,
+          color: theme.colorScheme.onTertiaryContainer,
+        ),
+        title: Text(
+          l10n.encourageMissedTitle,
+          style: TextStyle(color: theme.colorScheme.onTertiaryContainer),
+        ),
+        subtitle: Text(
+          l10n.encourageMissedBody,
+          style: TextStyle(color: theme.colorScheme.onTertiaryContainer),
         ),
       ),
     );

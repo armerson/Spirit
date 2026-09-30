@@ -4,11 +4,13 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/confetti_widget.dart';
+import 'package:quitter/encouragement.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/quit_milestone.dart';
 import 'package:quitter/settings_provider.dart';
 import 'package:quitter/timeline_tile.dart';
 import 'package:quitter/utils.dart';
+import 'package:quitter/verses.dart';
 import 'package:share_plus/share_plus.dart';
 
 class QuitMilestonesPage extends StatefulWidget {
@@ -340,8 +342,13 @@ class _QuitMilestonesPageState extends State<QuitMilestonesPage> {
           if (settings.notifyRelapse == false) return;
 
           final message = getRelapseEncouragementMessage(context);
+          final verse = verseFor(
+            EncouragementMoment.relapse,
+            await bundledVerses(),
+          );
           toast(
-            message,
+            withVerse(l10n, message, verse),
+            duration: encouragementToastDuration,
             action: SnackBarAction(
               label: l10n.undo,
               onPressed: () async {

@@ -3747,4 +3747,42 @@ class AppLocalizationsEn extends AppLocalizations {
   String verseShareMessage(String text, String reference) {
     return '“$text” $reference (WEB)';
   }
+
+  @override
+  String get encourageCheckIn1 => 'Well done. Small, faithful steps add up.';
+
+  @override
+  String get encourageCheckIn2 =>
+      'You showed up today. Keep in step with the Spirit.';
+
+  @override
+  String get encourageCheckIn3 =>
+      'Done. Grace for today, strength for tomorrow.';
+
+  @override
+  String get encourageCheckIn4 => 'Another seed sown. Growth takes time.';
+
+  @override
+  String get encourageCheckIn5 =>
+      'Good work. You\'re becoming who you were made to be.';
+
+  @override
+  String get encourageCheckIn6 => 'One more step toward being more like Jesus.';
+
+  @override
+  String encourageMilestoneDays(int count) {
+    return '$count days in a row! Keep walking in step with the Spirit.';
+  }
+
+  @override
+  String encourageMilestoneWeeks(int count) {
+    return '$count weeks in a row! Faithful in the small things.';
+  }
+
+  @override
+  String get encourageMissedTitle => 'Missed yesterday?';
+
+  @override
+  String get encourageMissedBody =>
+      'That\'s okay. His mercies are new every morning, so start again today.';
 }

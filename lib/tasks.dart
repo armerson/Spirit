@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:home_widget/home_widget.dart';
 import 'package:quitter/addiction_provider.dart';
+import 'package:quitter/encouragement.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/locale_utils.dart';
 import 'package:quitter/logging.dart';
@@ -13,6 +14,7 @@ import 'package:workmanager/workmanager.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:quitter/utils.dart';
 import 'package:quitter/settings_provider.dart';
+import 'package:quitter/verses.dart';
 
 Timer? timer;
 Timer? oneOffReminderTimer;
@@ -230,6 +232,7 @@ Future<void> _showNotification(
       importance: Importance.high,
       priority: Priority.high,
       icon: 'neurology',
+      styleInformation: BigTextStyleInformation(body),
     ),
     iOS: DarwinNotificationDetails(),
     linux: LinuxNotificationDetails(),
@@ -344,6 +347,14 @@ Future<void> notifyProgress(
     notificationTitle = l10n.notificationProgressTitle(randomEntry.title);
     notificationBody = l10n.notificationProgressBody(entryCount, randomMessage);
   }
+
+  Verse? verse;
+  try {
+    verse = verseFor(EncouragementMoment.reminder, await loadVerses(), random);
+  } catch (error, stackTrace) {
+    talker.handle(error, stackTrace, 'Skipped reminder verse');
+  }
+  notificationBody = withVerse(l10n, notificationBody, verse);
 
   await _showNotification(plugin, notificationTitle, notificationBody, l10n);
   talker.info('Delivered progress reminder');
