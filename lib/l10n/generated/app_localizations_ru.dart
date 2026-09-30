@@ -606,7 +606,7 @@ class AppLocalizationsRu extends AppLocalizations {
       'Два года без стероидов. Ваши гормоны теперь отражают естественный уровень вашего тела; продолжающиеся симптомы низкого уровня тестостерона должны быть проверены специалистом.';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Старт';

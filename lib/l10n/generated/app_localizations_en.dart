@@ -592,7 +592,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'Two years off steroids. Your hormones now reflect your body\'s natural levels; ongoing low-testosterone symptoms should be checked by a specialist.';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Start';

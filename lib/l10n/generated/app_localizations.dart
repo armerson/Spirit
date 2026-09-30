@@ -1128,7 +1128,7 @@ abstract class AppLocalizations {
   /// The main application title
   ///
   /// In en, this message translates to:
-  /// **'Quitter'**
+  /// **'Spirit'**
   String get appTitle;
 
   /// No description provided for @start.

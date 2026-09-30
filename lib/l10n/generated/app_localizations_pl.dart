@@ -601,7 +601,7 @@ class AppLocalizationsPl extends AppLocalizations {
       'Dwa lata poza steroidami. Hormony teraz odzwierciedlać ciała naturalne poziomy; bieżące objawy niskiego testosteronu powinny być sprawdzane przez specjalistę.';
 
   @override
-  String get appTitle => 'Quitter';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'Rozpocznij';

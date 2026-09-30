@@ -587,7 +587,7 @@ class AppLocalizationsAr extends AppLocalizations {
       'سنتين من التوقف عن المنشطات. تعكس هرموناتك الآن المستويات الطبيعية لجسمك. يجب فحص أعراض انخفاض هرمون التستوستيرون المستمرة من قبل أخصائي.';
 
   @override
-  String get appTitle => 'انهزامي';
+  String get appTitle => 'Spirit';
 
   @override
   String get start => 'يبدأ';
