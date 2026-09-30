@@ -15,6 +15,7 @@ class QuitCard extends StatelessWidget {
     required this.onTap,
     this.onDelete,
     this.onRename,
+    this.onStruggling,
   });
 
   final BuildContext context;
@@ -30,6 +31,10 @@ class QuitCard extends StatelessWidget {
 
   /// When non-null, shows a rename badge in the top-right corner.
   final VoidCallback? onRename;
+
+  /// When non-null, shows an "I'm struggling" badge in the top-right
+  /// corner that opens help for a moment of temptation.
+  final VoidCallback? onStruggling;
 
   @override
   Widget build(BuildContext context) {
@@ -178,7 +183,9 @@ class QuitCard extends StatelessWidget {
       ),
     );
 
-    if (onDelete == null && onRename == null) return card;
+    if (onDelete == null && onRename == null && onStruggling == null) {
+      return card;
+    }
 
     return Stack(
       fit: StackFit.expand,
@@ -201,6 +208,19 @@ class QuitCard extends StatelessWidget {
                 ),
                 child: const Icon(Icons.close, color: Colors.white, size: 16),
               ),
+            ),
+          ),
+        if (onStruggling != null)
+          Positioned(
+            top: 4,
+            right: 4,
+            child: IconButton(
+              key: Key('struggling-$heroTag'),
+              tooltip: AppLocalizations.of(context)?.strugglingButton,
+              visualDensity: VisualDensity.compact,
+              color: gradientColors.last,
+              icon: const Icon(Icons.volunteer_activism),
+              onPressed: onStruggling,
             ),
           ),
         if (onRename != null)

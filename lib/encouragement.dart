@@ -11,6 +11,7 @@ enum EncouragementMoment {
   missedDay,
   relapse,
   reminder,
+  struggling,
 }
 
 /// Verse themes that fit each moment, so a missed day gets grace rather
@@ -21,6 +22,7 @@ const Map<EncouragementMoment, Set<String>> momentThemes = {
   EncouragementMoment.missedDay: {'grace', 'new_start'},
   EncouragementMoment.relapse: {'grace', 'new_start', 'temptation'},
   EncouragementMoment.reminder: {'strength', 'spirit', 'faith', 'peace'},
+  EncouragementMoment.struggling: {'temptation', 'strength'},
 };
 
 /// Verses longer than this are left out of snackbars and notifications,
@@ -34,18 +36,19 @@ const encouragementToastDuration = Duration(seconds: 8);
 const dailyMilestones = {3, 7, 14, 21, 30, 40, 50, 75, 100, 150, 200, 365};
 const weeklyMilestones = {2, 4, 8, 12, 26, 52};
 
-/// A short verse whose themes fit [moment], or null if none is loaded.
+/// A verse no longer than [maxLength] whose themes fit [moment], or null
+/// if none is loaded.
 Verse? verseFor(
   EncouragementMoment moment,
   List<Verse> verses, [
   Random? random,
+  int maxLength = shortVerseLength,
 ]) {
   final themes = momentThemes[moment]!;
   final fitting = verses
       .where(
         (verse) =>
-            verse.text.length <= shortVerseLength &&
-            verse.themes.any(themes.contains),
+            verse.text.length <= maxLength && verse.themes.any(themes.contains),
       )
       .toList();
   if (fitting.isEmpty) return null;

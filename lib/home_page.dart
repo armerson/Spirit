@@ -35,6 +35,7 @@ import 'package:quitter/pornography_page.dart';
 import 'package:quitter/quit_card.dart';
 import 'package:quitter/settings_page.dart';
 import 'package:quitter/settings_provider.dart';
+import 'package:quitter/struggling_sheet.dart';
 import 'package:quitter/smoking_page.dart';
 import 'package:quitter/social_media_page.dart';
 import 'package:quitter/smokeless_tobacco_page.dart';
@@ -742,6 +743,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                                     : data.onTap,
                                 onDelete: _isEditMode ? data.onDelete : null,
                                 onRename: _isEditMode ? data.onRename : null,
+                                onStruggling:
+                                    _isEditMode || data.quitDate == null
+                                    ? null
+                                    : () => showStrugglingSheet(context),
                               ),
                             );
                           }).toList(),

@@ -3868,4 +3868,53 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get planGospelsDescription =>
       'A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.';
+
+  @override
+  String get strugglingButton => 'I\'m struggling';
+
+  @override
+  String get strugglingTitle => 'Hold on. You\'re not alone.';
+
+  @override
+  String get strugglingBody =>
+      'This feeling will pass. God is faithful, and He will make a way through it.';
+
+  @override
+  String get strugglingAnotherVerse => 'Another verse';
+
+  @override
+  String get strugglingPrayTitle => 'Pray';
+
+  @override
+  String get strugglingPrayer =>
+      'Holy Spirit, I\'m struggling right now. Please give me strength to say no and show me the way out. Fill me with Your peace. In Jesus\' name, amen.';
+
+  @override
+  String get strugglingStepsTitle => 'For the next ten minutes';
+
+  @override
+  String get strugglingStepBreathe =>
+      'Breathe slowly and step away from the situation.';
+
+  @override
+  String get strugglingStepMove =>
+      'Go for a walk, drink some water or keep your hands busy.';
+
+  @override
+  String get strugglingStepWait =>
+      'Wait it out. Urges rise and fall like a wave.';
+
+  @override
+  String get strugglingReachOut => 'Reach out to someone';
+
+  @override
+  String get strugglingShareMessage =>
+      'I\'m struggling right now. Could you pray for me or give me a call?';
+
+  @override
+  String get strugglingMadeIt => 'I made it through';
+
+  @override
+  String get strugglingMadeItMessage =>
+      'Well done. God is faithful, and you stood firm. Thank Him for this win.';
 }

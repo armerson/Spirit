@@ -6525,6 +6525,90 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'A chapter a day through Matthew, Mark, Luke and John, walking with Jesus.'**
   String get planGospelsDescription;
+
+  /// Button that opens help when tempted to break a quit streak
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m struggling'**
+  String get strugglingButton;
+
+  /// Heading of the help sheet for a moment of temptation
+  ///
+  /// In en, this message translates to:
+  /// **'Hold on. You\'re not alone.'**
+  String get strugglingTitle;
+
+  /// Reassurance at the top of the help sheet, echoing 1 Corinthians 10:13
+  ///
+  /// In en, this message translates to:
+  /// **'This feeling will pass. God is faithful, and He will make a way through it.'**
+  String get strugglingBody;
+
+  /// Button that shows a different verse on the help sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Another verse'**
+  String get strugglingAnotherVerse;
+
+  /// Heading above the short prayer on the help sheet
+  ///
+  /// In en, this message translates to:
+  /// **'Pray'**
+  String get strugglingPrayTitle;
+
+  /// A short prayer the user can pray when tempted
+  ///
+  /// In en, this message translates to:
+  /// **'Holy Spirit, I\'m struggling right now. Please give me strength to say no and show me the way out. Fill me with Your peace. In Jesus\' name, amen.'**
+  String get strugglingPrayer;
+
+  /// Heading above practical steps on the help sheet
+  ///
+  /// In en, this message translates to:
+  /// **'For the next ten minutes'**
+  String get strugglingStepsTitle;
+
+  /// Practical step when tempted
+  ///
+  /// In en, this message translates to:
+  /// **'Breathe slowly and step away from the situation.'**
+  String get strugglingStepBreathe;
+
+  /// Practical step when tempted
+  ///
+  /// In en, this message translates to:
+  /// **'Go for a walk, drink some water or keep your hands busy.'**
+  String get strugglingStepMove;
+
+  /// Practical step when tempted
+  ///
+  /// In en, this message translates to:
+  /// **'Wait it out. Urges rise and fall like a wave.'**
+  String get strugglingStepWait;
+
+  /// Button that shares a message asking a friend for prayer
+  ///
+  /// In en, this message translates to:
+  /// **'Reach out to someone'**
+  String get strugglingReachOut;
+
+  /// Message shared with a trusted friend from the help sheet
+  ///
+  /// In en, this message translates to:
+  /// **'I\'m struggling right now. Could you pray for me or give me a call?'**
+  String get strugglingShareMessage;
+
+  /// Button that closes the help sheet after the urge has passed
+  ///
+  /// In en, this message translates to:
+  /// **'I made it through'**
+  String get strugglingMadeIt;
+
+  /// Encouragement after getting through a moment of temptation
+  ///
+  /// In en, this message translates to:
+  /// **'Well done. God is faithful, and you stood firm. Thank Him for this win.'**
+  String get strugglingMadeItMessage;
 }
 
 class _AppLocalizationsDelegate
