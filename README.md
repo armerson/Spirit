@@ -8,6 +8,8 @@
 
 A private, faith-based habit app: track the habits you're quitting and the ones you're building (daily devotional, exercise, time with your partner), with encouragement rooted in Scripture.
 
+The name points to the Holy Spirit, our Helper and guide (John 14:26), who helps us grow into better people and Christians, more like Jesus and the best version of ourselves. The app doesn't replace Him; it's a small everyday tool, because we need all the help we can get.
+
 <sub>Android first · Local data · No tracking</sub>
 
 </div>

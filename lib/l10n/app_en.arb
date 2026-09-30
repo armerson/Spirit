@@ -2649,5 +2649,34 @@
   "presetAskAboutDay": "Ask about their day",
   "@presetAskAboutDay": {
     "description": "Suggested habit with a partner"
+  },
+  "verseOfTheDay": "Verse of the day",
+  "@verseOfTheDay": {
+    "description": "Heading of the daily Bible verse card on the home screen"
+  },
+  "verseShare": "Share verse",
+  "@verseShare": {
+    "description": "Tooltip on the button that shares the verse of the day"
+  },
+  "verseReference": "{reference} (WEB)",
+  "@verseReference": {
+    "description": "Bible reference under the verse of the day; WEB is the World English Bible",
+    "placeholders": {
+      "reference": {
+        "type": "String"
+      }
+    }
+  },
+  "verseShareMessage": "“{text}” {reference} (WEB)",
+  "@verseShareMessage": {
+    "description": "Text shared from the verse of the day",
+    "placeholders": {
+      "text": {
+        "type": "String"
+      },
+      "reference": {
+        "type": "String"
+      }
+    }
   }
 }

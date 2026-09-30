@@ -39,6 +39,7 @@ import 'package:quitter/smoking_page.dart';
 import 'package:quitter/social_media_page.dart';
 import 'package:quitter/smokeless_tobacco_page.dart';
 import 'package:quitter/utils.dart';
+import 'package:quitter/verse_card.dart';
 import 'package:quitter/vaping_page.dart';
 import 'package:quitter/whats_new.dart';
 import 'package:reorderable_grid_view/reorderable_grid_view.dart';
@@ -607,6 +608,11 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
                 ),
               ),
             ),
+            if (_searchQuery.isEmpty)
+              const SliverPadding(
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+                sliver: SliverToBoxAdapter(child: VerseOfTheDayCard()),
+              ),
             SliverPadding(
               padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
               sliver: SliverToBoxAdapter(
@@ -627,6 +633,7 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
 
                   if (cards.isEmpty) {
                     return SliverFillRemaining(
+                      hasScrollBody: false,
                       child: Center(
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
