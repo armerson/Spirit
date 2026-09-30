@@ -3686,4 +3686,49 @@ class AppLocalizationsEn extends AppLocalizations {
     );
     return '$_temp0';
   }
+
+  @override
+  String get habitSuggestionsLabel => 'Ideas to start with';
+
+  @override
+  String get presetDevotional => 'Daily devotional';
+
+  @override
+  String get presetPray => 'Pray';
+
+  @override
+  String get presetPsalm => 'Read a Psalm';
+
+  @override
+  String get presetChurch => 'Go to church';
+
+  @override
+  String get presetWalk => 'Walk 30 minutes';
+
+  @override
+  String get presetWorkout => 'Work out';
+
+  @override
+  String get presetStretch => 'Stretch';
+
+  @override
+  String get presetWater => 'Drink enough water';
+
+  @override
+  String get presetBedtime => 'Go to bed on time';
+
+  @override
+  String get presetPrayTogether => 'Pray together';
+
+  @override
+  String get presetDateNight => 'Date night';
+
+  @override
+  String get presetEncourage => 'Encourage my partner';
+
+  @override
+  String get presetPhonesAway => 'Phones away at dinner';
+
+  @override
+  String get presetAskAboutDay => 'Ask about their day';
 }
