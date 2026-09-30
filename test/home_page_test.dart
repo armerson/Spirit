@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/addiction_provider.dart';
+import 'package:quitter/habit_provider.dart';
 import 'package:quitter/home_page.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/settings_provider.dart';
@@ -36,6 +37,7 @@ void main() {
         ChangeNotifierProvider<AddictionProvider>.value(
           value: addictionProvider,
         ),
+        ChangeNotifierProvider<HabitProvider>(create: (_) => HabitProvider()),
       ],
       child: const MaterialApp(
         localizationsDelegates: [

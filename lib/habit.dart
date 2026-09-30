@@ -50,9 +50,10 @@ class Habit {
     if (!_checkIns.remove(date)) _checkIns.add(date);
   }
 
-  /// Number of completed days in the Monday-to-Sunday week containing [day].
-  int doneInWeekOf(DateTime day) {
-    final start = weekStart(day);
+  /// Number of completed days in the week containing [day], with weeks
+  /// starting on Monday or Sunday per [weekStartsMonday].
+  int doneInWeekOf(DateTime day, {bool weekStartsMonday = true}) {
+    final start = weekStart(day, startsMonday: weekStartsMonday);
     final end = addDays(start, 7);
     return _checkIns
         .where((date) => !date.isBefore(start) && date.isBefore(end))
@@ -65,12 +66,16 @@ class Habit {
   /// The current day (or week) only adds to the streak once it is complete,
   /// and never breaks it while it is still in progress, so the user is not
   /// told they have lost a streak they can still keep today.
-  int currentStreak(DateTime now) {
-    return isDaily ? _dayStreak(dateOnly(now)) : _weekStreak(weekStart(now));
+  int currentStreak(DateTime now, {bool weekStartsMonday = true}) {
+    if (isDaily) return _dayStreak(dateOnly(now));
+    return _weekStreak(
+      weekStart(now, startsMonday: weekStartsMonday),
+      weekStartsMonday,
+    );
   }
 
   /// The longest streak ever reached, in the same unit as [currentStreak].
-  int get bestStreak {
+  int bestStreak({bool weekStartsMonday = true}) {
     if (_checkIns.isEmpty) return 0;
     final sorted = _checkIns.toList()..sort();
     if (isDaily) {
@@ -78,9 +83,13 @@ class Habit {
     }
     final weeks =
         sorted
-            .map(weekStart)
+            .map((date) => weekStart(date, startsMonday: weekStartsMonday))
             .toSet()
-            .where((week) => doneInWeekOf(week) >= targetPerWeek)
+            .where(
+              (week) =>
+                  doneInWeekOf(week, weekStartsMonday: weekStartsMonday) >=
+                  targetPerWeek,
+            )
             .toList()
           ..sort();
     if (weeks.isEmpty) return 0;
@@ -97,12 +106,12 @@ class Habit {
     return streak;
   }
 
-  int _weekStreak(DateTime thisWeek) {
-    var week = doneInWeekOf(thisWeek) >= targetPerWeek
-        ? thisWeek
-        : addDays(thisWeek, -7);
+  int _weekStreak(DateTime thisWeek, bool weekStartsMonday) {
+    bool metTarget(DateTime week) =>
+        doneInWeekOf(week, weekStartsMonday: weekStartsMonday) >= targetPerWeek;
+    var week = metTarget(thisWeek) ? thisWeek : addDays(thisWeek, -7);
     var streak = 0;
-    while (doneInWeekOf(week) >= targetPerWeek) {
+    while (metTarget(week)) {
       streak++;
       week = addDays(week, -7);
     }
@@ -166,6 +175,9 @@ DateTime dateOnly(DateTime date) => DateTime(date.year, date.month, date.day);
 DateTime addDays(DateTime date, int days) =>
     DateTime(date.year, date.month, date.day + days);
 
-/// The Monday that starts the week containing [date].
-DateTime weekStart(DateTime date) =>
-    addDays(dateOnly(date), -(date.weekday - DateTime.monday));
+/// The first day of the week containing [date]: Monday when [startsMonday]
+/// is true, otherwise Sunday, matching the app's week-start setting.
+DateTime weekStart(DateTime date, {bool startsMonday = true}) {
+  final firstDay = startsMonday ? DateTime.monday : DateTime.sunday;
+  return addDays(dateOnly(date), -((date.weekday - firstDay) % 7));
+}

@@ -25,6 +25,8 @@ import 'package:quitter/entry.dart';
 import 'package:quitter/edit_entry_page.dart';
 import 'package:quitter/edit_preset_page.dart';
 import 'package:quitter/entry_page.dart';
+import 'package:quitter/habit_provider.dart';
+import 'package:quitter/habit_section.dart';
 import 'package:quitter/marijuana_page.dart';
 import 'package:quitter/meth_page.dart';
 import 'package:quitter/nicotine_pouches.dart';
@@ -130,8 +132,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
   void _loadQuitDays() async {
     final settings = context.read<SettingsProvider>();
     final addictions = context.read<AddictionProvider>();
+    final habits = context.read<HabitProvider>();
     await settings.loadPreferences();
     await addictions.loadAddictions();
+    await habits.loadHabits();
   }
 
   void _showStopTrackingBottomSheet(
@@ -604,10 +608,16 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
               ),
             ),
             SliverPadding(
+              padding: const EdgeInsets.only(left: 16, right: 16, top: 16),
+              sliver: SliverToBoxAdapter(
+                child: HabitSection(searchQuery: _searchQuery),
+              ),
+            ),
+            SliverPadding(
               padding: EdgeInsets.only(
                 left: 16,
                 right: 16,
-                top: 16,
+                top: 0,
                 bottom: 56 + MediaQuery.of(context).padding.bottom,
               ),
               sliver: Consumer<AddictionProvider>(
