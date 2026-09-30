@@ -281,7 +281,8 @@
    "reference": "Galatians 5:22-23",
    "text": "But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faith, gentleness, and self-control. Against such things there is no law.",
    "themes": [
-    "love"
+    "love",
+    "spirit"
    ]
   },
   {
@@ -424,6 +425,34 @@
    "text": "Beloved, I pray that you may prosper in all things and be healthy, even as your soul prospers.",
    "themes": [
     "body"
+   ]
+  },
+  {
+   "reference": "John 14:26",
+   "text": "But the Counselor, the Holy Spirit, whom the Father will send in my name, will teach you all things, and will remind you of all that I said to you.",
+   "themes": [
+    "spirit"
+   ]
+  },
+  {
+   "reference": "Romans 8:26",
+   "text": "In the same way, the Spirit also helps our weaknesses, for we don’t know how to pray as we ought. But the Spirit himself makes intercession for us with groanings which can’t be uttered.",
+   "themes": [
+    "spirit"
+   ]
+  },
+  {
+   "reference": "Galatians 5:16",
+   "text": "But I say, walk by the Spirit, and you won’t fulfill the lust of the flesh.",
+   "themes": [
+    "spirit"
+   ]
+  },
+  {
+   "reference": "2 Corinthians 3:17-18",
+   "text": "Now the Lord is the Spirit; and where the Spirit of the Lord is, there is liberty. But we all, with unveiled face seeing the glory of the Lord as in a mirror, are transformed into the same image from glory to glory, even as from the Lord, the Spirit.",
+   "themes": [
+    "spirit"
    ]
   }
  ]

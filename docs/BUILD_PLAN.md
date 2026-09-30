@@ -5,6 +5,8 @@ Goal: one app to **quit** bad habits and **build** good ones (daily devotional, 
 
 App name: **Spirit** (chosen by Stewart, 2026-09-29).
 
+**Why "Spirit":** the Holy Spirit is our Helper and guide on earth (John 14:26), helping us become better people and Christians, more like Jesus, and the best version of ourselves. Every screen and message should feel like that help: gentle guidance and growth, grace over guilt. The app never speaks as the Spirit or replaces Him; it's a humble everyday tool that points to Him, because we need all the help we can get.
+
 ## What we keep from Quitter
 - Quit tracking (days since, milestones, relapse reset), journal, stats, PIN lock, themes, home-screen widget.
 - Local-only storage (`shared_preferences`), no account, no tracking.

@@ -18,6 +18,7 @@ void main() {
     'love',
     'rest',
     'temptation',
+    'spirit',
   };
 
   group('bundled verses', () {
@@ -43,9 +44,10 @@ void main() {
       );
     });
 
-    test('cover temptation and grace for hard days', () {
+    test('cover temptation, grace and the Spirit as helper', () {
       expect(verses.where((v) => v.themes.contains('temptation')), isNotEmpty);
       expect(verses.where((v) => v.themes.contains('grace')), isNotEmpty);
+      expect(verses.where((v) => v.themes.contains('spirit')), isNotEmpty);
     });
   });
 
