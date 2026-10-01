@@ -146,12 +146,14 @@ Future<void> testAddictionNotification(
   final days = daysCeil(quitDate);
   final l10n = _localizationsFor(prefs);
   final plugin = await _initializeNotificationPlugin(l10n);
-  await _showNotification(
-    plugin,
-    l10n.notificationProgressTitle(displayName),
-    l10n.notificationProgressBody(days, l10n.notificationProgressMessage1),
+  final (title, body) = _progressNotification(
+    prefs,
     l10n,
+    name: displayName,
+    days: days,
+    message: l10n.notificationProgressMessage1,
   );
+  await _showNotification(plugin, title, body, l10n);
 }
 
 Future<void> testCustomEntryNotification(
@@ -162,11 +164,35 @@ Future<void> testCustomEntryNotification(
   final prefs = await SharedPreferences.getInstance();
   final l10n = _localizationsFor(prefs);
   final plugin = await _initializeNotificationPlugin(l10n);
-  await _showNotification(
-    plugin,
-    l10n.notificationProgressTitle(displayName),
-    l10n.notificationProgressBody(days, l10n.notificationProgressMessage1),
+  final (title, body) = _progressNotification(
+    prefs,
     l10n,
+    name: displayName,
+    days: days,
+    message: l10n.notificationProgressMessage1,
+  );
+  await _showNotification(plugin, title, body, l10n);
+}
+
+/// The title and body of a progress reminder for the journey [name]. In
+/// discreet mode, on unless turned off, neither names the journey, since
+/// notifications show on the lock screen.
+(String, String) _progressNotification(
+  SharedPreferences prefs,
+  AppLocalizations l10n, {
+  required String name,
+  required int days,
+  required String message,
+}) {
+  if (prefs.getBool('discreet_mode') ?? true) {
+    return (
+      l10n.notificationDiscreetTitle,
+      l10n.notificationDiscreetBody(days, message),
+    );
+  }
+  return (
+    l10n.notificationProgressTitle(name),
+    l10n.notificationProgressBody(days, message),
   );
 }
 
@@ -321,32 +347,29 @@ Future<void> notifyProgress(
   }
 
   final randomMessage = messages[random.nextInt(messages.length)];
-  String notificationTitle;
-  String notificationBody;
+  String name;
+  int days;
 
   if (activeJourneys.isNotEmpty &&
-      activeEntries.isNotEmpty &&
-      random.nextBool()) {
-    final randomEntry = activeEntries[random.nextInt(activeEntries.length)];
-    final entryCount = daysCeil(randomEntry.quitDate.toIso8601String());
-    notificationTitle = l10n.notificationProgressTitle(randomEntry.title);
-    notificationBody = l10n.notificationProgressBody(entryCount, randomMessage);
-  } else if (activeJourneys.isNotEmpty) {
+      (activeEntries.isEmpty || random.nextBool())) {
     final randomJourney = activeJourneys[random.nextInt(activeJourneys.length)];
     final journeyDate = _validQuitDate(prefs, randomJourney['key']!);
     if (journeyDate == null) return;
-    final journeyCount = daysCeil(journeyDate);
-    notificationTitle = l10n.notificationProgressTitle(randomJourney['name']!);
-    notificationBody = l10n.notificationProgressBody(
-      journeyCount,
-      randomMessage,
-    );
+    name = randomJourney['name']!;
+    days = daysCeil(journeyDate);
   } else {
     final randomEntry = activeEntries[random.nextInt(activeEntries.length)];
-    final entryCount = daysCeil(randomEntry.quitDate.toIso8601String());
-    notificationTitle = l10n.notificationProgressTitle(randomEntry.title);
-    notificationBody = l10n.notificationProgressBody(entryCount, randomMessage);
+    name = randomEntry.title;
+    days = daysCeil(randomEntry.quitDate.toIso8601String());
   }
+
+  var (notificationTitle, notificationBody) = _progressNotification(
+    prefs,
+    l10n,
+    name: name,
+    days: days,
+    message: randomMessage,
+  );
 
   Verse? verse;
   try {

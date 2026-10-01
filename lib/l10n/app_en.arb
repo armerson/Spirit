@@ -174,9 +174,9 @@
   },
   "start": "Start",
   "@tabQuitter": {
-    "description": "Tab label for the main Quitter tab"
+    "description": "Tab label for the main tab with habits and journeys"
   },
-  "tabQuitter": "Quitter",
+  "tabQuitter": "Spirit",
   "adderallPageTitle": "Quitting Adderall",
   "adderallHeaderStarted": "Your Recovery Journey",
   "adderallHeaderNotStarted": "Ready to Start Your Recovery?",
@@ -641,7 +641,7 @@
   "@noSearchResults": {
     "description": "Shown when a search yields no matches"
   },
-  "homeSearchHint": "Search addictions...",
+  "homeSearchHint": "Search",
   "@homeSearchHint": {
     "description": "Hint text for the home addiction search bar"
   },
@@ -2487,7 +2487,7 @@
   "@homeSectionBuilding": {
     "description": "Home screen heading above good habits being built"
   },
-  "homeSectionQuitting": "Quitting",
+  "homeSectionQuitting": "Breaking free",
   "@homeSectionQuitting": {
     "description": "Home screen heading above habits being quit"
   },
@@ -3000,5 +3000,42 @@
   "freshStartContinue": "Tap to continue",
   "@freshStartContinue": {
     "description": "Hint to dismiss the fresh start screen"
+  },
+  "discreetJourney": "Journey",
+  "@discreetJourney": {
+    "description": "Neutral name shown for a built-in journey in discreet mode"
+  },
+  "discreetJourneyNumbered": "Journey {number}",
+  "@discreetJourneyNumbered": {
+    "description": "Neutral name for the second and later built-in journeys in discreet mode",
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsDiscreet": "Discreet mode",
+  "@settingsDiscreet": {
+    "description": "Settings switch title"
+  },
+  "settingsDiscreetSubtitle": "Show journeys under neutral names and icons, and keep them out of notifications. Rename a journey to give it a private name.",
+  "@settingsDiscreetSubtitle": {
+    "description": "Settings switch subtitle"
+  },
+  "notificationDiscreetTitle": "Keep going",
+  "@notificationDiscreetTitle": {
+    "description": "Title of a progress reminder in discreet mode, which does not name the journey"
+  },
+  "notificationDiscreetBody": "Day {days} of your journey. {message}",
+  "@notificationDiscreetBody": {
+    "description": "Body of a progress reminder in discreet mode",
+    "placeholders": {
+      "days": {
+        "type": "int"
+      },
+      "message": {
+        "type": "String"
+      }
+    }
   }
 }

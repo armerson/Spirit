@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quitter/discreet.dart';
 import 'package:quitter/add_addiction_page.dart';
 import 'package:quitter/adderall_page.dart';
 import 'package:quitter/benzodiazepine_page.dart';
@@ -241,6 +242,10 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
     AppLocalizations l10n,
   ) {
     final cards = <_CardData>[];
+    final namer = JourneyNamer(
+      l10n,
+      discreet: context.watch<SettingsProvider>().discreet,
+    );
 
     void addPreset(
       String key,
@@ -251,9 +256,15 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       Widget Function(BuildContext) page,
     ) {
       if (quitDate == null) return;
-      final title = addictions.customNames[key] ?? defaultTitle;
+      final title = namer.name(
+        defaultTitle,
+        customName: addictions.customNames[key],
+      );
       if (!_matchesSearch(title)) return;
-      final effectiveIcon = addictions.customIcons[key] ?? icon;
+      final effectiveIcon = namer.icon(
+        icon,
+        customIcon: addictions.customIcons[key],
+      );
       final customColor = addictions.customColors[key];
       final gradientColors = customColor != null
           ? [customColor, customColor.withValues(alpha: 0.7)]

@@ -51,6 +51,7 @@ class SettingsProvider extends ChangeNotifier {
     'nicotinePouches': 'show_nicotine_pouches',
     'marijuana': 'show_marijuana',
     'reset': 'show_reset',
+    'discreet': 'discreet_mode',
     'vaping': 'show_vaping',
     'smoking': 'show_smoking',
     'opioids': 'show_opioids',
@@ -118,6 +119,10 @@ class SettingsProvider extends ChangeNotifier {
 
   bool get showAlcohol => _showSettings['alcohol']!;
   bool get showReset => _showSettings['reset']!;
+
+  /// Whether journeys appear under neutral names and icons, so a glance
+  /// at the screen or a notification does not say what the struggle is.
+  bool get discreet => _showSettings['discreet']!;
   bool get showJournal => _showSettings['journal']!;
   bool get swipeTabs => _showSettings['swipeTabs']!;
   bool get showVaping => _showSettings['vaping']!;
@@ -404,6 +409,8 @@ class SettingsProvider extends ChangeNotifier {
       _updateBoolSetting(_showSettings, _showKeys, 'swipeTabs', show);
   set showReset(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'reset', show);
+  set discreet(bool on) =>
+      _updateBoolSetting(_showSettings, _showKeys, 'discreet', on);
   set showJournal(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'journal', show);
   set showVaping(bool show) =>

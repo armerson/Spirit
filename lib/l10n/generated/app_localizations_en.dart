@@ -598,7 +598,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get start => 'Start';
 
   @override
-  String get tabQuitter => 'Quitter';
+  String get tabQuitter => 'Spirit';
 
   @override
   String get adderallPageTitle => 'Quitting Adderall';
@@ -1260,7 +1260,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get clearSearch => 'Clear search';
 
   @override
-  String get homeSearchHint => 'Search addictions...';
+  String get homeSearchHint => 'Search';
 
   @override
   String get homeTrackAnyway => 'Track it anyway';
@@ -3599,7 +3599,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeSectionBuilding => 'Building';
 
   @override
-  String get homeSectionQuitting => 'Quitting';
+  String get homeSectionQuitting => 'Breaking free';
 
   @override
   String get habitAddButton => 'Add a good habit';
@@ -3995,4 +3995,27 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get freshStartContinue => 'Tap to continue';
+
+  @override
+  String get discreetJourney => 'Journey';
+
+  @override
+  String discreetJourneyNumbered(int number) {
+    return 'Journey $number';
+  }
+
+  @override
+  String get settingsDiscreet => 'Discreet mode';
+
+  @override
+  String get settingsDiscreetSubtitle =>
+      'Show journeys under neutral names and icons, and keep them out of notifications. Rename a journey to give it a private name.';
+
+  @override
+  String get notificationDiscreetTitle => 'Keep going';
+
+  @override
+  String notificationDiscreetBody(int days, String message) {
+    return 'Day $days of your journey. $message';
+  }
 }
