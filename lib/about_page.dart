@@ -18,7 +18,7 @@ class AboutPage extends StatelessWidget {
             SizedBox(
               height: 100,
               child: SvgPicture.asset(
-                'assets/neurology.svg',
+                'assets/spirit_logo.svg',
                 colorFilter: ColorFilter.mode(
                   Theme.of(context).colorScheme.onSurface,
                   BlendMode.srcIn,

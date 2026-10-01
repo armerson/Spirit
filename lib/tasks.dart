@@ -217,7 +217,7 @@ Future<FlutterLocalNotificationsPlugin> _initializeNotificationPlugin(
         ?.createNotificationChannel(androidChannel);
 
     const darwinSettings = DarwinInitializationSettings();
-    const androidSettings = AndroidInitializationSettings('neurology');
+    const androidSettings = AndroidInitializationSettings('ic_stat_dove');
     const initSettings = InitializationSettings(
       iOS: darwinSettings,
       android: androidSettings,
@@ -257,7 +257,7 @@ Future<void> _showNotification(
       channelDescription: l10n.notificationChannelDescription,
       importance: Importance.high,
       priority: Priority.high,
-      icon: 'neurology',
+      icon: 'ic_stat_dove',
       styleInformation: BigTextStyleInformation(body),
     ),
     iOS: DarwinNotificationDetails(),
