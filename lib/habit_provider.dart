@@ -86,6 +86,14 @@ class HabitProvider extends ChangeNotifier {
     await _save();
   }
 
+  /// Logs [minutes] spent on the habit on [day], or clears them at zero.
+  Future<void> setMinutes(String id, DateTime day, int minutes) async {
+    final habit = byId(id);
+    if (habit == null) return;
+    habit.setMinutes(day, minutes);
+    await _save();
+  }
+
   Future<void> _save() async {
     await _pref?.setString(
       _prefKey,

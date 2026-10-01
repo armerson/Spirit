@@ -7,6 +7,7 @@ import 'package:quitter/encouragement.dart';
 import 'package:quitter/habit.dart';
 import 'package:quitter/habit_provider.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
+import 'package:quitter/minutes_dialog.dart';
 import 'package:quitter/settings_provider.dart';
 import 'package:quitter/utils.dart';
 import 'package:quitter/verses.dart';
@@ -113,10 +114,24 @@ class HabitTile extends StatelessWidget {
 
   String _progress(AppLocalizations l10n, DateTime now) {
     final streak = habit.currentStreak(now, weekStartsMonday: weekStartsMonday);
-    if (habit.isDaily) return l10n.habitStreakDays(streak);
+    final minutes = habit.minutesOn(now);
+    final minutesToday = minutes > 0
+        ? '\n${l10n.habitMinutesToday(minutes)}'
+        : '';
+    if (habit.isDaily) return '${l10n.habitStreakDays(streak)}$minutesToday';
     final done = habit.doneInWeekOf(now, weekStartsMonday: weekStartsMonday);
     return '${l10n.habitStreakWeeks(streak)}\n'
-        '${l10n.habitWeekProgress(done, habit.targetPerWeek)}';
+        '${l10n.habitWeekProgress(done, habit.targetPerWeek)}$minutesToday';
+  }
+
+  Future<void> _logMinutes(BuildContext context, DateTime now) async {
+    final habits = context.read<HabitProvider>();
+    final minutes = await showMinutesDialog(
+      context,
+      initial: habit.minutesOn(now),
+    );
+    if (minutes == null) return;
+    await habits.setMinutes(habit.id, now, minutes);
   }
 
   Future<void> _toggleToday(BuildContext context, DateTime now) async {
@@ -161,6 +176,13 @@ class HabitTile extends StatelessWidget {
         trailing: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
+            if (habit.category == HabitCategory.fitness && doneToday)
+              IconButton(
+                key: Key('habitMinutes-${habit.id}'),
+                tooltip: l10n.habitLogMinutes,
+                icon: const Icon(Icons.timer_outlined),
+                onPressed: () => _logMinutes(context, now),
+              ),
             if (habit.opensReading)
               IconButton(
                 key: Key('habitReading-${habit.id}'),

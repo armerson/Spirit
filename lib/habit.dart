@@ -27,6 +27,7 @@ class Habit {
   bool opensReading;
 
   final Set<DateTime> _checkIns;
+  final Map<DateTime, int> _minutes;
 
   Habit({
     required this.id,
@@ -39,8 +40,13 @@ class Habit {
     this.reminderMinutes,
     this.opensReading = false,
     Iterable<DateTime> checkIns = const [],
+    Map<DateTime, int> minutes = const {},
   }) : targetPerWeek = targetPerWeek.clamp(1, 7),
-       _checkIns = checkIns.map(dateOnly).toSet();
+       _checkIns = checkIns.map(dateOnly).toSet(),
+       _minutes = {
+         for (final MapEntry(key: day, value: count) in minutes.entries)
+           if (count > 0) dateOnly(day): count,
+       };
 
   /// The days this habit was completed, each at midnight local time.
   Set<DateTime> get checkIns => Set.unmodifiable(_checkIns);
@@ -49,10 +55,31 @@ class Habit {
 
   bool isDoneOn(DateTime day) => _checkIns.contains(dateOnly(day));
 
-  /// Marks [day] as done if it was not, or undone if it was.
+  /// Marks [day] as done if it was not, or undone if it was. Undoing a day
+  /// also forgets the minutes logged for it.
   void toggle(DateTime day) {
     final date = dateOnly(day);
-    if (!_checkIns.remove(date)) _checkIns.add(date);
+    if (_checkIns.remove(date)) {
+      _minutes.remove(date);
+    } else {
+      _checkIns.add(date);
+    }
+  }
+
+  /// Minutes spent on this habit each day they were logged, such as the
+  /// length of a workout.
+  Map<DateTime, int> get minutes => Map.unmodifiable(_minutes);
+
+  int minutesOn(DateTime day) => _minutes[dateOnly(day)] ?? 0;
+
+  /// Logs [count] minutes on [day], or clears them when [count] is zero.
+  void setMinutes(DateTime day, int count) {
+    final date = dateOnly(day);
+    if (count > 0) {
+      _minutes[date] = count;
+    } else {
+      _minutes.remove(date);
+    }
   }
 
   /// Number of completed days in the week containing [day], with weeks
@@ -147,6 +174,10 @@ class Habit {
     'reminderMinutes': reminderMinutes,
     'opensReading': opensReading,
     'checkIns': (_checkIns.toList()..sort()).map(_formatDate).toList(),
+    'minutes': {
+      for (final MapEntry(key: day, value: count) in _minutes.entries)
+        _formatDate(day): count,
+    },
   };
 
   factory Habit.fromJson(Map<String, dynamic> json) => Habit(
@@ -166,7 +197,18 @@ class Habit {
         .whereType<String>()
         .map(DateTime.tryParse)
         .whereType<DateTime>(),
+    minutes: _parseMinutes(json['minutes']),
   );
+
+  static Map<DateTime, int> _parseMinutes(Object? raw) {
+    if (raw is! Map<String, dynamic>) return const {};
+    final minutes = <DateTime, int>{};
+    for (final MapEntry(key: day, value: count) in raw.entries) {
+      final date = DateTime.tryParse(day);
+      if (date != null && count is int) minutes[date] = count;
+    }
+    return minutes;
+  }
 
   static String _formatDate(DateTime date) =>
       '${date.year.toString().padLeft(4, '0')}-'

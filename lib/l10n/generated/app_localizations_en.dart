@@ -1131,9 +1131,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quitStartButton => 'Start';
 
   @override
-  String get quitResetButton => 'Reset';
-
-  @override
   String get quitCardSubtitle => 'Tap to start';
 
   @override
@@ -3917,4 +3914,85 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get strugglingMadeItMessage =>
       'Well done. God is faithful, and you stood firm. Thank Him for this win.';
+
+  @override
+  String get habitLogMinutes => 'Log minutes';
+
+  @override
+  String get habitMinutesTitle => 'How many minutes?';
+
+  @override
+  String get habitMinutesLabel => 'Minutes';
+
+  @override
+  String habitMinutesToday(int minutes) {
+    return '$minutes min today';
+  }
+
+  @override
+  String get statsHabitsTitle => 'Good habits';
+
+  @override
+  String statsHabitThisWeek(int done, int target) {
+    return 'This week: $done of $target';
+  }
+
+  @override
+  String statsHabitRecent(int percent) {
+    return 'Last 4 weeks: $percent%';
+  }
+
+  @override
+  String statsHabitBestDays(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Best: $count days',
+      one: 'Best: 1 day',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String statsHabitBestWeeks(int count) {
+    String _temp0 = intl.Intl.pluralLogic(
+      count,
+      locale: localeName,
+      other: 'Best: $count weeks',
+      one: 'Best: 1 week',
+    );
+    return '$_temp0';
+  }
+
+  @override
+  String get statsExerciseTitle => 'Exercise';
+
+  @override
+  String statsExerciseThisWeek(int minutes) {
+    return '$minutes minutes this week';
+  }
+
+  @override
+  String statsExerciseAverage(int minutes) {
+    return 'About $minutes minutes a week lately';
+  }
+
+  @override
+  String get statsExerciseHint =>
+      'Log minutes on a fitness habit after ticking it off to see them here.';
+
+  @override
+  String get freshStartHold => 'Hold to start again';
+
+  @override
+  String get freshStartHoldHint => 'Press and hold to start again';
+
+  @override
+  String get freshStartTitle => 'A clean slate';
+
+  @override
+  String get freshStartPledge => 'With God\'s help, I begin again today.';
+
+  @override
+  String get freshStartContinue => 'Tap to continue';
 }
