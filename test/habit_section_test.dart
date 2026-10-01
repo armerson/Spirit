@@ -70,7 +70,7 @@ void main() {
     await tester.pumpWidget(createTestWidget());
 
     expect(find.text('Building'), findsOneWidget);
-    expect(find.text('Quitting'), findsOneWidget);
+    expect(find.text('Breaking free'), findsOneWidget);
     expect(
       find.textContaining('Start a good habit, like a daily devotional'),
       findsOneWidget,

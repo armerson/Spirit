@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
+import 'package:quitter/discreet.dart';
 import 'package:quitter/add_addiction_page.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/empty_state.dart';
@@ -19,11 +20,14 @@ class StatsPage extends StatelessWidget {
     final l10n = AppLocalizations.of(context)!;
     return Consumer<AddictionProvider>(
       builder: (context, addictions, child) {
-        final entries = _buildStatEntries(l10n, addictions);
+        final settings = context.watch<SettingsProvider>();
+        final entries = _buildStatEntries(
+          l10n,
+          addictions,
+          discreet: settings.discreet,
+        );
         final habits = context.watch<HabitProvider>().habits;
-        final weekStartsMonday = context
-            .watch<SettingsProvider>()
-            .weekStartsMonday;
+        final weekStartsMonday = settings.weekStartsMonday;
         final fitnessHabits = habits
             .where((habit) => habit.category == HabitCategory.fitness)
             .toList();
@@ -181,9 +185,11 @@ class StatsPage extends StatelessWidget {
 
   List<_StatEntry> _buildStatEntries(
     AppLocalizations l10n,
-    AddictionProvider addictions,
-  ) {
+    AddictionProvider addictions, {
+    required bool discreet,
+  }) {
     final entries = <_StatEntry>[];
+    final namer = JourneyNamer(l10n, discreet: discreet);
 
     void addPreset(
       String? quitDate,
@@ -195,6 +201,14 @@ class StatsPage extends StatelessWidget {
       String? key,
     }) {
       if (quitDate == null) return;
+      name = namer.name(
+        name,
+        customName: key == null ? null : addictions.customNames[key],
+      );
+      icon = namer.icon(
+        icon,
+        customIcon: key == null ? null : addictions.customIcons[key],
+      );
       final days = daysCeil(quitDate);
       final allDays = key != null ? addictions.getDays(key) : <int>[];
       entries.add(

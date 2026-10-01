@@ -239,6 +239,8 @@ void main() {
         matching: find.byType(SwitchListTile),
       );
 
+      await tester.ensureVisible(journalSwitch);
+      await tester.pumpAndSettle();
       await tester.tap(journalSwitch);
       await tester.pump();
 

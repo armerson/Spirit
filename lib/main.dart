@@ -3,7 +3,6 @@ import 'dart:async';
 import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/habit_provider.dart';
@@ -240,26 +239,7 @@ class _QuitterAppState extends State<QuitterApp>
                                       controller: _tabController,
                                       tabs: [
                                         Tab(
-                                          icon: SvgPicture.asset(
-                                            'assets/neurology.svg',
-                                            width: 24,
-                                            height: 24,
-                                            colorFilter: ColorFilter.mode(
-                                              Color.lerp(
-                                                Theme.of(
-                                                  context,
-                                                ).colorScheme.primary,
-                                                Theme.of(
-                                                  context,
-                                                ).colorScheme.onSurfaceVariant,
-                                                (_tabController
-                                                        .animation!
-                                                        .value)
-                                                    .clamp(0.0, 1.0),
-                                              )!,
-                                              BlendMode.srcIn,
-                                            ),
-                                          ),
+                                          icon: const Icon(Icons.spa),
                                           text: l10n.tabQuitter,
                                         ),
                                         Tab(

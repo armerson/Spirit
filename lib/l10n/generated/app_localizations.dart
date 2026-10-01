@@ -1114,10 +1114,10 @@ abstract class AppLocalizations {
   /// **'Start'**
   String get start;
 
-  /// Tab label for the main Quitter tab
+  /// Tab label for the main tab with habits and journeys
   ///
   /// In en, this message translates to:
-  /// **'Quitter'**
+  /// **'Spirit'**
   String get tabQuitter;
 
   /// No description provided for @adderallPageTitle.
@@ -2227,7 +2227,7 @@ abstract class AppLocalizations {
   /// Hint text for the home addiction search bar
   ///
   /// In en, this message translates to:
-  /// **'Search addictions...'**
+  /// **'Search'**
   String get homeSearchHint;
 
   /// Button to create a custom tracker from an unmatched search
@@ -6097,7 +6097,7 @@ abstract class AppLocalizations {
   /// Home screen heading above habits being quit
   ///
   /// In en, this message translates to:
-  /// **'Quitting'**
+  /// **'Breaking free'**
   String get homeSectionQuitting;
 
   /// Button that opens the new good habit screen
@@ -6711,6 +6711,42 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Tap to continue'**
   String get freshStartContinue;
+
+  /// Neutral name shown for a built-in journey in discreet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Journey'**
+  String get discreetJourney;
+
+  /// Neutral name for the second and later built-in journeys in discreet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Journey {number}'**
+  String discreetJourneyNumbered(int number);
+
+  /// Settings switch title
+  ///
+  /// In en, this message translates to:
+  /// **'Discreet mode'**
+  String get settingsDiscreet;
+
+  /// Settings switch subtitle
+  ///
+  /// In en, this message translates to:
+  /// **'Show journeys under neutral names and icons, and keep them out of notifications. Rename a journey to give it a private name.'**
+  String get settingsDiscreetSubtitle;
+
+  /// Title of a progress reminder in discreet mode, which does not name the journey
+  ///
+  /// In en, this message translates to:
+  /// **'Keep going'**
+  String get notificationDiscreetTitle;
+
+  /// Body of a progress reminder in discreet mode
+  ///
+  /// In en, this message translates to:
+  /// **'Day {days} of your journey. {message}'**
+  String notificationDiscreetBody(int days, String message);
 }
 
 class _AppLocalizationsDelegate

@@ -435,6 +435,13 @@ class _SettingsPageState extends State<SettingsPage> {
         onChanged: (value) => settings.showReset = value,
       ),
       SwitchListTile(
+        secondary: const Icon(Icons.visibility_off),
+        title: Text(l10n.settingsDiscreet),
+        subtitle: Text(l10n.settingsDiscreetSubtitle),
+        value: settings.discreet,
+        onChanged: (value) => settings.discreet = value,
+      ),
+      SwitchListTile(
         secondary: const Icon(Icons.menu_book),
         title: Text(l10n.settingsShowJournal),
         subtitle: Text(l10n.settingsShowJournalSubtitle),

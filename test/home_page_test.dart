@@ -15,6 +15,7 @@ void main() {
 
   setUp(() async {
     SharedPreferences.setMockInitialValues({
+      'discreet_mode': false,
       'show_alcohol': false,
       'show_vaping': false,
       'show_smoking': false,
@@ -66,6 +67,7 @@ void main() {
       'should display grid of addiction cards when settings are enabled',
       (WidgetTester tester) async {
         SharedPreferences.setMockInitialValues({
+          'discreet_mode': false,
           'alcohol': '2024-01-01',
           'vaping': '2024-01-01',
           'smoking': '2024-01-01',
@@ -97,6 +99,7 @@ void main() {
       'should display all addiction types when all settings are enabled',
       (WidgetTester tester) async {
         SharedPreferences.setMockInitialValues({
+          'discreet_mode': false,
           'alcohol': '2024-01-01',
           'vaping': '2024-01-01',
           'smoking': '2024-01-01',
@@ -131,7 +134,10 @@ void main() {
     testWidgets('should ask to stop tracking after dismissing a card', (
       WidgetTester tester,
     ) async {
-      SharedPreferences.setMockInitialValues({'alcohol': '2024-01-01'});
+      SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
+        'alcohol': '2024-01-01',
+      });
       addictionProvider = AddictionProvider();
       await addictionProvider.loadAddictions();
 
@@ -150,7 +156,10 @@ void main() {
     testWidgets('should show stop tracking sheet when X icon is tapped', (
       WidgetTester tester,
     ) async {
-      SharedPreferences.setMockInitialValues({'alcohol': '2024-01-01'});
+      SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
+        'alcohol': '2024-01-01',
+      });
       addictionProvider = AddictionProvider();
       await addictionProvider.loadAddictions();
 
@@ -171,7 +180,10 @@ void main() {
     testWidgets('should cancel hide action when Cancel is pressed', (
       WidgetTester tester,
     ) async {
-      SharedPreferences.setMockInitialValues({'alcohol': '2024-01-01'});
+      SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
+        'alcohol': '2024-01-01',
+      });
       addictionProvider = AddictionProvider();
       await addictionProvider.loadAddictions();
 
@@ -194,7 +206,10 @@ void main() {
     testWidgets('should hide card when Remove is confirmed', (
       WidgetTester tester,
     ) async {
-      SharedPreferences.setMockInitialValues({'alcohol': '2024-01-01'});
+      SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
+        'alcohol': '2024-01-01',
+      });
       addictionProvider = AddictionProvider();
       await addictionProvider.loadAddictions();
 
@@ -229,7 +244,10 @@ void main() {
     testWidgets('should navigate to addiction page when card is tapped', (
       WidgetTester tester,
     ) async {
-      SharedPreferences.setMockInitialValues({'alcohol': '2024-01-01'});
+      SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
+        'alcohol': '2024-01-01',
+      });
       addictionProvider = AddictionProvider();
       await addictionProvider.loadAddictions();
 
@@ -253,6 +271,7 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
 
       SharedPreferences.setMockInitialValues({
+        'discreet_mode': false,
         'show_nicotine_pouches': true,
         'nicotine_pouches': '2026-05-02',
       });
@@ -265,6 +284,39 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(find.text('Nicotine pouches', findRichText: true), findsOneWidget);
+    });
+  });
+
+  group('HomePage Discreet Mode', () {
+    testWidgets('built-in journeys show neutral names unless renamed', (
+      WidgetTester tester,
+    ) async {
+      SharedPreferences.setMockInitialValues({
+        'alcohol': '2024-01-01',
+        'pornography': '2024-02-01',
+        'smoking': '2024-03-01',
+        'custom_names': '{"smoking": "Fresh air"}',
+      });
+      settingsProvider = SettingsProvider();
+      await settingsProvider.loadPreferences();
+      addictionProvider = AddictionProvider();
+      await addictionProvider.loadAddictions();
+
+      await tester.pumpWidget(createTestWidget());
+      await tester.pumpAndSettle();
+
+      expect(settingsProvider.discreet, isTrue);
+      expect(find.text('Alcohol'), findsNothing);
+      expect(find.text('Adult Content'), findsNothing);
+      expect(find.text('Journey'), findsOneWidget);
+      expect(find.text('Journey 2'), findsOneWidget);
+      expect(find.text('Fresh air'), findsOneWidget);
+
+      settingsProvider.discreet = false;
+      await tester.pumpAndSettle();
+
+      expect(find.text('Alcohol'), findsOneWidget);
+      expect(find.text('Journey'), findsNothing);
     });
   });
 }
