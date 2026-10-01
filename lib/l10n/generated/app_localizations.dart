@@ -6609,6 +6609,84 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Well done. God is faithful, and you stood firm. Thank Him for this win.'**
   String get strugglingMadeItMessage;
+
+  /// Button that records how many minutes a fitness habit took today
+  ///
+  /// In en, this message translates to:
+  /// **'Log minutes'**
+  String get habitLogMinutes;
+
+  /// Title of the dialog for logging exercise minutes
+  ///
+  /// In en, this message translates to:
+  /// **'How many minutes?'**
+  String get habitMinutesTitle;
+
+  /// Label of the minutes field
+  ///
+  /// In en, this message translates to:
+  /// **'Minutes'**
+  String get habitMinutesLabel;
+
+  /// Minutes logged today on a fitness habit
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} min today'**
+  String habitMinutesToday(int minutes);
+
+  /// Heading of the good habit stats card
+  ///
+  /// In en, this message translates to:
+  /// **'Good habits'**
+  String get statsHabitsTitle;
+
+  /// Days done this week against the weekly target
+  ///
+  /// In en, this message translates to:
+  /// **'This week: {done} of {target}'**
+  String statsHabitThisWeek(int done, int target);
+
+  /// Share of the weekly target met over the last four full weeks
+  ///
+  /// In en, this message translates to:
+  /// **'Last 4 weeks: {percent}%'**
+  String statsHabitRecent(int percent);
+
+  /// Longest streak of a daily habit
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Best: 1 day} other{Best: {count} days}}'**
+  String statsHabitBestDays(int count);
+
+  /// Longest streak of a weekly habit
+  ///
+  /// In en, this message translates to:
+  /// **'{count, plural, =1{Best: 1 week} other{Best: {count} weeks}}'**
+  String statsHabitBestWeeks(int count);
+
+  /// Heading of the exercise minutes card
+  ///
+  /// In en, this message translates to:
+  /// **'Exercise'**
+  String get statsExerciseTitle;
+
+  /// Exercise minutes logged this week
+  ///
+  /// In en, this message translates to:
+  /// **'{minutes} minutes this week'**
+  String statsExerciseThisWeek(int minutes);
+
+  /// Average weekly exercise minutes over recent weeks
+  ///
+  /// In en, this message translates to:
+  /// **'About {minutes} minutes a week lately'**
+  String statsExerciseAverage(int minutes);
+
+  /// Shown on the exercise card before any minutes are logged
+  ///
+  /// In en, this message translates to:
+  /// **'Log minutes on a fitness habit after ticking it off to see them here.'**
+  String get statsExerciseHint;
 }
 
 class _AppLocalizationsDelegate

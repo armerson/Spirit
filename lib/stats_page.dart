@@ -4,7 +4,11 @@ import 'package:provider/provider.dart';
 import 'package:quitter/add_addiction_page.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/empty_state.dart';
+import 'package:quitter/habit.dart';
+import 'package:quitter/habit_provider.dart';
+import 'package:quitter/habit_stats_cards.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
+import 'package:quitter/settings_provider.dart';
 import 'package:quitter/utils.dart';
 
 class StatsPage extends StatelessWidget {
@@ -16,8 +20,16 @@ class StatsPage extends StatelessWidget {
     return Consumer<AddictionProvider>(
       builder: (context, addictions, child) {
         final entries = _buildStatEntries(l10n, addictions);
+        final habits = context.watch<HabitProvider>().habits;
+        final weekStartsMonday = context
+            .watch<SettingsProvider>()
+            .weekStartsMonday;
+        final fitnessHabits = habits
+            .where((habit) => habit.category == HabitCategory.fitness)
+            .toList();
+        final now = DateTime.now();
 
-        if (entries.isEmpty) {
+        if (entries.isEmpty && habits.isEmpty) {
           return AppEmptyState(
             icon: Icons.bar_chart_rounded,
             title: l10n.statsNoAddictions,
@@ -71,16 +83,43 @@ class StatsPage extends StatelessWidget {
                 ),
               ),
             ),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              sliver: SliverToBoxAdapter(
-                child: _JourneyCard(
-                  totalDays: totalDays,
-                  addictionCount: entries.length,
-                  l10n: l10n,
+            if (habits.isNotEmpty) ...[
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverToBoxAdapter(
+                  child: HabitStatsCard(
+                    habits: habits,
+                    now: now,
+                    weekStartsMonday: weekStartsMonday,
+                  ),
                 ),
               ),
-            ),
+              const SliverToBoxAdapter(child: SizedBox(height: 12)),
+            ],
+            if (fitnessHabits.isNotEmpty) ...[
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverToBoxAdapter(
+                  child: ExerciseCard(
+                    fitnessHabits: fitnessHabits,
+                    now: now,
+                    weekStartsMonday: weekStartsMonday,
+                  ),
+                ),
+              ),
+              const SliverToBoxAdapter(child: SizedBox(height: 12)),
+            ],
+            if (entries.isNotEmpty)
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverToBoxAdapter(
+                  child: _JourneyCard(
+                    totalDays: totalDays,
+                    addictionCount: entries.length,
+                    l10n: l10n,
+                  ),
+                ),
+              ),
             if (moneySaved > 0) ...[
               const SliverToBoxAdapter(child: SizedBox(height: 12)),
               SliverPadding(
@@ -107,13 +146,15 @@ class StatsPage extends StatelessWidget {
                 ),
               ),
             ],
-            const SliverToBoxAdapter(child: SizedBox(height: 12)),
-            SliverPadding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              sliver: SliverToBoxAdapter(
-                child: _StreaksCard(entries: sortedByStreak, l10n: l10n),
+            if (entries.isNotEmpty) ...[
+              const SliverToBoxAdapter(child: SizedBox(height: 12)),
+              SliverPadding(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                sliver: SliverToBoxAdapter(
+                  child: _StreaksCard(entries: sortedByStreak, l10n: l10n),
+                ),
               ),
-            ),
+            ],
             if (totalRelapses > 0) ...[
               const SliverToBoxAdapter(child: SizedBox(height: 12)),
               SliverPadding(

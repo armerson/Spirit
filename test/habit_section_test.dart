@@ -299,4 +299,30 @@ void main() {
     await tester.pumpAndSettle();
     expect(habits.habits.single.opensReading, isTrue);
   });
+
+  testWidgets('fitness habits done today can log minutes', (tester) async {
+    await habits.addHabit(
+      Habit(
+        id: 'walk',
+        title: 'Walk',
+        category: HabitCategory.fitness,
+        color: Colors.green,
+        createdAt: DateTime(2026, 9, 1),
+      ),
+    );
+    await tester.pumpWidget(createTestWidget());
+    expect(find.byKey(const Key('habitMinutes-walk')), findsNothing);
+
+    await tester.tap(find.byKey(const Key('habitCheck-walk')));
+    await tester.pumpAndSettle();
+    await tester.tap(find.byKey(const Key('habitMinutes-walk')));
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('30'));
+    await tester.tap(find.text('Save'));
+    await tester.pumpAndSettle();
+
+    expect(habits.byId('walk')!.minutesOn(DateTime.now()), 30);
+    expect(find.textContaining('30 min today'), findsOneWidget);
+  });
 }

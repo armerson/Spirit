@@ -2894,5 +2894,95 @@
   "strugglingMadeItMessage": "Well done. God is faithful, and you stood firm. Thank Him for this win.",
   "@strugglingMadeItMessage": {
     "description": "Encouragement after getting through a moment of temptation"
+  },
+  "habitLogMinutes": "Log minutes",
+  "@habitLogMinutes": {
+    "description": "Button that records how many minutes a fitness habit took today"
+  },
+  "habitMinutesTitle": "How many minutes?",
+  "@habitMinutesTitle": {
+    "description": "Title of the dialog for logging exercise minutes"
+  },
+  "habitMinutesLabel": "Minutes",
+  "@habitMinutesLabel": {
+    "description": "Label of the minutes field"
+  },
+  "habitMinutesToday": "{minutes} min today",
+  "@habitMinutesToday": {
+    "description": "Minutes logged today on a fitness habit",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "statsHabitsTitle": "Good habits",
+  "@statsHabitsTitle": {
+    "description": "Heading of the good habit stats card"
+  },
+  "statsHabitThisWeek": "This week: {done} of {target}",
+  "@statsHabitThisWeek": {
+    "description": "Days done this week against the weekly target",
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "statsHabitRecent": "Last 4 weeks: {percent}%",
+  "@statsHabitRecent": {
+    "description": "Share of the weekly target met over the last four full weeks",
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "statsHabitBestDays": "{count, plural, =1{Best: 1 day} other{Best: {count} days}}",
+  "@statsHabitBestDays": {
+    "description": "Longest streak of a daily habit",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsHabitBestWeeks": "{count, plural, =1{Best: 1 week} other{Best: {count} weeks}}",
+  "@statsHabitBestWeeks": {
+    "description": "Longest streak of a weekly habit",
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "statsExerciseTitle": "Exercise",
+  "@statsExerciseTitle": {
+    "description": "Heading of the exercise minutes card"
+  },
+  "statsExerciseThisWeek": "{minutes} minutes this week",
+  "@statsExerciseThisWeek": {
+    "description": "Exercise minutes logged this week",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "statsExerciseAverage": "About {minutes} minutes a week lately",
+  "@statsExerciseAverage": {
+    "description": "Average weekly exercise minutes over recent weeks",
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "statsExerciseHint": "Log minutes on a fitness habit after ticking it off to see them here.",
+  "@statsExerciseHint": {
+    "description": "Shown on the exercise card before any minutes are logged"
   }
 }
