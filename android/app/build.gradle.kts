@@ -76,8 +76,12 @@ android {
     buildTypes {
         release {
             val keyPropertiesFile = rootProject.file("key.properties")
-            if (keyPropertiesFile.exists()) {
-                signingConfig = signingConfigs.getByName("release")
+            // Without a release key, sign with the debug key so the APK can
+            // still be sideloaded; an unsigned APK will not install.
+            signingConfig = if (keyPropertiesFile.exists()) {
+                signingConfigs.getByName("release")
+            } else {
+                signingConfigs.getByName("debug")
             }
         }
         debug {
