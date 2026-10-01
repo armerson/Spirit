@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:quitter/addiction_provider.dart';
 import 'package:quitter/confetti_widget.dart';
 import 'package:quitter/encouragement.dart';
+import 'package:quitter/fresh_start.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
 import 'package:quitter/quit_milestone.dart';
 import 'package:quitter/settings_provider.dart';
@@ -305,6 +306,55 @@ class _QuitMilestonesPageState extends State<QuitMilestonesPage> {
     );
   }
 
+  Future<void> _startAgain(Offset origin, int days) async {
+    final addictions = context.read<AddictionProvider>();
+    final l10n = AppLocalizations.of(context)!;
+    if (widget.onResetPressed != null) {
+      await widget.onResetPressed!(days);
+    } else {
+      await addictions.resetAddiction(widget.storageKey, days);
+    }
+
+    if (!mounted) return;
+    final quit = quitDate;
+    setState(() {
+      quitDate = DateTime.now();
+    });
+    _updateQuitDate(quitDate);
+
+    final verse = verseFor(
+      EncouragementMoment.freshStart,
+      await bundledVerses(),
+      null,
+      400,
+    );
+    if (!mounted) return;
+    await showFreshStartWash(context, origin: origin, verse: verse);
+
+    if (!mounted) return;
+    if (context.read<SettingsProvider>().notifyRelapse == false) return;
+    toast(
+      getRelapseEncouragementMessage(context),
+      duration: encouragementToastDuration,
+      action: SnackBarAction(
+        label: l10n.undo,
+        onPressed: () async {
+          await addictions.setAddiction(
+            widget.storageKey,
+            quit.toIso8601String(),
+          );
+          await addictions.popDays(widget.storageKey);
+
+          if (!mounted) return;
+          setState(() {
+            quitDate = quit;
+          });
+          _updateQuitDate(quitDate);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
@@ -323,53 +373,8 @@ class _QuitMilestonesPageState extends State<QuitMilestonesPage> {
         icon: const Icon(Icons.rocket_launch),
       );
     } else {
-      fab = FloatingActionButton.extended(
-        onPressed: () async {
-          if (widget.onResetPressed != null) {
-            await widget.onResetPressed!(days);
-          } else {
-            await addictions.resetAddiction(widget.storageKey, days);
-          }
-
-          if (!context.mounted) return;
-          final quit = quitDate;
-          setState(() {
-            quitDate = DateTime.now();
-          });
-
-          _updateQuitDate(quitDate);
-
-          final settings = context.read<SettingsProvider>();
-          if (settings.notifyRelapse == false) return;
-
-          final message = getRelapseEncouragementMessage(context);
-          final verse = verseFor(
-            EncouragementMoment.relapse,
-            await bundledVerses(),
-          );
-          toast(
-            withVerse(l10n, message, verse),
-            duration: encouragementToastDuration,
-            action: SnackBarAction(
-              label: l10n.undo,
-              onPressed: () async {
-                await addictions.setAddiction(
-                  widget.storageKey,
-                  quit.toIso8601String(),
-                );
-                await addictions.popDays(widget.storageKey);
-
-                if (!mounted) return;
-                setState(() {
-                  quitDate = quit;
-                });
-                _updateQuitDate(quitDate);
-              },
-            ),
-          );
-        },
-        label: Text(l10n.quitResetButton),
-        icon: const Icon(Icons.restart_alt),
+      fab = HoldToStartAgainButton(
+        onConfirmed: (origin) => _startAgain(origin, days),
       );
     }
 

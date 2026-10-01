@@ -12,6 +12,7 @@ enum EncouragementMoment {
   relapse,
   reminder,
   struggling,
+  freshStart,
 }
 
 /// Verse themes that fit each moment, so a missed day gets grace rather
@@ -23,6 +24,7 @@ const Map<EncouragementMoment, Set<String>> momentThemes = {
   EncouragementMoment.relapse: {'grace', 'new_start', 'temptation'},
   EncouragementMoment.reminder: {'strength', 'spirit', 'faith', 'peace'},
   EncouragementMoment.struggling: {'temptation', 'strength'},
+  EncouragementMoment.freshStart: {'new_start', 'grace'},
 };
 
 /// Verses longer than this are left out of snackbars and notifications,

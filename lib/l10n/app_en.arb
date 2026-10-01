@@ -469,10 +469,6 @@
   "@quitStartButton": {
     "description": "Floating action button label on quit page (start button)"
   },
-  "quitResetButton": "Reset",
-  "@quitResetButton": {
-    "description": "Floating action button label on quit page (reset button)"
-  },
   "quitCardSubtitle": "Tap to start",
   "@quitCardSubtitle": {
     "description": "Prompt displayed on the quit card"
@@ -2984,5 +2980,25 @@
   "statsExerciseHint": "Log minutes on a fitness habit after ticking it off to see them here.",
   "@statsExerciseHint": {
     "description": "Shown on the exercise card before any minutes are logged"
+  },
+  "freshStartHold": "Hold to start again",
+  "@freshStartHold": {
+    "description": "Label on the button the user presses and holds to begin a journey again after a stumble"
+  },
+  "freshStartHoldHint": "Press and hold to start again",
+  "@freshStartHoldHint": {
+    "description": "Shown when the start again button is tapped instead of held"
+  },
+  "freshStartTitle": "A clean slate",
+  "@freshStartTitle": {
+    "description": "Heading on the white screen shown after starting again"
+  },
+  "freshStartPledge": "With God's help, I begin again today.",
+  "@freshStartPledge": {
+    "description": "The pledge shown after starting again"
+  },
+  "freshStartContinue": "Tap to continue",
+  "@freshStartContinue": {
+    "description": "Hint to dismiss the fresh start screen"
   }
 }

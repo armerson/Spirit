@@ -2008,12 +2008,6 @@ abstract class AppLocalizations {
   /// **'Start'**
   String get quitStartButton;
 
-  /// Floating action button label on quit page (reset button)
-  ///
-  /// In en, this message translates to:
-  /// **'Reset'**
-  String get quitResetButton;
-
   /// Prompt displayed on the quit card
   ///
   /// In en, this message translates to:
@@ -6687,6 +6681,36 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Log minutes on a fitness habit after ticking it off to see them here.'**
   String get statsExerciseHint;
+
+  /// Label on the button the user presses and holds to begin a journey again after a stumble
+  ///
+  /// In en, this message translates to:
+  /// **'Hold to start again'**
+  String get freshStartHold;
+
+  /// Shown when the start again button is tapped instead of held
+  ///
+  /// In en, this message translates to:
+  /// **'Press and hold to start again'**
+  String get freshStartHoldHint;
+
+  /// Heading on the white screen shown after starting again
+  ///
+  /// In en, this message translates to:
+  /// **'A clean slate'**
+  String get freshStartTitle;
+
+  /// The pledge shown after starting again
+  ///
+  /// In en, this message translates to:
+  /// **'With God\'s help, I begin again today.'**
+  String get freshStartPledge;
+
+  /// Hint to dismiss the fresh start screen
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to continue'**
+  String get freshStartContinue;
 }
 
 class _AppLocalizationsDelegate

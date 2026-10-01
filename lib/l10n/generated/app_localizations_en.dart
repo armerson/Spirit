@@ -1131,9 +1131,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quitStartButton => 'Start';
 
   @override
-  String get quitResetButton => 'Reset';
-
-  @override
   String get quitCardSubtitle => 'Tap to start';
 
   @override
@@ -3983,4 +3980,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get statsExerciseHint =>
       'Log minutes on a fitness habit after ticking it off to see them here.';
+
+  @override
+  String get freshStartHold => 'Hold to start again';
+
+  @override
+  String get freshStartHoldHint => 'Press and hold to start again';
+
+  @override
+  String get freshStartTitle => 'A clean slate';
+
+  @override
+  String get freshStartPledge => 'With God\'s help, I begin again today.';
+
+  @override
+  String get freshStartContinue => 'Tap to continue';
 }
