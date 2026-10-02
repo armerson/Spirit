@@ -19,15 +19,9 @@ void main() {
     'alcohol': DateTime.now().toIso8601String(),
     'vaping': DateTime.now().toIso8601String(),
     'smoking': DateTime.now().toIso8601String(),
-    'marijuana': DateTime.now().toIso8601String(),
     'nicotine_pouches': DateTime.now().toIso8601String(),
-    'opioids': DateTime.now().toIso8601String(),
     'social_media': DateTime.now().toIso8601String(),
     'pornography': DateTime.now().toIso8601String(),
-    'cocaine': DateTime.now().toIso8601String(),
-    'benzos': DateTime.now().toIso8601String(),
-    'meth': DateTime.now().toIso8601String(),
-    'adderall': DateTime.now().toIso8601String(),
   };
 
   setUp(() async {
@@ -139,9 +133,8 @@ void main() {
         'Alcohol',
         'Vaping',
         'Smoking',
-        'Marijuana',
         'Nicotine pouches',
-        'Opioids',
+        'Social Media',
       ];
 
       for (final item in items) {
@@ -355,31 +348,6 @@ void main() {
       expect(settingsProvider.notifySmoking, !initialValue);
     });
 
-    testWidgets('toggling notify marijuana switch works', (
-      WidgetTester tester,
-    ) async {
-      await tester.pumpWidget(createTestWidget());
-
-      final initialValue = settingsProvider.notifyMarijuana;
-
-      final notifyMarijuanaSwitch = find.ancestor(
-        of: find.text('Notify marijuana quitting progress'),
-        matching: find.byType(SwitchListTile),
-      );
-
-      await tester.dragUntilVisible(
-        notifyMarijuanaSwitch,
-        find.byType(ListView),
-        const Offset(0, -500),
-      );
-      await tester.pumpAndSettle();
-
-      await tester.tap(notifyMarijuanaSwitch);
-      await tester.pumpAndSettle();
-
-      expect(settingsProvider.notifyMarijuana, !initialValue);
-    });
-
     testWidgets('toggling notify nicotine pouches switch works', (
       WidgetTester tester,
     ) async {
@@ -403,31 +371,6 @@ void main() {
       await tester.pumpAndSettle();
 
       expect(settingsProvider.notifyPouches, !initialValue);
-    });
-
-    testWidgets('toggling notify opioids switch works', (
-      WidgetTester tester,
-    ) async {
-      await tester.pumpWidget(createTestWidget());
-
-      final initialValue = settingsProvider.notifyOpioids;
-
-      final notifyOpioidsSwitch = find.ancestor(
-        of: find.text('Notify opioids quitting progress'),
-        matching: find.byType(SwitchListTile),
-      );
-
-      await tester.dragUntilVisible(
-        notifyOpioidsSwitch,
-        find.byType(ListView),
-        const Offset(0, -500),
-      );
-      await tester.pumpAndSettle();
-
-      await tester.tap(notifyOpioidsSwitch);
-      await tester.pumpAndSettle();
-
-      expect(settingsProvider.notifyOpioids, !initialValue);
     });
 
     testWidgets('toggling notify social media switch works', (

@@ -250,14 +250,6 @@ class StatsPage extends StatelessWidget {
       key: 'vaping',
     );
     addPreset(
-      addictions.quitMarijuana,
-      l10n.addictionMarijuana,
-      Icons.grass,
-      const Color(0xFF84E680),
-      costPerDay: 4.29,
-      key: 'marijuana',
-    );
-    addPreset(
       addictions.quitPouches,
       l10n.addictionNicotinePouches,
       Icons.scatter_plot,
@@ -282,151 +274,11 @@ class StatsPage extends StatelessWidget {
       key: 'pornography',
     );
     addPreset(
-      addictions.quitOpioids,
-      l10n.addictionOpioids,
-      Icons.medication,
-      const Color(0xFFEC4899),
-      key: 'opioids',
-    );
-    addPreset(
-      addictions.quitCocaine,
-      l10n.addictionCocaine,
-      Icons.bolt,
-      const Color(0xFF3B82F6),
-      key: 'cocaine',
-    );
-    addPreset(
-      addictions.quitMeth,
-      l10n.addictionMeth,
-      Icons.battery_charging_full,
-      const Color(0xFF14B8A6),
-      key: 'meth',
-    );
-    addPreset(
-      addictions.quitBenzos,
-      l10n.addictionBenzos,
-      Icons.bedtime,
-      const Color(0xFF6D5DD3),
-      key: 'benzos',
-    );
-    addPreset(
-      addictions.quitAdderall,
-      l10n.addictionAdderall,
-      Icons.lightbulb_outline,
-      const Color(0xFFFF8C42),
-      key: 'adderall',
-    );
-    addPreset(
-      addictions.quitSsri,
-      l10n.addictionSsri,
-      Icons.psychology,
-      const Color(0xFF7C3AED),
-      key: 'ssri',
-    );
-    addPreset(
-      addictions.quitSnri,
-      l10n.addictionSnri,
-      Icons.psychology_alt,
-      const Color(0xFF6D28D9),
-      key: 'snri',
-    );
-    addPreset(
-      addictions.quitTca,
-      l10n.addictionTca,
-      Icons.medication_liquid,
-      const Color(0xFF5B21B6),
-      key: 'tca',
-    );
-    addPreset(
-      addictions.quitMaoi,
-      l10n.addictionMaoi,
-      Icons.science,
-      const Color(0xFF4C1D95),
-      key: 'maoi',
-    );
-    addPreset(
-      addictions.quitKratom,
-      l10n.addictionKratom,
-      Icons.local_florist,
-      const Color(0xFF6D9F4E),
-      key: 'kratom',
-    );
-    addPreset(
-      addictions.quitGabapentinoids,
-      l10n.addictionGabapentinoid,
-      Icons.medication_outlined,
-      const Color(0xFF94A3B8),
-      key: 'gabapentinoids',
-    );
-    addPreset(
-      addictions.quitGhb,
-      l10n.addictionGhb,
-      Icons.water_drop,
-      const Color(0xFF60A5FA),
-      key: 'ghb',
-    );
-    addPreset(
-      addictions.quitKetamine,
-      l10n.addictionKetamine,
-      Icons.vaccines,
-      const Color(0xFF818CF8),
-      key: 'ketamine',
-    );
-    addPreset(
-      addictions.quitInhalants,
-      l10n.addictionInhalants,
-      Icons.local_gas_station,
-      const Color(0xFF9CA3AF),
-      key: 'inhalants',
-    );
-    addPreset(
-      addictions.quitSyntheticCannabinoids,
-      l10n.addictionSyntheticCannabinoids,
-      Icons.whatshot,
-      const Color(0xFFA3E635),
-      key: 'synthetic_cannabinoids',
-    );
-    addPreset(
-      addictions.quitMdma,
-      l10n.addictionMdma,
-      Icons.favorite,
-      const Color(0xFFF472B6),
-      key: 'mdma',
-    );
-    addPreset(
-      addictions.quitSteroids,
-      l10n.addictionSteroids,
-      Icons.fitness_center,
-      const Color(0xFFEF4444),
-      key: 'steroids',
-    );
-    addPreset(
-      addictions.quitNitrousOxide,
-      l10n.addictionNitrousOxide,
-      Icons.air_outlined,
-      const Color(0xFF38BDF8),
-      key: 'nitrous_oxide',
-    );
-    addPreset(
-      addictions.quitFentanyl,
-      l10n.addictionFentanyl,
-      Icons.warning_amber,
-      const Color(0xFFDC2626),
-      key: 'fentanyl',
-    );
-    addPreset(
       addictions.quitSmokelessTobacco,
       l10n.addictionSmokelessTobacco,
       Icons.sports_baseball,
       const Color(0xFF92400E),
       key: 'smokeless_tobacco',
-    );
-    addPreset(
-      addictions.quitHeroin,
-      l10n.addictionHeroin,
-      Icons.medication,
-      const Color(0xFFB91C1C),
-      key: 'heroin',
     );
 
     for (final entry in addictions.entries) {

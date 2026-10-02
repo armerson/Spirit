@@ -10,7 +10,7 @@ import 'package:quitter/edit_entry_page.dart';
 import 'package:quitter/entry.dart';
 import 'package:quitter/home_page.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
-import 'package:quitter/marijuana_page.dart';
+import 'package:quitter/vaping_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:quitter/main.dart' as app;
 import 'package:quitter/alcohol_page.dart';
@@ -186,7 +186,7 @@ void main() {
     );
 
     testWidgets(
-      "MarijuanaPage",
+      "VapingPage",
       (tester) async => await screenshot(
         binding: binding,
         tester: tester,
@@ -194,7 +194,7 @@ void main() {
         goToPage: (context) async {
           final settings = context.read<SettingsProvider>();
           settings.themeMode = AppThemeMode.light;
-          navigate(context: context, page: const MarijuanaPage(started: true));
+          navigate(context: context, page: const VapingPage(started: true));
         },
       ),
     );

@@ -486,90 +486,6 @@ class _SettingsPageState extends State<SettingsPage> {
         );
 
     final allItems = [
-      if (addictions.quitAdderall != null)
-        _ToggleItem(
-          icon: Icons.lightbulb_outline,
-          title: l10n.addictionAdderall,
-          subtitle: l10n.settingsNotifyAdderall,
-          value: settings.notifyAdderall,
-          onChanged: (value) => settings.notifyAdderall = value,
-          notifyPrefsKey: 'adderall',
-          notifyDisplayName: l10n.addictionAdderall,
-        ),
-      if (addictions.quitSsri != null)
-        _ToggleItem(
-          icon: Icons.psychology,
-          title: l10n.addictionSsri,
-          subtitle: l10n.settingsNotifySsri,
-          value: settings.notifySsri,
-          onChanged: (value) => settings.notifySsri = value,
-          notifyPrefsKey: 'ssri',
-          notifyDisplayName: l10n.addictionSsri,
-        ),
-      if (addictions.quitSnri != null)
-        _ToggleItem(
-          icon: Icons.psychology_alt,
-          title: l10n.addictionSnri,
-          subtitle: l10n.settingsNotifySnri,
-          value: settings.notifySnri,
-          onChanged: (value) => settings.notifySnri = value,
-          notifyPrefsKey: 'snri',
-          notifyDisplayName: l10n.addictionSnri,
-        ),
-      if (addictions.quitTca != null)
-        _ToggleItem(
-          icon: Icons.medication_liquid,
-          title: l10n.addictionTca,
-          subtitle: l10n.settingsNotifyTca,
-          value: settings.notifyTca,
-          onChanged: (value) => settings.notifyTca = value,
-          notifyPrefsKey: 'tca',
-          notifyDisplayName: l10n.addictionTca,
-        ),
-      if (addictions.quitMaoi != null)
-        _ToggleItem(
-          icon: Icons.science,
-          title: l10n.addictionMaoi,
-          subtitle: l10n.settingsNotifyMaoi,
-          value: settings.notifyMaoi,
-          onChanged: (value) => settings.notifyMaoi = value,
-          notifyPrefsKey: 'maoi',
-          notifyDisplayName: l10n.addictionMaoi,
-        ),
-      if (addictions.quitNitrousOxide != null)
-        presetToggle(
-          'nitrous_oxide',
-          Icons.air_outlined,
-          l10n.addictionNitrousOxide,
-        ),
-      if (addictions.quitKratom != null)
-        presetToggle('kratom', Icons.local_florist, l10n.addictionKratom),
-      if (addictions.quitGabapentinoids != null)
-        presetToggle(
-          'gabapentinoids',
-          Icons.medication_outlined,
-          l10n.addictionGabapentinoid,
-        ),
-      if (addictions.quitGhb != null)
-        presetToggle('ghb', Icons.water_drop, l10n.addictionGhb),
-      if (addictions.quitKetamine != null)
-        presetToggle('ketamine', Icons.vaccines, l10n.addictionKetamine),
-      if (addictions.quitInhalants != null)
-        presetToggle(
-          'inhalants',
-          Icons.local_gas_station,
-          l10n.addictionInhalants,
-        ),
-      if (addictions.quitSyntheticCannabinoids != null)
-        presetToggle(
-          'synthetic_cannabinoids',
-          Icons.whatshot,
-          l10n.addictionSyntheticCannabinoids,
-        ),
-      if (addictions.quitMdma != null)
-        presetToggle('mdma', Icons.favorite, l10n.addictionMdma),
-      if (addictions.quitSteroids != null)
-        presetToggle('steroids', Icons.fitness_center, l10n.addictionSteroids),
       if (addictions.quitAlcohol != null)
         _ToggleItem(
           icon: Icons.local_bar,
@@ -579,46 +495,6 @@ class _SettingsPageState extends State<SettingsPage> {
           onChanged: (value) => settings.notifyAlcohol = value,
           notifyPrefsKey: 'alcohol',
           notifyDisplayName: l10n.addictionAlcohol,
-        ),
-      if (addictions.quitBenzos != null)
-        _ToggleItem(
-          icon: Icons.bedtime,
-          title: l10n.addictionBenzos,
-          subtitle: l10n.settingsNotifyBenzos,
-          value: settings.notifyBenzos,
-          onChanged: (value) => settings.notifyBenzos = value,
-          notifyPrefsKey: 'benzos',
-          notifyDisplayName: l10n.addictionBenzos,
-        ),
-      if (addictions.quitCocaine != null)
-        _ToggleItem(
-          icon: Icons.bolt,
-          title: l10n.addictionCocaine,
-          subtitle: l10n.settingsNotifyCocaine,
-          value: settings.notifyCocaine,
-          onChanged: (value) => settings.notifyCocaine = value,
-          notifyPrefsKey: 'cocaine',
-          notifyDisplayName: l10n.addictionCocaine,
-        ),
-      if (addictions.quitMarijuana != null)
-        _ToggleItem(
-          icon: Icons.grass,
-          title: l10n.addictionMarijuana,
-          subtitle: l10n.settingsNotifyMarijuana,
-          value: settings.notifyMarijuana,
-          onChanged: (value) => settings.notifyMarijuana = value,
-          notifyPrefsKey: 'marijuana',
-          notifyDisplayName: l10n.addictionMarijuana,
-        ),
-      if (addictions.quitMeth != null)
-        _ToggleItem(
-          icon: Icons.battery_charging_full,
-          title: l10n.addictionMeth,
-          subtitle: l10n.settingsNotifyMeth,
-          value: settings.notifyMeth,
-          onChanged: (value) => settings.notifyMeth = value,
-          notifyPrefsKey: 'meth',
-          notifyDisplayName: l10n.addictionMeth,
         ),
       if (addictions.quitPouches != null)
         _ToggleItem(
@@ -630,20 +506,6 @@ class _SettingsPageState extends State<SettingsPage> {
           notifyPrefsKey: 'nicotine_pouches',
           notifyDisplayName: l10n.addictionNicotinePouches,
         ),
-      if (addictions.quitOpioids != null)
-        _ToggleItem(
-          icon: Icons.medication,
-          title: l10n.addictionOpioids,
-          subtitle: l10n.settingsNotifyOpioids,
-          value: settings.notifyOpioids,
-          onChanged: (value) => settings.notifyOpioids = value,
-          notifyPrefsKey: 'opioids',
-          notifyDisplayName: l10n.addictionOpioids,
-        ),
-      if (addictions.quitHeroin != null)
-        presetToggle('heroin', Icons.medication, l10n.addictionHeroin),
-      if (addictions.quitFentanyl != null)
-        presetToggle('fentanyl', Icons.medication, l10n.addictionFentanyl),
       if (addictions.quitPornography != null)
         _ToggleItem(
           icon: Icons.block,
