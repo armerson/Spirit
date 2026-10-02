@@ -53,6 +53,15 @@ void main() {
     );
   }
 
+  /// Scrolls the home page until [finder] is on screen, since the verse of
+  /// the day above the cards changes length from day to day.
+  Future<void> scrollTo(WidgetTester tester, Finder finder) =>
+      tester.dragUntilVisible(
+        finder.hitTestable(),
+        find.byType(CustomScrollView),
+        const Offset(0, -100),
+      );
+
   group('HomePage Widget Tests', () {
     testWidgets('should render HomePage without errors', (
       WidgetTester tester,
@@ -144,6 +153,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Alcohol'));
       await tester.longPress(find.text('Alcohol'));
       await tester.pumpAndSettle();
 
@@ -166,6 +176,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Alcohol'));
       await tester.longPress(find.text('Alcohol'));
       await tester.pumpAndSettle();
 
@@ -190,6 +201,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Alcohol'));
       await tester.longPress(find.text('Alcohol'));
       await tester.pumpAndSettle();
 
@@ -216,6 +228,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Alcohol'));
       await tester.longPress(find.text('Alcohol'));
       await tester.pumpAndSettle();
 
@@ -254,6 +267,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Alcohol'));
       await tester.tap(find.text('Alcohol'));
       await tester.pumpAndSettle();
 
@@ -283,6 +297,7 @@ void main() {
       await tester.pumpWidget(createTestWidget());
       await tester.pumpAndSettle();
 
+      await scrollTo(tester, find.text('Nicotine pouches', findRichText: true));
       expect(find.text('Nicotine pouches', findRichText: true), findsOneWidget);
     });
   });
