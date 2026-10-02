@@ -282,36 +282,16 @@ Future<void> notifyProgress(
   final random = Random();
 
   final List<Map<String, String>> journeys = [
-    {'key': 'adderall', 'name': l10n.addictionAdderall},
-    {'key': 'ssri', 'name': l10n.addictionSsri},
-    {'key': 'snri', 'name': l10n.addictionSnri},
-    {'key': 'tca', 'name': l10n.addictionTca},
-    {'key': 'maoi', 'name': l10n.addictionMaoi},
     {'key': 'alcohol', 'name': l10n.addictionAlcohol},
-    {'key': 'benzos', 'name': l10n.addictionBenzos},
     {'key': 'vaping', 'name': l10n.addictionVaping},
     {'key': 'smoking', 'name': l10n.addictionSmoking},
-    {'key': 'marijuana', 'name': l10n.addictionMarijuana},
-    {'key': 'opioids', 'name': l10n.addictionOpioids},
     {'key': 'nicotine_pouches', 'name': l10n.addictionNicotinePouches},
     {'key': 'social_media', 'name': l10n.addictionSocialMedia},
     {'key': 'pornography', 'name': l10n.addictionAdultContent},
-    {'key': 'cocaine', 'name': l10n.addictionCocaine},
-    {'key': 'meth', 'name': l10n.addictionMeth},
-    {'key': 'nitrous_oxide', 'name': l10n.addictionNitrousOxide},
-    {'key': 'kratom', 'name': l10n.addictionKratom},
-    {'key': 'gabapentinoids', 'name': l10n.addictionGabapentinoid},
-    {'key': 'ghb', 'name': l10n.addictionGhb},
-    {'key': 'ketamine', 'name': l10n.addictionKetamine},
-    {'key': 'inhalants', 'name': l10n.addictionInhalants},
     {
       'key': 'synthetic_cannabinoids',
       'name': l10n.addictionSyntheticCannabinoids,
     },
-    {'key': 'mdma', 'name': l10n.addictionMdma},
-    {'key': 'steroids', 'name': l10n.addictionSteroids},
-    {'key': 'heroin', 'name': l10n.addictionHeroin},
-    {'key': 'fentanyl', 'name': l10n.addictionFentanyl},
     {'key': 'smokeless_tobacco', 'name': l10n.addictionSmokelessTobacco},
   ];
 

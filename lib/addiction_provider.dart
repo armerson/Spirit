@@ -13,30 +13,9 @@ class AddictionProvider extends ChangeNotifier {
   String? _smoking;
   String? _vaping;
   String? _alcohol;
-  String? _opioids;
-  String? _heroin;
   String? _pouches;
   String? _socialMedia;
   String? _pornography;
-  String? _cocaine;
-  String? _meth;
-  String? _marijuana;
-  String? _benzos;
-  String? _adderall;
-  String? _ssri;
-  String? _snri;
-  String? _tca;
-  String? _maoi;
-  String? _nitrousOxide;
-  String? _kratom;
-  String? _gabapentinoids;
-  String? _ghb;
-  String? _ketamine;
-  String? _inhalants;
-  String? _syntheticCannabinoids;
-  String? _mdma;
-  String? _steroids;
-  String? _fentanyl;
   String? _smokelessTobacco;
 
   List<Entry> entries = [];
@@ -69,30 +48,9 @@ class AddictionProvider extends ChangeNotifier {
     _smoking = readDate('smoking');
     _vaping = readDate('vaping');
     _alcohol = readDate('alcohol');
-    _opioids = readDate('opioids');
-    _heroin = readDate('heroin');
     _pouches = readDate('nicotine_pouches');
     _socialMedia = readDate('social_media');
     _pornography = readDate('pornography');
-    _marijuana = readDate('marijuana');
-    _cocaine = readDate('cocaine');
-    _meth = readDate('meth');
-    _benzos = readDate('benzos');
-    _adderall = readDate('adderall');
-    _ssri = readDate('ssri');
-    _snri = readDate('snri');
-    _tca = readDate('tca');
-    _maoi = readDate('maoi');
-    _nitrousOxide = readDate('nitrous_oxide');
-    _kratom = readDate('kratom');
-    _gabapentinoids = readDate('gabapentinoids');
-    _ghb = readDate('ghb');
-    _ketamine = readDate('ketamine');
-    _inhalants = readDate('inhalants');
-    _syntheticCannabinoids = readDate('synthetic_cannabinoids');
-    _mdma = readDate('mdma');
-    _steroids = readDate('steroids');
-    _fentanyl = readDate('fentanyl');
     _smokelessTobacco = readDate('smokeless_tobacco');
 
     entries = [];
@@ -167,30 +125,9 @@ class AddictionProvider extends ChangeNotifier {
       'smoking': _smoking,
       'vaping': _vaping,
       'alcohol': _alcohol,
-      'opioids': _opioids,
-      'heroin': _heroin,
       'nicotine_pouches': _pouches,
       'social_media': _socialMedia,
       'pornography': _pornography,
-      'marijuana': _marijuana,
-      'cocaine': _cocaine,
-      'meth': _meth,
-      'benzos': _benzos,
-      'adderall': _adderall,
-      'ssri': _ssri,
-      'snri': _snri,
-      'tca': _tca,
-      'maoi': _maoi,
-      'nitrous_oxide': _nitrousOxide,
-      'kratom': _kratom,
-      'gabapentinoids': _gabapentinoids,
-      'ghb': _ghb,
-      'ketamine': _ketamine,
-      'inhalants': _inhalants,
-      'synthetic_cannabinoids': _syntheticCannabinoids,
-      'mdma': _mdma,
-      'steroids': _steroids,
-      'fentanyl': _fentanyl,
       'smokeless_tobacco': _smokelessTobacco,
     };
     final activeKeys = allAddictions.entries
@@ -224,59 +161,17 @@ class AddictionProvider extends ChangeNotifier {
   String? get quitVaping => _vaping;
   String? get quitSmoking => _smoking;
   String? get quitPouches => _pouches;
-  String? get quitOpioids => _opioids;
-  String? get quitHeroin => _heroin;
   String? get quitSocialMedia => _socialMedia;
   String? get quitPornography => _pornography;
-  String? get quitMeth => _meth;
-  String? get quitBenzos => _benzos;
-  String? get quitAdderall => _adderall;
-  String? get quitCocaine => _cocaine;
-  String? get quitMarijuana => _marijuana;
-  String? get quitSsri => _ssri;
-  String? get quitSnri => _snri;
-  String? get quitTca => _tca;
-  String? get quitMaoi => _maoi;
-  String? get quitNitrousOxide => _nitrousOxide;
-  String? get quitKratom => _kratom;
-  String? get quitGabapentinoids => _gabapentinoids;
-  String? get quitGhb => _ghb;
-  String? get quitKetamine => _ketamine;
-  String? get quitInhalants => _inhalants;
-  String? get quitSyntheticCannabinoids => _syntheticCannabinoids;
-  String? get quitMdma => _mdma;
-  String? get quitSteroids => _steroids;
-  String? get quitFentanyl => _fentanyl;
   String? get quitSmokelessTobacco => _smokelessTobacco;
 
   bool get hasActivePresetJourney => [
     _smoking,
     _vaping,
     _alcohol,
-    _opioids,
-    _heroin,
     _pouches,
     _socialMedia,
     _pornography,
-    _cocaine,
-    _meth,
-    _marijuana,
-    _benzos,
-    _adderall,
-    _ssri,
-    _snri,
-    _tca,
-    _maoi,
-    _nitrousOxide,
-    _kratom,
-    _gabapentinoids,
-    _ghb,
-    _ketamine,
-    _inhalants,
-    _syntheticCannabinoids,
-    _mdma,
-    _steroids,
-    _fentanyl,
     _smokelessTobacco,
   ].any((value) => value != null);
 

@@ -49,44 +49,24 @@ class SettingsProvider extends ChangeNotifier {
   static const Map<String, String> _showKeys = {
     'alcohol': 'show_alcohol',
     'nicotinePouches': 'show_nicotine_pouches',
-    'marijuana': 'show_marijuana',
     'reset': 'show_reset',
     'discreet': 'discreet_mode',
     'vaping': 'show_vaping',
     'smoking': 'show_smoking',
-    'opioids': 'show_opioids',
     'socialMedia': 'show_social_media',
     'pornography': 'show_pornography',
-    'cocaine': 'show_cocaine',
-    'meth': 'show_meth',
     'swipeTabs': 'swipe_tabs',
     'journal': 'show_journal',
-    'benzos': 'show_benzos',
-    'adderall': 'show_adderall',
-    'ssri': 'show_ssri',
-    'snri': 'show_snri',
-    'tca': 'show_tca',
-    'maoi': 'show_maoi',
   };
 
   static const Map<String, String> _notifyKeys = {
     'alcohol': 'notify_alcohol',
-    'marijuana': 'notify_marijuana',
     'vaping': 'notify_vaping',
     'smoking': 'notify_smoking',
-    'opioids': 'notify_opioids',
     'pouches': 'notify_nicotine_pouches',
     'relapse': 'notify_relapse',
     'socialMedia': 'notify_social_media',
     'pornography': 'notify_pornography',
-    'cocaine': 'notify_cocaine',
-    'meth': 'notify_meth',
-    'adderall': 'notify_adderall',
-    'benzos': 'notify_benzos',
-    'ssri': 'notify_ssri',
-    'snri': 'notify_snri',
-    'tca': 'notify_tca',
-    'maoi': 'notify_maoi',
   };
 
   bool _isPinEnabled = false;
@@ -128,36 +108,16 @@ class SettingsProvider extends ChangeNotifier {
   bool get showVaping => _showSettings['vaping']!;
   bool get showSmoking => _showSettings['smoking']!;
   bool get showNicotinePouches => _showSettings['nicotinePouches']!;
-  bool get showMarijuana => _showSettings['marijuana']!;
-  bool get showOpioids => _showSettings['opioids']!;
   bool get showSocialMedia => _showSettings['socialMedia']!;
   bool get showPornography => _showSettings['pornography']!;
-  bool get showCocaine => _showSettings['cocaine']!;
-  bool get showMeth => _showSettings['meth']!;
-  bool get showBenzos => _showSettings['benzos']!;
-  bool get showAdderall => _showSettings['adderall']!;
-  bool get showSsri => _showSettings['ssri']!;
-  bool get showSnri => _showSettings['snri']!;
-  bool get showTca => _showSettings['tca']!;
-  bool get showMaoi => _showSettings['maoi']!;
 
   bool get notifyAlcohol => _notifySettings['alcohol']!;
   bool get notifyVaping => _notifySettings['vaping']!;
   bool get notifySmoking => _notifySettings['smoking']!;
-  bool get notifyOpioids => _notifySettings['opioids']!;
   bool get notifyPouches => _notifySettings['pouches']!;
   bool get notifySocialMedia => _notifySettings['socialMedia']!;
   bool get notifyPornography => _notifySettings['pornography']!;
-  bool get notifyCocaine => _notifySettings['cocaine']!;
-  bool get notifyMeth => _notifySettings['meth']!;
-  bool get notifyBenzos => _notifySettings['benzos']!;
-  bool get notifyAdderall => _notifySettings['adderall']!;
   bool get notifyRelapse => _notifySettings['relapse']!;
-  bool get notifyMarijuana => _notifySettings['marijuana']!;
-  bool get notifySsri => _notifySettings['ssri']!;
-  bool get notifySnri => _notifySettings['snri']!;
-  bool get notifyTca => _notifySettings['tca']!;
-  bool get notifyMaoi => _notifySettings['maoi']!;
 
   Future<bool> unlock(String pin) async {
     if (isPinLockoutActive) {
@@ -270,8 +230,7 @@ class SettingsProvider extends ChangeNotifier {
 
     _showKeys.forEach((key, prefKey) {
       final existing = read<bool>(prefKey);
-      if (existing == null &&
-          ['opioids', 'pornography', 'cocaine', 'meth'].contains(key))
+      if (existing == null && key == 'pornography')
         _showSettings[key] = existing ?? false;
       else
         _showSettings[key] = existing ?? true;
@@ -419,28 +378,8 @@ class SettingsProvider extends ChangeNotifier {
       _updateBoolSetting(_showSettings, _showKeys, 'smoking', show);
   set showNicotinePouches(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'nicotinePouches', show);
-  set showMarijuana(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'marijuana', show);
-  set showOpioids(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'opioids', show);
   set showSocialMedia(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'socialMedia', show);
-  set showMeth(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'meth', show);
-  set showAdderall(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'adderall', show);
-  set showBenzos(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'benzos', show);
-  set showCocaine(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'cocaine', show);
-  set showSsri(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'ssri', show);
-  set showSnri(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'snri', show);
-  set showTca(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'tca', show);
-  set showMaoi(bool show) =>
-      _updateBoolSetting(_showSettings, _showKeys, 'maoi', show);
   set showPornography(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'pornography', show);
 
@@ -450,34 +389,14 @@ class SettingsProvider extends ChangeNotifier {
       _updateBoolSetting(_notifySettings, _notifyKeys, 'vaping', notify);
   set notifySmoking(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'smoking', notify);
-  set notifyOpioids(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'opioids', notify);
   set notifyPouches(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'pouches', notify);
   set notifySocialMedia(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'socialMedia', notify);
-  set notifyMeth(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'meth', notify);
-  set notifyAdderall(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'adderall', notify);
-  set notifyBenzos(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'benzos', notify);
-  set notifyCocaine(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'cocaine', notify);
   set notifyPornography(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'pornography', notify);
   set notifyRelapse(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'relapse', notify);
-  set notifyMarijuana(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'marijuana', notify);
-  set notifySsri(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'ssri', notify);
-  set notifySnri(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'snri', notify);
-  set notifyTca(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'tca', notify);
-  set notifyMaoi(bool notify) =>
-      _updateBoolSetting(_notifySettings, _notifyKeys, 'maoi', notify);
 
   bool getPresetNotify(String key) {
     final value = _prefs?.get('notify_$key');
