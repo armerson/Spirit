@@ -12,6 +12,7 @@ import 'package:quitter/edit_preset_page.dart';
 import 'package:quitter/entry_page.dart';
 import 'package:quitter/habit_provider.dart';
 import 'package:quitter/habit_section.dart';
+import 'package:quitter/marijuana_page.dart';
 import 'package:quitter/nicotine_pouches.dart';
 import 'package:quitter/pornography_page.dart';
 import 'package:quitter/quit_card.dart';
@@ -289,6 +290,17 @@ class _HomePageState extends State<HomePage> with WidgetsBindingObserver {
       [const Color(0xFF6366F1), const Color(0xFF8B5CF6)],
       addictions.quitAlcohol,
       (context) => const AlcoholPage(started: true),
+    );
+    addPreset(
+      'marijuana',
+      l10n.addictionMarijuana,
+      Icons.grass,
+      [
+        const Color.fromARGB(255, 132, 230, 128),
+        const Color.fromARGB(255, 30, 87, 3),
+      ],
+      addictions.quitMarijuana,
+      (context) => const MarijuanaPage(started: true),
     );
     addPreset(
       'nicotine_pouches',

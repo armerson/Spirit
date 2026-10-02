@@ -19,6 +19,7 @@ void main() {
       'show_alcohol': false,
       'show_vaping': false,
       'show_smoking': false,
+      'show_marijuana': false,
       'show_nicotine_pouches': false,
       'show_social_media': false,
       'show_pornography': false,
@@ -110,6 +111,7 @@ void main() {
           'alcohol': '2024-01-01',
           'vaping': '2024-01-01',
           'smoking': '2024-01-01',
+          'marijuana': '2024-01-01',
           'nicotine_pouches': '2024-01-01',
           'social_media': '2024-01-01',
           'pornography': '2024-01-01',
@@ -123,6 +125,7 @@ void main() {
         expect(find.text('Alcohol', skipOffstage: false), findsOneWidget);
         expect(find.text('Vaping', skipOffstage: false), findsOneWidget);
         expect(find.text('Smoking', skipOffstage: false), findsOneWidget);
+        expect(find.text('Marijuana', skipOffstage: false), findsOneWidget);
         expect(
           find.text('Nicotine pouches', skipOffstage: false),
           findsOneWidget,

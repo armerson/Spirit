@@ -16,6 +16,7 @@ class AddictionProvider extends ChangeNotifier {
   String? _pouches;
   String? _socialMedia;
   String? _pornography;
+  String? _marijuana;
   String? _smokelessTobacco;
 
   List<Entry> entries = [];
@@ -51,6 +52,7 @@ class AddictionProvider extends ChangeNotifier {
     _pouches = readDate('nicotine_pouches');
     _socialMedia = readDate('social_media');
     _pornography = readDate('pornography');
+    _marijuana = readDate('marijuana');
     _smokelessTobacco = readDate('smokeless_tobacco');
 
     entries = [];
@@ -128,6 +130,7 @@ class AddictionProvider extends ChangeNotifier {
       'nicotine_pouches': _pouches,
       'social_media': _socialMedia,
       'pornography': _pornography,
+      'marijuana': _marijuana,
       'smokeless_tobacco': _smokelessTobacco,
     };
     final activeKeys = allAddictions.entries
@@ -163,6 +166,7 @@ class AddictionProvider extends ChangeNotifier {
   String? get quitPouches => _pouches;
   String? get quitSocialMedia => _socialMedia;
   String? get quitPornography => _pornography;
+  String? get quitMarijuana => _marijuana;
   String? get quitSmokelessTobacco => _smokelessTobacco;
 
   bool get hasActivePresetJourney => [
@@ -172,6 +176,7 @@ class AddictionProvider extends ChangeNotifier {
     _pouches,
     _socialMedia,
     _pornography,
+    _marijuana,
     _smokelessTobacco,
   ].any((value) => value != null);
 

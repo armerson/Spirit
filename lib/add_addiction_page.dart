@@ -5,6 +5,7 @@ import 'package:quitter/alcohol_page.dart';
 import 'package:quitter/edit_entry_page.dart';
 import 'package:quitter/empty_state.dart';
 import 'package:quitter/l10n/generated/app_localizations.dart';
+import 'package:quitter/marijuana_page.dart';
 import 'package:quitter/nicotine_pouches.dart';
 import 'package:quitter/pornography_page.dart';
 import 'package:quitter/smoking_page.dart';
@@ -85,6 +86,35 @@ class _AddAddictionPageState extends State<AddAddictionPage> {
             'whiskey',
             'vodka',
             'drunk',
+          ],
+        ),
+      );
+    }
+    if (addictions.quitMarijuana == null) {
+      options.add(
+        _AddictionOption(
+          title: l10n.addictionMarijuana,
+          icon: Icons.grass,
+          gradientColors: [
+            const Color.fromARGB(255, 132, 230, 128),
+            const Color.fromARGB(255, 30, 87, 3),
+          ],
+          destination: const MarijuanaPage(started: false),
+          aliases: const [
+            'weed',
+            'cannabis',
+            'pot',
+            'ganja',
+            'reefer',
+            'mary jane',
+            'bud',
+            'herb',
+            'dope',
+            'hash',
+            'thc',
+            'edibles',
+            'joint',
+            'blunt',
           ],
         ),
       );

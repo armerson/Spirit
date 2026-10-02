@@ -496,6 +496,16 @@ class _SettingsPageState extends State<SettingsPage> {
           notifyPrefsKey: 'alcohol',
           notifyDisplayName: l10n.addictionAlcohol,
         ),
+      if (addictions.quitMarijuana != null)
+        _ToggleItem(
+          icon: Icons.grass,
+          title: l10n.addictionMarijuana,
+          subtitle: l10n.settingsNotifyMarijuana,
+          value: settings.notifyMarijuana,
+          onChanged: (value) => settings.notifyMarijuana = value,
+          notifyPrefsKey: 'marijuana',
+          notifyDisplayName: l10n.addictionMarijuana,
+        ),
       if (addictions.quitPouches != null)
         _ToggleItem(
           icon: Icons.scatter_plot,

@@ -250,6 +250,14 @@ class StatsPage extends StatelessWidget {
       key: 'vaping',
     );
     addPreset(
+      addictions.quitMarijuana,
+      l10n.addictionMarijuana,
+      Icons.grass,
+      const Color(0xFF84E680),
+      costPerDay: 4.29,
+      key: 'marijuana',
+    );
+    addPreset(
       addictions.quitPouches,
       l10n.addictionNicotinePouches,
       Icons.scatter_plot,
