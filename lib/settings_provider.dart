@@ -49,6 +49,7 @@ class SettingsProvider extends ChangeNotifier {
   static const Map<String, String> _showKeys = {
     'alcohol': 'show_alcohol',
     'nicotinePouches': 'show_nicotine_pouches',
+    'marijuana': 'show_marijuana',
     'reset': 'show_reset',
     'discreet': 'discreet_mode',
     'vaping': 'show_vaping',
@@ -61,6 +62,7 @@ class SettingsProvider extends ChangeNotifier {
 
   static const Map<String, String> _notifyKeys = {
     'alcohol': 'notify_alcohol',
+    'marijuana': 'notify_marijuana',
     'vaping': 'notify_vaping',
     'smoking': 'notify_smoking',
     'pouches': 'notify_nicotine_pouches',
@@ -108,6 +110,7 @@ class SettingsProvider extends ChangeNotifier {
   bool get showVaping => _showSettings['vaping']!;
   bool get showSmoking => _showSettings['smoking']!;
   bool get showNicotinePouches => _showSettings['nicotinePouches']!;
+  bool get showMarijuana => _showSettings['marijuana']!;
   bool get showSocialMedia => _showSettings['socialMedia']!;
   bool get showPornography => _showSettings['pornography']!;
 
@@ -118,6 +121,7 @@ class SettingsProvider extends ChangeNotifier {
   bool get notifySocialMedia => _notifySettings['socialMedia']!;
   bool get notifyPornography => _notifySettings['pornography']!;
   bool get notifyRelapse => _notifySettings['relapse']!;
+  bool get notifyMarijuana => _notifySettings['marijuana']!;
 
   Future<bool> unlock(String pin) async {
     if (isPinLockoutActive) {
@@ -378,6 +382,8 @@ class SettingsProvider extends ChangeNotifier {
       _updateBoolSetting(_showSettings, _showKeys, 'smoking', show);
   set showNicotinePouches(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'nicotinePouches', show);
+  set showMarijuana(bool show) =>
+      _updateBoolSetting(_showSettings, _showKeys, 'marijuana', show);
   set showSocialMedia(bool show) =>
       _updateBoolSetting(_showSettings, _showKeys, 'socialMedia', show);
   set showPornography(bool show) =>
@@ -397,6 +403,8 @@ class SettingsProvider extends ChangeNotifier {
       _updateBoolSetting(_notifySettings, _notifyKeys, 'pornography', notify);
   set notifyRelapse(bool notify) =>
       _updateBoolSetting(_notifySettings, _notifyKeys, 'relapse', notify);
+  set notifyMarijuana(bool notify) =>
+      _updateBoolSetting(_notifySettings, _notifyKeys, 'marijuana', notify);
 
   bool getPresetNotify(String key) {
     final value = _prefs?.get('notify_$key');

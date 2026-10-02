@@ -285,6 +285,7 @@ Future<void> notifyProgress(
     {'key': 'alcohol', 'name': l10n.addictionAlcohol},
     {'key': 'vaping', 'name': l10n.addictionVaping},
     {'key': 'smoking', 'name': l10n.addictionSmoking},
+    {'key': 'marijuana', 'name': l10n.addictionMarijuana},
     {'key': 'nicotine_pouches', 'name': l10n.addictionNicotinePouches},
     {'key': 'social_media', 'name': l10n.addictionSocialMedia},
     {'key': 'pornography', 'name': l10n.addictionAdultContent},

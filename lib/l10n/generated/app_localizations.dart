@@ -430,6 +430,12 @@ abstract class AppLocalizations {
   /// **'Smoking'**
   String get addictionSmoking;
 
+  /// Name of the marijuana addiction type
+  ///
+  /// In en, this message translates to:
+  /// **'Marijuana'**
+  String get addictionMarijuana;
+
   /// Name of the nicotine pouches addiction type
   ///
   /// In en, this message translates to:
@@ -759,6 +765,12 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Notify smoking quitting progress'**
   String get settingsNotifySmoking;
+
+  /// Setting subtitle for marijuana notifications
+  ///
+  /// In en, this message translates to:
+  /// **'Notify marijuana quitting progress'**
+  String get settingsNotifyMarijuana;
 
   /// Setting subtitle for nicotine pouches notifications
   ///
@@ -1396,6 +1408,36 @@ abstract class AppLocalizations {
   /// **'Ready to reclaim your health? ✨'**
   String get smokingSubtitleNotStarted;
 
+  /// Page title for marijuana tracking
+  ///
+  /// In en, this message translates to:
+  /// **'Cannabis-free journey'**
+  String get marijuanaPageTitle;
+
+  /// Header for started marijuana quit journey
+  ///
+  /// In en, this message translates to:
+  /// **'Clear mind rising!'**
+  String get marijuanaHeaderStarted;
+
+  /// Header for not started marijuana quit journey
+  ///
+  /// In en, this message translates to:
+  /// **'Cannabis-free living!'**
+  String get marijuanaHeaderNotStarted;
+
+  /// Subtitle for started marijuana quit journey
+  ///
+  /// In en, this message translates to:
+  /// **'Building mental clarity, one day at a time 🧠'**
+  String get marijuanaSubtitleStarted;
+
+  /// Subtitle for not started marijuana quit journey
+  ///
+  /// In en, this message translates to:
+  /// **'Ready for a clearer tomorrow? 🌱'**
+  String get marijuanaSubtitleNotStarted;
+
   /// Page title for nicotine pouches tracking
   ///
   /// In en, this message translates to:
@@ -1941,6 +1983,114 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Your heart is literally stronger! One full year and your risk of heart disease has dropped significantly. Your cardiovascular system has recovered from nicotine\'s daily assault course.'**
   String get vapingMilestone365Description;
+
+  /// Marijuana milestone day 1 title
+  ///
+  /// In en, this message translates to:
+  /// **'Withdrawal Symptoms Begin'**
+  String get marijuanaMilestone1Title;
+
+  /// Marijuana milestone day 1 description
+  ///
+  /// In en, this message translates to:
+  /// **'Your brain is adjusting to life without THC! Within 24-48 hours, you might experience irritability, anxiety, or sleep difficulties. This is completely normal - your cannabinoid receptors are starting to reset.'**
+  String get marijuanaMilestone1Description;
+
+  /// Marijuana milestone day 3 title
+  ///
+  /// In en, this message translates to:
+  /// **'Physical Symptoms Peak'**
+  String get marijuanaMilestone3Title;
+
+  /// Marijuana milestone day 3 description
+  ///
+  /// In en, this message translates to:
+  /// **'You\'re at the toughest point, but it\'s all uphill from here! Days 2-6 typically see peak withdrawal symptoms including headaches, sweating, and mood changes. Your body is working hard to rebalance itself.'**
+  String get marijuanaMilestone3Description;
+
+  /// Marijuana milestone day 7 title
+  ///
+  /// In en, this message translates to:
+  /// **'Sleep Patterns Improve'**
+  String get marijuanaMilestone7Title;
+
+  /// Marijuana milestone day 7 description
+  ///
+  /// In en, this message translates to:
+  /// **'Sweet dreams are making a comeback! After a week without cannabis, your natural sleep architecture begins to normalize. REM sleep rebounds, leading to more vivid dreams and better rest quality.'**
+  String get marijuanaMilestone7Description;
+
+  /// Marijuana milestone day 14 title
+  ///
+  /// In en, this message translates to:
+  /// **'Acute Withdrawal Ends'**
+  String get marijuanaMilestone14Title;
+
+  /// Marijuana milestone day 14 description
+  ///
+  /// In en, this message translates to:
+  /// **'The storm has passed! Most physical withdrawal symptoms significantly decrease after two weeks. Your mood is stabilizing and daily functioning becomes much easier. The hardest part is behind you.'**
+  String get marijuanaMilestone14Description;
+
+  /// Marijuana milestone day 30 title
+  ///
+  /// In en, this message translates to:
+  /// **'Memory Function Improves'**
+  String get marijuanaMilestone30Title;
+
+  /// Marijuana milestone day 30 description
+  ///
+  /// In en, this message translates to:
+  /// **'Your brain fog is clearing! Research shows that verbal learning and memory begin improving significantly after stopping cannabis use. The hippocampus, crucial for memory formation, starts functioning better.'**
+  String get marijuanaMilestone30Description;
+
+  /// Marijuana milestone day 60 title
+  ///
+  /// In en, this message translates to:
+  /// **'Concentration Sharpens'**
+  String get marijuanaMilestone60Title;
+
+  /// Marijuana milestone day 60 description
+  ///
+  /// In en, this message translates to:
+  /// **'Focus mode: activated! Two months without cannabis and your ability to concentrate and maintain attention shows marked improvement. Work tasks and studying become noticeably easier to manage.'**
+  String get marijuanaMilestone60Description;
+
+  /// Marijuana milestone day 90 title
+  ///
+  /// In en, this message translates to:
+  /// **'Mood Stability Returns'**
+  String get marijuanaMilestone90Title;
+
+  /// Marijuana milestone day 90 description
+  ///
+  /// In en, this message translates to:
+  /// **'Three months without cannabis brings steadier mood, less anxiety, and better stress control. Your emotional state is settling into a healthier normal.'**
+  String get marijuanaMilestone90Description;
+
+  /// Marijuana milestone day 180 title
+  ///
+  /// In en, this message translates to:
+  /// **'Planning and Decision-Making Recover'**
+  String get marijuanaMilestone180Title;
+
+  /// Marijuana milestone day 180 description
+  ///
+  /// In en, this message translates to:
+  /// **'Your mental CEO is back in charge! Six months without cannabis brings major gains in planning, decision-making, and problem-solving.'**
+  String get marijuanaMilestone180Description;
+
+  /// Marijuana milestone day 365 title
+  ///
+  /// In en, this message translates to:
+  /// **'Brain Structure Restoration'**
+  String get marijuanaMilestone365Title;
+
+  /// Marijuana milestone day 365 description
+  ///
+  /// In en, this message translates to:
+  /// **'One year without cannabis gives memory-related brain areas substantial time to recover. Learning and memory improvements are now part of your new normal.'**
+  String get marijuanaMilestone365Description;
 
   /// Social media milestone day 1 title
   ///
@@ -2535,6 +2685,60 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Alcohol, Cancer Risk, and Stopping\n\nSource: National Cancer Institute (NCI), \"Alcohol and Cancer Risk\"\n\nAlcohol Causes Cancer\nThe NCI states there is a strong scientific consensus that drinking alcohol can cause cancer. Alcohol is linked to cancers of the mouth (oral cavity), pharynx (throat), larynx (voice box), oesophagus, liver, breast, and colon and rectum. The more a person drinks — and the longer they drink — the higher the risk.\n\nHow Alcohol Drives Cancer\nMechanisms include acetaldehyde, a toxic breakdown product of alcohol that damages DNA; oxidative stress and inflammation; impaired absorption of protective nutrients; and, for breast cancer, raised oestrogen levels.\n\nRisk Falls After You Stop\nImportantly, the NCI reports that quitting drinking is associated with lower risk over time — studies show the elevated risk of cancers of the oral cavity and oesophagus declines after stopping, though it can take years to approach the risk of someone who never drank. One year alcohol-free is a meaningful step on that path.\n\nCompounding Benefits\nReaching a year also locks in the cardiovascular and liver gains of abstinence — lower blood pressure, reduced arrhythmia risk, and continued liver healing — alongside the falling cancer risk.'**
   String get alcoholReferenceDay365;
+
+  /// No description provided for @marijuanaReferenceDay1.
+  ///
+  /// In en, this message translates to:
+  /// **'Marijuana Withdrawal: Day One\n\nSource: \"The cannabis withdrawal syndrome: current insights,\" Substance Abuse and Rehabilitation (2017), on PubMed Central\n\nCannabis Withdrawal Is Real\nThis peer-reviewed review establishes that Cannabis Withdrawal Syndrome (CWS) is a well-validated clinical condition, occurring in roughly 90% of people diagnosed with cannabis dependence after they stop. Its average peak severity is comparable to that of a tobacco withdrawal syndrome.\n\nWhy Withdrawal Happens\nTHC acts on the endocannabinoid system — CB1 receptors involved in mood, appetite, sleep, memory, and stress. With chronic use the brain downregulates this system; when cannabis stops, it is temporarily underactive. The review notes CB1 receptors return to normal functioning within about four weeks of abstinence.\n\nOnset on Day One\nThe review documents that physical symptoms tend to appear first — within 1–3 days of the last use — while psychological symptoms emerge over 2–10 days. Early symptoms include:\n• Irritability, anxiety, and restlessness\n• Difficulty sleeping\n• Decreased appetite\n• Physical tension, sweating, or chills\n• Depressed mood\n\nSeverity\nCWS is not medically dangerous and symptoms are typically mild to moderate, but the review notes they can be distressing enough to drive relapse — which is why understanding the timeline matters.'**
+  String get marijuanaReferenceDay1;
+
+  /// No description provided for @marijuanaReferenceDay3.
+  ///
+  /// In en, this message translates to:
+  /// **'Cannabis Withdrawal Timeline: The Early Days\n\nSource: \"Time-course of the DSM-5 cannabis withdrawal symptoms in poly-substance abusers,\" BMC Psychiatry (2013), on PubMed Central\n\nA Measured Time-Course\nThis study tracked DSM-5 cannabis withdrawal symptoms in 90 patients over four weeks, producing one of the clearest pictures of how symptoms rise and fall. Overall severity followed a curve: rising, then declining over the following weeks.\n\nWhat Peaks Early\nSeveral of the most physically disruptive symptoms peak within the first few days of stopping:\n• Insomnia — peaks around day 1\n• Nervousness — peaks around day 4\n• Depressed mood and physical symptoms — peak around day 5\n• Restlessness — peaks around day 6\n\nWhat Peaks Later\nThe study found that some symptoms emerge and peak later than the first week:\n• Vivid, unpleasant dreams — peak around day 11\n• Irritability and anger — peak around day 14\n\nSleep and Cannabis\nThe delayed, vivid dreams reflect REM rebound: cannabis suppresses REM sleep during use, and the brain overcompensates once it stops. The authors argue this symptom is common enough to belong among formal withdrawal criteria.\n\nThe Takeaway for Day Three\nBy day three you are in the thick of the early physical peak — insomnia, nervousness, and restlessness are near their worst. The consistent, predictable curve is itself reassuring: these symptoms have a known course and they decline from here.'**
+  String get marijuanaReferenceDay3;
+
+  /// No description provided for @marijuanaReferenceDay7.
+  ///
+  /// In en, this message translates to:
+  /// **'One Week Without Cannabis: Through the Worst\n\nSource: \"The cannabis withdrawal syndrome: current insights,\" Substance Abuse and Rehabilitation (2017), on PubMed Central\n\nWhere One Week Sits in the Syndrome\nThis review documents that the cannabis withdrawal syndrome usually lasts up to about three weeks, with the most distressing period falling between the first and third week. At one week, the earliest physical symptoms — insomnia, appetite loss, restlessness — have typically passed their peak and are easing.\n\nWhat Is Still Settling\nThe review distinguishes early-peaking physical symptoms from later-peaking psychological ones. At one week:\n• Physical discomfort and appetite are largely improving\n• Sleep is still disrupted for many, with vivid dreams (REM rebound) often peaking around now\n• Irritability and mood can remain elevated, as these tend to peak later in the first two weeks\n\nThe Neurobiology of Recovery\nUnderlying these changes, the review notes that downregulated CB1 receptors return toward normal functioning within about four weeks of abstinence. One week in, that re-regulation is well underway — the system is recovering even while some symptoms linger.\n\nThe Takeaway\nReaching one week means the acute physical peak is behind you. The remaining sleep and mood symptoms are part of a syndrome with a known, finite course that continues to resolve over the next couple of weeks.'**
+  String get marijuanaReferenceDay7;
+
+  /// No description provided for @marijuanaReferenceDay14.
+  ///
+  /// In en, this message translates to:
+  /// **'Two Weeks Without Cannabis: Acute Withdrawal Ends\n\nSource: Budney, AJ et al. (2003) — peer-reviewed study on cannabis withdrawal time course\n\nResearch Findings\nThis peer-reviewed study systematically documented the time course of cannabis withdrawal symptoms in regular users. The findings showed that the acute withdrawal syndrome peaks within the first week and largely resolves within 2 weeks of stopping for most symptoms.\n\nWhat Resolves by 2 Weeks\nThe study documented that by 14 days, the following symptoms had largely resolved in study participants:\n• Physical discomfort and bodily symptoms\n• Appetite disturbance\n• Most sleep disruption\n• Peak irritability and anxiety\n\nWhat May Persist Beyond 2 Weeks\nThe research also identified symptoms that persisted beyond the two-week mark in some users:\n• Depressed mood\n• Concentration difficulties\n• Sleep quality (though improving)\n\nThe Significance of the 2-Week Mark\nPassing the two-week mark is significant because it means the acute withdrawal syndrome is largely complete. The challenges beyond this point are primarily related to longer-term brain recovery and managing the underlying reasons for cannabis use, rather than the acute physiological response to stopping.'**
+  String get marijuanaReferenceDay14;
+
+  /// No description provided for @marijuanaReferenceDay30.
+  ///
+  /// In en, this message translates to:
+  /// **'One Month Without Cannabis: Memory Function Improves\n\nSource: Pope et al. (2001), Archives of General Psychiatry\n\nCannabis and Memory: The Problem\nThis study followed heavy, long-term cannabis users through 28 days of confirmed abstinence and compared their thinking and memory test results with light users and non-users. At the start of abstinence, and again at days 1 and 7, heavy users performed worse than controls on recall of word lists — a deficit that tracked with their urinary THC metabolite levels, reflecting recent drug exposure rather than lifetime use.\n\nThe Good News: Recovery by Day 28\nBy day 28, heavy users, light users, and non-users performed virtually the same across the study\'s thinking and memory tests. There was also no significant relationship between total lifetime cannabis use and test performance at that point.\n\nWhat This Means at 30 Days\n• Verbal learning and recall have returned to control-group levels\n• The residual deficits seen in the first week have resolved\n• The remaining deficit earlier on was tied to recent exposure, not permanent damage\n\nWhat the Evidence Shows\nBy day 28, heavy users were virtually indistinguishable from light users and non-users across the study\'s full set of thinking and memory tests. Verbal-learning and recall deficits seen in the first week had recovered to control-group levels.'**
+  String get marijuanaReferenceDay30;
+
+  /// No description provided for @marijuanaReferenceDay60.
+  ///
+  /// In en, this message translates to:
+  /// **'Two Months Without Cannabis: Concentration Sharpens\n\nSource: Roten et al. (2015), Addictive Behaviors\n\nThe Research Question\nThis youth cannabis-cessation study tracked memory and thinking test scores alongside urine tests over about two months, comparing continued users with people who stopped recently or stayed abstinent.\n\nKey Findings\nConsistent abstinence was associated with significant improvement in:\n• Composite memory score\n• Verbal memory specifically — the most affected domain\n• Movement and reaction-speed performance\n\nAt Two Months\nBy roughly eight weeks of consistent abstinence, memory and movement and reaction-speed performance scores had climbed measurably above where they sat during active use, tracking closely with confirmed non-use rather than time alone.\n\nWhat the Study Shows\nIn adolescents and young adults with cannabis dependence, consistent abstinence produced significant gains in composite memory, verbal memory, and movement and reaction-speed performance across the roughly two-month treatment window.'**
+  String get marijuanaReferenceDay60;
+
+  /// No description provided for @marijuanaReferenceDay90.
+  ///
+  /// In en, this message translates to:
+  /// **'Three Months Without Cannabis: Mood Stability Returns\n\nSource: Connor et al. (2022), Addiction — a clinical review of cannabis withdrawal\n\nWhat the Withdrawal Timeline Actually Looked Like\nThis review describes cannabis withdrawal symptoms typically starting 24–48 hours after cessation and peaking around days 2–6. Anger, aggression, and depressed mood can appear as early as one week but typically peak after about two weeks of abstinence; sleep disturbance in particular can persist longer than other symptoms.\n\nWhere Three Months Sits\nBy three months, you are far beyond the documented withdrawal course: symptoms typically start within 24–48 hours, peak around days 2–6, and even slower mood and sleep symptoms peak within the following weeks. Ninety days gives those withdrawal-driven mood and sleep effects months to settle.\n\nA Note on the Endocannabinoid System\nCannabis-withdrawal research also shows downregulated CB1 receptors returning toward normal functioning within about four weeks of abstinence. At 90 days, you are well beyond that receptor-recovery window.\n\nLooking Ahead\nThe review also discusses post-detoxification prognosis and relapse prevention, underlining that ongoing support and coping strategies matter well beyond the acute withdrawal window.'**
+  String get marijuanaReferenceDay90;
+
+  /// No description provided for @marijuanaReferenceDay180.
+  ///
+  /// In en, this message translates to:
+  /// **'Six Months Without Cannabis: Planning and Decision-Making Recover\n\nSource: Crean, Crane & Mason (2011), Journal of Addiction Medicine\n\nPlanning and Decision-Making After Cannabis\nThis review examined attention, decision-making, self-control, working memory, and verbal fluency from the first hours after use through long-term abstinence. By six months, you are far beyond the short-term effects and deep into the recovery period.\n\nWhat the Research Found\nSeveral problems linked to heavy use recede with sustained abstinence, with some studies finding recovery by 28 days. The slowest areas to recover after heavy, early-onset use include:\n• Decision-making and risk-taking — specifically flagged as domains where deficits can persist long-term in heavy, chronic users\n• Abstract reasoning and verbal skills — particularly impaired in adults who began using before age 17\n\nEarly-Onset Recovery\nSix months is far beyond the short-term effects in this review. Planning, decision-making, and reasoning keep improving with sustained abstinence, making continued abstinence the strongest route to further recovery.\n\nThe Broader Picture\nFor adult-onset, lighter use, the outlook is more favourable — many people at six months report clearer thinking, steadier decision-making, and a stronger sense of self-direction. The biggest gains come from staying abstinent, especially after heavy or early-onset use.'**
+  String get marijuanaReferenceDay180;
+
+  /// No description provided for @marijuanaReferenceDay365.
+  ///
+  /// In en, this message translates to:
+  /// **'One Year Without Cannabis: Brain Structure Recovers\n\nSource: \"Hippocampal harms, protection and recovery following regular cannabis use,\" Translational Psychiatry (2016), on PubMed Central\n\nStructural Changes from Cannabis\nThis brain-scan study examined the hippocampus, a brain area central to memory, in current users, former users, and non-users. Current users not exposed to CBD had a hippocampus about 11% smaller and a brain-cell health marker about 15% lower than controls.\n\nThe Key Finding: Recovery With Abstinence\nCurve-fitting analyses supported a \"protection and recovery\" model. Crucially, former users — abstinent for an average of around 29 months — did not differ from non-using controls on any integrity measure. The authors conclude that THC-related memory-area harms \"can be recovered with extended periods of abstinence.\"\n\nBrain Recovery Over a Year and Beyond\nAt one year cannabis-free, the brain\'s memory system is well into recovery: hippocampus size and brain-cell health are moving back toward normal, supporting memory and emotional control.\n\nRecovery Signal\nFormer users abstinent for about 29 months matched non-users on the study\'s hippocampus health measures. At one year, the memory system is already moving along that documented recovery path toward normal.'**
+  String get marijuanaReferenceDay365;
 
   /// No description provided for @pornographyReferenceDay1.
   ///
