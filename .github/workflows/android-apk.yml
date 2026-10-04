@@ -44,8 +44,8 @@ jobs:
       # debug key (android/app/build.gradle.kts), which changes every run.
       - name: Restore release signing key
         env:
-          KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
-          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEYSTORE_BASE64: ${{ secrets.KEY_STORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.KEY_STORE_PASSWORD }}
         run: |
           if [ -z "$KEYSTORE_BASE64" ] || [ -z "$KEYSTORE_PASSWORD" ]; then
             echo "::warning::No release key secrets; signing with the debug key."
